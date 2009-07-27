@@ -326,7 +326,7 @@ namespace Website.Controllers
         {
             get
             {
-                return _provider.MinRequiredPasswordLength;
+                return 8;
             }
         }
 

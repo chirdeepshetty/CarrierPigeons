@@ -10,7 +10,7 @@
         Use the form below to create a new user account. 
     </p>
     <p>
-        Passwords are required to be a minimum of <%=Html.Encode(ViewData["PasswordLength"])%>8 characters in length.
+        Passwords are required to be a minimum of <%=Html.Encode(ViewData["PasswordLength"])%> characters in length.
     </p>
     <%= Html.ValidationSummary("Account creation was unsuccessful. Please correct the errors and try again.") %>
 
