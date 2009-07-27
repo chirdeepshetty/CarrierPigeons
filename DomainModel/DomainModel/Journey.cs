@@ -4,11 +4,15 @@ namespace DomainModel
 {
     public class Journey
     {
-        public virtual int Id { get; set; }
-        public virtual string Origin { get; set; }
-        public virtual string Destination { get; set; }
-        public virtual DateTime DepartureDate { get; set; }
-        public virtual DateTime ArrivalDate { get; set; }
+        public Journey(User traveller, Location location, Location destination)
+        {
+            this.Traveller = traveller;
+            this.Destination = destination;
+            this.Origin = Origin;
+        }
+
+        public virtual Location Origin { get; set; }
+        public virtual Location Destination { get; set; }
         public virtual User Traveller { get; set; }
     }
 }
