@@ -21,7 +21,7 @@ namespace DomainModel.Tests
             //User user = new User(email, name);
 
             Email email = new Email("user@carrierpigeons.com");
-            UserName name = new UserName("first", "middle", "last");
+            UserName name = new UserName("first","last");
             User user = new User(email, name);
 
             Assert.AreEqual(user.Email.EmailAddress, email.EmailAddress);
