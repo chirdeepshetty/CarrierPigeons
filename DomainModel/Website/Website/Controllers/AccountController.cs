@@ -246,7 +246,7 @@ namespace Website.Controllers
                     return "Username already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A username for that e-mail address already exists. Please enter a different e-mail address.";
+                    return "Email address is already registered.";
 
                 case MembershipCreateStatus.InvalidPassword:
                     return "The password provided is invalid. Please enter a valid password value.";
@@ -296,56 +296,6 @@ namespace Website.Controllers
         public void SignOut()
         {
             FormsAuthentication.SignOut();
-        }
-    }
-
-    public interface IMembershipService
-    {
-        int MinPasswordLength { get; }
-
-        bool ValidateUser(string userName, string password);
-        MembershipCreateStatus CreateUser(string userName, string password, string email);
-        bool ChangePassword(string userName, string oldPassword, string newPassword);
-    }
-
-    public class AccountMembershipService : IMembershipService
-    {
-        private MembershipProvider _provider;
-
-        public AccountMembershipService()
-            : this(null)
-        {
-        }
-
-        public AccountMembershipService(MembershipProvider provider)
-        {
-            _provider = provider ?? Membership.Provider;
-        }
-
-        public int MinPasswordLength
-        {
-            get
-            {
-                return 8;
-            }
-        }
-
-        public bool ValidateUser(string userName, string password)
-        {
-            return _provider.ValidateUser(userName, password);
-        }
-
-        public MembershipCreateStatus CreateUser(string userName, string password, string email)
-        {
-            MembershipCreateStatus status;
-            _provider.CreateUser(userName, password, email, null, null, true, null, out status);
-            return status;
-        }
-
-        public bool ChangePassword(string userName, string oldPassword, string newPassword)
-        {
-            MembershipUser currentUser = _provider.GetUser(userName, true /* userIsOnline */);
-            return currentUser.ChangePassword(oldPassword, newPassword);
         }
     }
 }

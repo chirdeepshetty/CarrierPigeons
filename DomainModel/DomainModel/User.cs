@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -11,5 +12,11 @@ namespace DomainModel
         public virtual  string Firstname { get; set; }
         public virtual string Surname { get; set; }
         public virtual string Password { get; set; }
+
+        public bool ChangePassword(string password, string s)
+        {
+            //ToDo
+            return true;
+        }
     }
 }

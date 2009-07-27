@@ -1,21 +1,15 @@
 using System.Web.Security;
-using DomainModel.UserRegistration;
 
-namespace Website.Controllers
+namespace DomainModel.UserRegistration
 {
-    public class AccountMembershipService : IMembershipService
+    public class UserRegistrationService : IUserRegistration
     {
-        private MembershipProvider _provider;
 
-        public AccountMembershipService()
-            : this(null)
+
+        public UserRegistrationService()
         {
         }
 
-        public AccountMembershipService(MembershipProvider provider)
-        {
-            _provider = provider ?? Membership.Provider;
-        }
 
         public int MinPasswordLength
         {
@@ -27,19 +21,19 @@ namespace Website.Controllers
 
         public bool ValidateUser(string userName, string password)
         {
-            return _provider.ValidateUser(userName, password);
+            return true;
         }
 
         public MembershipCreateStatus CreateUser(string userName, string password, string email)
         {
-            MembershipCreateStatus status = new Registration().CreateUser(userName, password, email);
+            MembershipCreateStatus status = user.Create(userName, password, email);
             //_provider.CreateUser(userName, password, email, null, null, true, null, out status);
             return status;
         }
 
         public bool ChangePassword(string userName, string oldPassword, string newPassword)
         {
-            MembershipUser currentUser = _provider.GetUser(userName, true /* userIsOnline */);
+            User currentUser = _provider.GetUser(userName, true /* userIsOnline */);
             return currentUser.ChangePassword(oldPassword, newPassword);
         }
     }
