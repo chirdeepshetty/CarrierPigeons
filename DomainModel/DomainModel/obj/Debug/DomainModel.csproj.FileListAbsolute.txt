@@ -1,0 +1,7 @@
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\obj\Debug\ResolveAssemblyReference.cache
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\bin\Debug\DomainModel.dll
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\bin\Debug\DomainModel.pdb
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\bin\Debug\nunit.framework.dll
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\bin\Debug\nunit.framework.xml
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\obj\Debug\DomainModel.dll
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\DomainModel\obj\Debug\DomainModel.pdb

@@ -11,11 +11,19 @@ namespace DomainModel.Tests
     public class RequestTests
     {
         [Test]
-        public void testRequestCreation ()
+        public void TestRequestCreation ()
         {
-           
+            DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
+            Location fromLocation = new Location("place", travelDate);
+            Location toLocation = new Location("place", travelDate);
+            Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
+            User user = new User(new Email("user@carrierpigeins.com"), new UserName("First", null, "Last"));
+            Request request = new Request(user, package, fromLocation, toLocation);
+
 
         }
 
     }
+
+  
 }
