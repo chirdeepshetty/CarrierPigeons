@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI;
+using  DomainModel.UserRegistration;
 
 namespace Website.Controllers
 {
@@ -26,10 +27,10 @@ namespace Website.Controllers
         // This constructor is not used by the MVC framework but is instead provided for ease
         // of unit testing this type. See the comments at the end of this file for more
         // information.
-        public AccountController(IFormsAuthentication formsAuth, IMembershipService service)
+        public AccountController(IFormsAuthentication formsAuth, IUserRegistration service)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            MembershipService = service ?? new AccountMembershipService();
+            MembershipService = service ?? new UserRegistrationService();
         }
 
         public IFormsAuthentication FormsAuth
@@ -38,7 +39,7 @@ namespace Website.Controllers
             private set;
         }
 
-        public IMembershipService MembershipService
+        public IUserRegistration MembershipService
         {
             get;
             private set;
@@ -137,23 +138,24 @@ namespace Website.Controllers
                 return View();
             }
 
-            try
-            {
-                if (MembershipService.ChangePassword(User.Identity.Name, currentPassword, newPassword))
-                {
-                    return RedirectToAction("ChangePasswordSuccess");
-                }
-                else
-                {
-                    ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
-                    return View();
-                }
-            }
-            catch
-            {
-                ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
-                return View();
-            }
+            //try
+            //{
+            //    if (MembershipService.ChangePassword(User.Identity.Name, currentPassword, newPassword))
+            //    {
+            //        return RedirectToAction("ChangePasswordSuccess");
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
+            //        return View();
+            //    }
+            //}
+            //catch
+            //{
+            //    ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
+            //    return View();
+            //}
+            return View();
         }
 
         public ActionResult ChangePasswordSuccess()

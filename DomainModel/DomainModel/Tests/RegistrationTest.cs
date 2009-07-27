@@ -13,8 +13,7 @@ namespace DomainModel.Tests
         [Test]
         public void TestCreateUser()
         {
-            Registration reg = new Registration();
-            reg.CreateUser("test", "test", "test@123.com");
+          
         }
     }
 }

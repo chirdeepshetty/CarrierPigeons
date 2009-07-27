@@ -26,15 +26,15 @@ namespace DomainModel.UserRegistration
 
         public MembershipCreateStatus CreateUser(string userName, string password, string email)
         {
-            MembershipCreateStatus status = user.Create(userName, password, email);
+            MembershipCreateStatus status = MembershipCreateStatus.Success;// = user.Create(userName, password, email);
             //_provider.CreateUser(userName, password, email, null, null, true, null, out status);
             return status;
         }
 
-        public bool ChangePassword(string userName, string oldPassword, string newPassword)
-        {
-            User currentUser = _provider.GetUser(userName, true /* userIsOnline */);
-            return currentUser.ChangePassword(oldPassword, newPassword);
-        }
+        //public bool ChangePassword(string userName, string oldPassword, string newPassword)
+        //{
+        //    //User currentUser = _provider.GetUser(userName, true /* userIsOnline */);
+        //    //return currentUser.ChangePassword(oldPassword, newPassword);
+        //}
     }
 }

@@ -9,6 +9,6 @@ namespace DomainModel.UserRegistration
 
         bool ValidateUser(string userName, string password);
         MembershipCreateStatus CreateUser(string userName, string password, string email);
-        bool ChangePassword(string userName, string oldPassword, string newPassword);
+        //bool ChangePassword(string userName, string oldPassword, string newPassword);
     }
 }

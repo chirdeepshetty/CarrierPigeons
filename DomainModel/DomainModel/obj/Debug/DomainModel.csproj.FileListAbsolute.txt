@@ -5,3 +5,8 @@ D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\nunit.fra
 D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\nunit.framework.xml
 D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\obj\Debug\DomainModel.dll
 D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\obj\Debug\DomainModel.pdb
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\NHibernate.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\Iesi.Collections.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\Castle.Core.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\log4net.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\Castle.DynamicProxy2.dll
