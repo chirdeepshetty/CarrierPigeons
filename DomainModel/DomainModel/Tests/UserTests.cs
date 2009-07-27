@@ -15,12 +15,18 @@ namespace DomainModel.Tests
         [Test]
         public void TestUserConstructor()
         {
+
+            //Email email = new Email("user@carrierpigeons.com");
+            //UserName name = new UserName();
+            //User user = new User(email, name);
+
             Email email = new Email("user@carrierpigeons.com");
-            UserName name = new UserName("first", "middle", "last");
+            UserName name = new UserName("first","last");
             User user = new User(email, name);
 
             Assert.AreEqual(user.Email.EmailAddress, email.EmailAddress);
             Assert.AreEqual(user.Name.FirstName, name.FirstName);
+
         }
     }
 }
