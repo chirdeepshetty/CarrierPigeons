@@ -3,3 +3,8 @@ E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\bin\Websi
 E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\obj\Debug\ResolveAssemblyReference.cache
 E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\obj\Debug\Website.dll
 E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\obj\Debug\Website.pdb
+D:\projects\TravelApp\CarrierPigeons\DomainModel\Website\Website\bin\Website.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\Website\Website\bin\Website.pdb
+D:\projects\TravelApp\CarrierPigeons\DomainModel\Website\Website\obj\Debug\ResolveAssemblyReference.cache
+D:\projects\TravelApp\CarrierPigeons\DomainModel\Website\Website\obj\Debug\Website.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\Website\Website\obj\Debug\Website.pdb

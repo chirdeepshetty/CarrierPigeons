@@ -1,0 +1,7 @@
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\obj\Debug\ResolveAssemblyReference.cache
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\DomainModel.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\DomainModel.pdb
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\nunit.framework.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\bin\Debug\nunit.framework.xml
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\obj\Debug\DomainModel.dll
+D:\projects\TravelApp\CarrierPigeons\DomainModel\DomainModel\obj\Debug\DomainModel.pdb

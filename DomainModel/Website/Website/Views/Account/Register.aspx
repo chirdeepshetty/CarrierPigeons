@@ -5,23 +5,28 @@
 </asp:Content>
 
 <asp:Content ID="registerContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Create a New Account</h2>
+    <h2>Create a New User Account</h2>
     <p>
-        Use the form below to create a new account. 
+        Use the form below to create a new user account. 
     </p>
     <p>
-        Passwords are required to be a minimum of <%=Html.Encode(ViewData["PasswordLength"])%> characters in length.
+        Passwords are required to be a minimum of <%=Html.Encode(ViewData["PasswordLength"])%>8 characters in length.
     </p>
     <%= Html.ValidationSummary("Account creation was unsuccessful. Please correct the errors and try again.") %>
 
     <% using (Html.BeginForm()) { %>
         <div>
             <fieldset>
-                <legend>Account Information</legend>
+                <legend>User Account Information</legend>
                 <p>
-                    <label for="username">Username:</label>
-                    <%= Html.TextBox("username") %>
-                    <%= Html.ValidationMessage("username") %>
+                    <label for="username">Firstname:</label>
+                    <%= Html.TextBox("firstname") %>
+                    <%= Html.ValidationMessage("firstname") %>
+                </p>
+                <p>
+                    <label for="username">Surname:</label>
+                    <%= Html.TextBox("surname") %>
+                    <%= Html.ValidationMessage("surname") %>
                 </p>
                 <p>
                     <label for="email">Email:</label>
