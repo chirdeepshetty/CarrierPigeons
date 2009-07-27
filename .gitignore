@@ -1,0 +1,4 @@
+#ignore dat files
+*.dat
+#ignore bin
+DomainModel/DomainModel/bin
