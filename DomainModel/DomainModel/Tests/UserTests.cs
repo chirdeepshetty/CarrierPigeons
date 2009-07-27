@@ -14,9 +14,9 @@ namespace DomainModel.Tests
     {
         public void TestUserConstructor()
         {
-            Email email = new Email("user@carrierpigeons.com");
-            UserName name = new UserName("first", "middle", "last");
-            User user = new User(email, name);
+            Email email = new DomainModel.Email("user@carrierpigeons.com");
+            UserName name = new DomainModel.UserName("first", "middle", "last");
+            User user = new DomainModel.User(email, name);
         }
     }
 }
