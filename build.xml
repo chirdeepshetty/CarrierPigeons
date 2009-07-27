@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<project name="Carrier Pigeons" default="build" basedir=".">
+    <description>Immersion Training Sample Application</description>
+
+    <property name="debug" value="true" overwrite="false" />
+    <property name="build.dir" value="build"/>
+
+    <target name="clean" description="remove all generated files">
+				<delete dir="${build.dir}" />
+    </target>
+
+</project>
