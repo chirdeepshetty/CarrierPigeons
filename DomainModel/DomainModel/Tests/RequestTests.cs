@@ -10,8 +10,12 @@ namespace DomainModel.Tests
     [TestFixture]
     public class RequestTests
     {
+        [Test]
+        public void testRequestCreation ()
+        {
+           
 
-
+        }
 
     }
 }
