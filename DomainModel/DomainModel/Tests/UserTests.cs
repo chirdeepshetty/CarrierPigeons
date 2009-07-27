@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -16,9 +15,8 @@ namespace DomainModel.Tests
         public void TestUserConstructor()
         {
             Email email = new Email("user@carrierpigeons.com");
-            UserName name = new UserName();
+            UserName name = new UserName("first", "middle", "last");
             User user = new User(email, name);
         }
     }
-
 }
