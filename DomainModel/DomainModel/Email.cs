@@ -3,10 +3,12 @@ using System;
 namespace DomainModel
 {
     public class Email
-    {
-        public Email(string s)
+    {   
+        public Email(string email)
         {
-            throw new NotImplementedException();
+            this.EmailAddress = email;
         }
+        public virtual string EmailAddress { get; set; }
+    
     }
 }

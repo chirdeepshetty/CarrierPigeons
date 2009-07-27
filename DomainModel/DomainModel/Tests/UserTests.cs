@@ -12,11 +12,15 @@ namespace DomainModel.Tests
     [TestFixture]
     public class UserTests
     {
+        [Test]
         public void TestUserConstructor()
         {
-            Email email = new DomainModel.Email("user@carrierpigeons.com");
-            UserName name = new DomainModel.UserName("first", "middle", "last");
-            User user = new DomainModel.User(email, name);
+            Email email = new Email("user@carrierpigeons.com");
+            UserName name = new UserName("first", "middle", "last");
+            User user = new User(email, name);
+
+            Assert.AreEqual(user.Email.EmailAddress, email.EmailAddress);
+            Assert.AreEqual(user.Name.FirstName, name.FirstName);
         }
     }
 }

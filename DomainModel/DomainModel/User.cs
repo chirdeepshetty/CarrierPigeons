@@ -7,14 +7,14 @@ using DomainModel.Tests;
 namespace DomainModel
 {
     public class User
-    {
+    {   
         public User(Email email, UserName name)
         {
-            throw new NotImplementedException();
+            this.Email = email;
+            this.Name = name;
         }
 
-        public virtual  int Id { get; set; }
-        public virtual  string Email { get; set; }
-        public virtual  string Name { get; set; }
+        public virtual  Email Email { get; set; }
+        public virtual  UserName Name { get; set; }
     }
 }
