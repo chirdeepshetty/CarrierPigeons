@@ -1,0 +1,5 @@
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\bin\Website.dll
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\bin\Website.pdb
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\obj\Debug\ResolveAssemblyReference.cache
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\obj\Debug\Website.dll
+E:\Immersion\CarrierPigeons\CarrierPigeons\DomainModel\Website\Website\obj\Debug\Website.pdb
