@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Web.Security;
+using NHibernate;
 
 namespace DomainModel.UserRegistration
 {
@@ -41,6 +43,6 @@ namespace DomainModel.UserRegistration
         //    //User currentUser = _provider.GetUser(userName, true /* userIsOnline */);
         //    //return currentUser.ChangePassword(oldPassword, newPassword);
         //}
-      
+
     }
 }
