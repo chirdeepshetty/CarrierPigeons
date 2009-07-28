@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="DomainModel" namespace="DomainModel">
+  <class name="DomainModel.Package" table="Package">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Description" column="Description" type="String" length="512"/>
+    <property name="Dimensions" column="Dimensions" type="String" length="16"/>
+    <property name="Weight" column="Weight" type="String" length="16"/>
+  </class>
+</hibernate-mapping>

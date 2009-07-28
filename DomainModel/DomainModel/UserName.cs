@@ -6,7 +6,12 @@ namespace DomainModel
     {
         public virtual string FirstName{ get; set;}
         public virtual string LastName { get; set; }
-        
+
+        public UserName()
+        {
+          
+        }
+
 
         public UserName(string first, string last)
         {
