@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Web.Security;
+using NHibernate;
 
 namespace DomainModel.UserRegistration
 {

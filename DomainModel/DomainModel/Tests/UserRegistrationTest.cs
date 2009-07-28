@@ -8,9 +8,21 @@ using NUnit.Framework;
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class UserRegistrationTest
+    public class UserRegistrationTest : InMemoryTestFixtureBase
     {
 
+      [Test]
+        public void testCreateUserRepository ()
+      {
+
+          RepositoryFactory factory = new RepositoryFactory();
+          UserRepository userRepository = (UserRepository)factory.GetUserRepository();
+          //userRepository.save(user);
+          
+          
+ 
+      }
+        
         [Test]
         public void testUserRegistration ()
         {
@@ -23,7 +35,7 @@ namespace DomainModel.Tests
 
             UserRegistration.UserRegistrationService  service = new UserRegistrationService();
 
-            //service.CreateUser(user);
+            service.CreateUser(user);
 
         }
     }
