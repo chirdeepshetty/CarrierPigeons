@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
  
-<project name="CarrierPigeons" default="build">
+<project name="CarrierPigeons" default="cruise">
   <property name="src.dir" value="./DomainModel/DomainModel" />
   <property name="output.dir" value="./DomainModel/DomainModel/bin/Debug" />
+  <property name="lib.dir" value="./DomainModel/Lib" />
   <property name="nant.settings.currentframework" value="net-3.5"/>
   <property name="build.debug" value="true" />
   <property name="output.file.name" value="CarrierPigeon.dll" />  
@@ -16,16 +17,22 @@
 	
     <csc target="library" output="${output.dir}/${output.file.name}" debug="${build.debug}">
       <sources failonempty="true">
-        <include name="${src.dir}/**/*.cs" />
+        <include name="${src.dir}/**/*.cs" />        
       </sources>
     <references >
-	<include name="${src.dir}/../Lib/*.dll" />
-	 <exclude name="${src.dir}/../Lib/sqlite3.dll"/>
+	<include name="${lib.dir}/*.dll" />
+	<exclude name="${lib.dir}/sqlite3.dll"/>
     </references>          
     </csc>
-	
+    <copy todir="${output.dir}">
+        <fileset basedir="${lib.dir}">
+            <include name="*.dll" />
+        </fileset>
+    </copy>
   </target>
   
+  <target name="cruise" depends="build, test" description="compiles and runs tests"/>
+
   <target name="test" description="Execute the NUnit testcases">
       <nunit2 verbose="true" >
         <formatter type="Plain" />

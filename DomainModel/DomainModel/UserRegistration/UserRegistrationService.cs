@@ -8,11 +8,11 @@ namespace DomainModel.UserRegistration
 {
     public class UserRegistrationService : IUserRegistration
     {
-        public UserRepository Repository { get; set;}
+        public UserRepository Repository { get; set; }
 
         public UserRegistrationService()
         {
-          
+
         }
 
 
@@ -31,7 +31,7 @@ namespace DomainModel.UserRegistration
 
         public MembershipCreateStatus CreateUser(User user)
         {
-            
+
             Repository.SaveUser(user);
 
             return MembershipCreateStatus.Success;
