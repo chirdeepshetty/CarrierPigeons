@@ -73,6 +73,7 @@
     <Compile Include="Tests\RegistrationTest.cs" />
     <Compile Include="RequestRepository.cs" />
     <Compile Include="Tests\RequestTests.cs" />
+    <Compile Include="Tests\UserRegistrationTest.cs" />
     <Compile Include="Tests\UserTests.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserName.cs" />
@@ -80,10 +81,10 @@
     <Compile Include="UserRegistration\IUserRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mappings\Package.hbm.xml" />
-    <Content Include="Mappings\Location.hbm.xml" />
-    <Content Include="Tests\User.hbm.xml" />
-    <Content Include="Mappings\Request.hbm.xml" />
+    <Content Include="Package.hbm.xml" />
+    <Content Include="Location.hbm.xml" />
+    <Content Include="Request.hbm.xml" />
+    <Content Include="UserRegistration\User.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
