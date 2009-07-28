@@ -20,6 +20,7 @@
       </sources>
     <references >
 	<include name="${src.dir}/../Lib/*.dll" />
+	 <exclude name="${src.dir}/../Lib/sqlite3.dll"/>
     </references>          
     </csc>
 	
