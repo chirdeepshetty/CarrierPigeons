@@ -23,8 +23,10 @@
   </target>
 
   <target name="build" depends="init" description="compiles the source code">
-    <property name="build.dir" value="${nant.project.basedir}/${nant.project.name}_${project.version}${basedir.suffix}"/>
+    
+    <property name="build.dir" value="${project::get-base-directory()}/${project::get-name()}_${project.version}${basedir.suffix}"/>
     <mkdir dir="${build.dir}" />
+    <mkdir dir="${output.dir}" />
 	
     <csc target="library" output="${output.dir}/CarrierPigeon.dll" debug="${build.debug}">
       <sources failonempty="true">
@@ -32,11 +34,8 @@
       </sources>
 	    <references>
                 <include name="${src.dir}/../Lib/*.dll" />
-                <include name="System.Core.dll" />
             </references>                         
     </csc>
 	
-	
-
   </target>
 </project>
