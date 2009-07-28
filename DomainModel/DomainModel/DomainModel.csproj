@@ -47,6 +47,7 @@
     <Reference Include="System.Data.SQLite, Version=1.0.61.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\System.Data.SQLite.DLL</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
@@ -73,8 +74,10 @@
     <Compile Include="Tests\PackageTests.cs" />
     <Compile Include="Tests\RegistrationTest.cs" />
     <Compile Include="RequestRepository.cs" />
+    <Compile Include="Tests\RepositoryFactory.cs" />
     <Compile Include="Tests\RequestTests.cs" />
     <Compile Include="Tests\UserRegistrationTest.cs" />
+    <Compile Include="UserRepository.cs" />
     <Compile Include="Tests\UserTests.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserName.cs" />
@@ -85,7 +88,9 @@
     <Content Include="Location.hbm.xml" />
     <Content Include="Package.hbm.xml" />
     <Content Include="Request.hbm.xml" />
-    <Content Include="UserRegistration\User.hbm.xml" />
+    <Content Include="UserRegistration\User.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

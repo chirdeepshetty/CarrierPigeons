@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Security;
+using DomainModel.Tests;
 using NHibernate;
 
 namespace DomainModel.UserRegistration
 {
     public class UserRegistrationService : IUserRegistration
     {
-
+        public UserRepository Repository { get; set;}
 
         public UserRegistrationService()
         {
+          
         }
 
 
@@ -29,7 +31,11 @@ namespace DomainModel.UserRegistration
 
         public MembershipCreateStatus CreateUser(User user)
         {
-            throw new NotImplementedException();
+            
+            Repository.SaveUser(user);
+
+            return MembershipCreateStatus.Success;
+
         }
 
         public MembershipCreateStatus CreateUser(string userName, string password, string email)
