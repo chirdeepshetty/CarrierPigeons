@@ -17,9 +17,8 @@ namespace DomainModel.Tests
             Location fromLocation = new Location("place", travelDate);
             Location toLocation = new Location("place", travelDate);
             Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
-            User user = new User(new Email("user@carrierpigeins.com"), new UserName("First", null, "Last"));
+            User user = new User(new Email("user@carrierpigeins.com"), new UserName("First", "Last"));
             Request request = new Request(user, package, fromLocation, toLocation);
-
 
         }
 

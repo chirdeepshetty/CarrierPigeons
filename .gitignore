@@ -2,3 +2,5 @@
 *.dat
 #ignore bin
 DomainModel/DomainModel/bin
+*.suo
+
