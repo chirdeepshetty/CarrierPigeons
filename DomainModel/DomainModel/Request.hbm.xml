@@ -4,8 +4,28 @@
     <id name="Id">
       <generator class="native" />
     </id>
-    <property name="" column="FirstName" type="String" length="40"/>
-    <property name="Name.LastName" column="LastName" type="String" length="40"/>
-    <property name="Email.EmailAddress" column="Email" type="String" length="60"/>
+    <component class="DomainModel.Location" name="Origin" >
+      <property name="Place" column="Place" type="String" length="50"/>
+      <component class="DomainModel.TravelDate" name="Date" >
+      <property name="DateTime" column="OriginDate" type="DateTime"/>
+      </component>     
+    </component>
+    <!--sep -->
+    
+    <component class="DomainModel.Location" name="Destination" >
+      <property name="Place" column="Place" type="String" length="50"/>
+      <component class="DomainModel.TravelDate" name="Date" >
+        <property name="DateTime" column="DestinationDate" type="DateTime"/>
+      </component>
+    </component>
+    
+    <component class="DomainModel.Package" name="Package">
+      <property name="Description" column="Description" type="String" length="512"/>
+      <property name="Dimensions" column="Dimensions" type="String" length="16"/>
+      <property name="Weight" column="Weight" type="String" length="16"/>
+    </component>
+
+    
+
   </class>
 </hibernate-mapping>

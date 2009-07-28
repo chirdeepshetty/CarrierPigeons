@@ -5,321 +5,321 @@ namespace DomainModel
 {
     public class TravelDate
     {
-        DateTime _dateTime { get; set; }
+        public virtual DateTime DateTime { get; set; }
         
         public TravelDate(DateTime dateTime)
         {
-            _dateTime = dateTime;
+            DateTime = dateTime;
         }
 
         public bool ToBoolean(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToBoolean(provider);
+            return ((IConvertible) DateTime).ToBoolean(provider);
         }
 
         public char ToChar(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToChar(provider);
+            return ((IConvertible) DateTime).ToChar(provider);
         }
 
         public sbyte ToSByte(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToSByte(provider);
+            return ((IConvertible) DateTime).ToSByte(provider);
         }
 
         public byte ToByte(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToByte(provider);
+            return ((IConvertible) DateTime).ToByte(provider);
         }
 
         public short ToInt16(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToInt16(provider);
+            return ((IConvertible) DateTime).ToInt16(provider);
         }
 
         public ushort ToUInt16(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToUInt16(provider);
+            return ((IConvertible) DateTime).ToUInt16(provider);
         }
 
         public int ToInt32(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToInt32(provider);
+            return ((IConvertible) DateTime).ToInt32(provider);
         }
 
         public uint ToUInt32(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToUInt32(provider);
+            return ((IConvertible) DateTime).ToUInt32(provider);
         }
 
         public long ToInt64(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToInt64(provider);
+            return ((IConvertible) DateTime).ToInt64(provider);
         }
 
         public ulong ToUInt64(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToUInt64(provider);
+            return ((IConvertible) DateTime).ToUInt64(provider);
         }
 
         public float ToSingle(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToSingle(provider);
+            return ((IConvertible) DateTime).ToSingle(provider);
         }
 
         public double ToDouble(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToDouble(provider);
+            return ((IConvertible) DateTime).ToDouble(provider);
         }
 
         public decimal ToDecimal(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToDecimal(provider);
+            return ((IConvertible) DateTime).ToDecimal(provider);
         }
 
         public DateTime ToDateTime(IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToDateTime(provider);
+            return ((IConvertible) DateTime).ToDateTime(provider);
         }
 
         public object ToType(Type conversionType, IFormatProvider provider)
         {
-            return ((IConvertible) _dateTime).ToType(conversionType, provider);
+            return ((IConvertible) DateTime).ToType(conversionType, provider);
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            ((ISerializable) _dateTime).GetObjectData(info, context);
+            ((ISerializable) DateTime).GetObjectData(info, context);
         }
 
         public DateTime Add(TimeSpan value)
         {
-            return _dateTime.Add(value);
+            return DateTime.Add(value);
         }
 
         public DateTime AddDays(double value)
         {
-            return _dateTime.AddDays(value);
+            return DateTime.AddDays(value);
         }
 
         public DateTime AddHours(double value)
         {
-            return _dateTime.AddHours(value);
+            return DateTime.AddHours(value);
         }
 
         public DateTime AddMilliseconds(double value)
         {
-            return _dateTime.AddMilliseconds(value);
+            return DateTime.AddMilliseconds(value);
         }
 
         public DateTime AddMinutes(double value)
         {
-            return _dateTime.AddMinutes(value);
+            return DateTime.AddMinutes(value);
         }
 
         public DateTime AddMonths(int months)
         {
-            return _dateTime.AddMonths(months);
+            return DateTime.AddMonths(months);
         }
 
         public DateTime AddSeconds(double value)
         {
-            return _dateTime.AddSeconds(value);
+            return DateTime.AddSeconds(value);
         }
 
         public DateTime AddTicks(long value)
         {
-            return _dateTime.AddTicks(value);
+            return DateTime.AddTicks(value);
         }
 
         public DateTime AddYears(int value)
         {
-            return _dateTime.AddYears(value);
+            return DateTime.AddYears(value);
         }
 
         public int CompareTo(object value)
         {
-            return _dateTime.CompareTo(value);
+            return DateTime.CompareTo(value);
         }
 
         public int CompareTo(DateTime value)
         {
-            return _dateTime.CompareTo(value);
+            return DateTime.CompareTo(value);
         }
 
         public bool Equals(DateTime value)
         {
-            return _dateTime.Equals(value);
+            return DateTime.Equals(value);
         }
 
         public bool IsDaylightSavingTime()
         {
-            return _dateTime.IsDaylightSavingTime();
+            return DateTime.IsDaylightSavingTime();
         }
 
         public long ToBinary()
         {
-            return _dateTime.ToBinary();
+            return DateTime.ToBinary();
         }
 
         public TimeSpan Subtract(DateTime value)
         {
-            return _dateTime.Subtract(value);
+            return DateTime.Subtract(value);
         }
 
         public DateTime Subtract(TimeSpan value)
         {
-            return _dateTime.Subtract(value);
+            return DateTime.Subtract(value);
         }
 
         public double ToOADate()
         {
-            return _dateTime.ToOADate();
+            return DateTime.ToOADate();
         }
 
         public long ToFileTime()
         {
-            return _dateTime.ToFileTime();
+            return DateTime.ToFileTime();
         }
 
         public long ToFileTimeUtc()
         {
-            return _dateTime.ToFileTimeUtc();
+            return DateTime.ToFileTimeUtc();
         }
 
         public DateTime ToLocalTime()
         {
-            return _dateTime.ToLocalTime();
+            return DateTime.ToLocalTime();
         }
 
         public string ToLongDateString()
         {
-            return _dateTime.ToLongDateString();
+            return DateTime.ToLongDateString();
         }
 
         public string ToLongTimeString()
         {
-            return _dateTime.ToLongTimeString();
+            return DateTime.ToLongTimeString();
         }
 
         public string ToShortDateString()
         {
-            return _dateTime.ToShortDateString();
+            return DateTime.ToShortDateString();
         }
 
         public string ToShortTimeString()
         {
-            return _dateTime.ToShortTimeString();
+            return DateTime.ToShortTimeString();
         }
 
         public string ToString(string format)
         {
-            return _dateTime.ToString(format);
+            return DateTime.ToString(format);
         }
 
         public string ToString(IFormatProvider provider)
         {
-            return _dateTime.ToString(provider);
+            return DateTime.ToString(provider);
         }
 
         public string ToString(string format, IFormatProvider provider)
         {
-            return _dateTime.ToString(format, provider);
+            return DateTime.ToString(format, provider);
         }
 
         public DateTime ToUniversalTime()
         {
-            return _dateTime.ToUniversalTime();
+            return DateTime.ToUniversalTime();
         }
 
         public string[] GetDateTimeFormats()
         {
-            return _dateTime.GetDateTimeFormats();
+            return DateTime.GetDateTimeFormats();
         }
 
         public string[] GetDateTimeFormats(IFormatProvider provider)
         {
-            return _dateTime.GetDateTimeFormats(provider);
+            return DateTime.GetDateTimeFormats(provider);
         }
 
         public string[] GetDateTimeFormats(char format)
         {
-            return _dateTime.GetDateTimeFormats(format);
+            return DateTime.GetDateTimeFormats(format);
         }
 
         public string[] GetDateTimeFormats(char format, IFormatProvider provider)
         {
-            return _dateTime.GetDateTimeFormats(format, provider);
+            return DateTime.GetDateTimeFormats(format, provider);
         }
 
         public TypeCode GetTypeCode()
         {
-            return _dateTime.GetTypeCode();
+            return DateTime.GetTypeCode();
         }
 
         public DateTime Date
         {
-            get { return _dateTime.Date; }
+            get { return DateTime.Date; }
         }
 
         public int Day
         {
-            get { return _dateTime.Day; }
+            get { return DateTime.Day; }
         }
 
         public DayOfWeek DayOfWeek
         {
-            get { return _dateTime.DayOfWeek; }
+            get { return DateTime.DayOfWeek; }
         }
 
         public int DayOfYear
         {
-            get { return _dateTime.DayOfYear; }
+            get { return DateTime.DayOfYear; }
         }
 
         public int Hour
         {
-            get { return _dateTime.Hour; }
+            get { return DateTime.Hour; }
         }
 
         public DateTimeKind Kind
         {
-            get { return _dateTime.Kind; }
+            get { return DateTime.Kind; }
         }
 
         public int Millisecond
         {
-            get { return _dateTime.Millisecond; }
+            get { return DateTime.Millisecond; }
         }
 
         public int Minute
         {
-            get { return _dateTime.Minute; }
+            get { return DateTime.Minute; }
         }
 
         public int Month
         {
-            get { return _dateTime.Month; }
+            get { return DateTime.Month; }
         }
 
         public int Second
         {
-            get { return _dateTime.Second; }
+            get { return DateTime.Second; }
         }
 
         public long Ticks
         {
-            get { return _dateTime.Ticks; }
+            get { return DateTime.Ticks; }
         }
 
         public TimeSpan TimeOfDay
         {
-            get { return _dateTime.TimeOfDay; }
+            get { return DateTime.TimeOfDay; }
         }
 
         public int Year
         {
-            get { return _dateTime.Year; }
+            get { return DateTime.Year; }
         }
     }
 }

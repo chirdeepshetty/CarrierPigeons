@@ -81,8 +81,6 @@
     <Compile Include="UserRegistration\IUserRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Package.hbm.xml" />
-    <Content Include="Location.hbm.xml" />
     <Content Include="Request.hbm.xml" />
     <Content Include="UserRegistration\User.hbm.xml" />
   </ItemGroup>
