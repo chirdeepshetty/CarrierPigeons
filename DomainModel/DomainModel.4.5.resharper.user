@@ -1,13 +1,58 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Properties/f:AssemblyInfo.cs" caret="334" fromTop="7" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Test/f:AccountMembershipServiceTest.cs" caret="229" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="1212" fromTop="13" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="545" fromTop="14" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:Web.config" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Default.aspx" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:PackageTests.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.cs" caret="252" fromTop="9" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="780" fromTop="24" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:IUserRegistration.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:UserRegistrationService.cs" caret="516" fromTop="5" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Account/f:Register.aspx" caret="205" fromTop="3" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:User.cs" caret="499" fromTop="20" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserName.cs" caret="60" fromTop="4" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Content/f:Site.css" caret="4354" fromTop="14" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:HomeController.cs" caret="341" fromTop="17" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Global.asax.cs" caret="530" fromTop="15" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:User.hbm.xml" caret="556" fromTop="10" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="77" fromTop="2" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:LogOnUserControl.ascx" caret="110" fromTop="2" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Error.aspx" caret="0" fromTop="0" />
       <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:Index.aspx" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:LogOnUserControl.ascx" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:HomeController.cs" caret="211" fromTop="6" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:About.aspx" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Account/f:LogOn.aspx" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="446" fromTop="13" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:InMemoryTextFixtureBase.cs" caret="1847" fromTop="16" />
     </RecentFiles>
     <RecentEdits>
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:Index.aspx" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Account/f:LogOn.aspx" caret="893" fromTop="5" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:HomeController.cs" caret="266" fromTop="12" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Account/f:Register.aspx" caret="532" fromTop="6" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="8128" fromTop="17" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="7849" fromTop="12" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="11464" fromTop="13" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="11464" fromTop="7" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="8749" fromTop="10" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="9016" fromTop="8" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Test/f:AccountMembershipServiceTest.cs" caret="238" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="263" fromTop="10" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="1094" fromTop="1" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="1257" fromTop="10" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="5152" fromTop="19" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="309" fromTop="26" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="300" fromTop="4" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="533" fromTop="20" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="962" fromTop="8" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="669" fromTop="6" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:InMemoryTextFixtureBase.cs" caret="871" fromTop="23" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:InMemoryTextFixtureBase.cs" caret="449" fromTop="17" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="307" fromTop="4" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RegistrationTest.cs" caret="679" fromTop="14" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:InMemoryTextFixtureBase.cs" caret="602" fromTop="10" />
     </RecentEdits>
   </RecentFiles>
   <EditorManager>
@@ -47,4 +92,47 @@
   <UnitTestRunnerMSTest>
     <UseTestRunConfigFromMetadataFile>False</UseTestRunConfigFromMetadataFile>
   </UnitTestRunnerMSTest>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="UserControl" priority="0" />
+      <Item value="public" priority="3" />
+      <Item value="virtual" priority="0" />
+      <Item value="string" priority="3" />
+      <Item value="void" priority="2" />
+      <Item value="Test" priority="1" />
+      <Item value="IQueryable" priority="0" />
+      <Item value="false" priority="0" />
+      <Item value="bool" priority="0" />
+      <Item value="return" priority="1" />
+      <Item value="true" priority="1" />
+      <Item value="new" priority="3" />
+      <Item value="userName" priority="0" />
+      <Item value="password" priority="0" />
+      <Item value="email" priority="0" />
+      <Item value="MembershipCreateStatus" priority="1" />
+      <Item value="RegistrationTest" priority="0" />
+      <Item value="Registration" priority="0" />
+      <Item value="reg" priority="0" />
+      <Item value="using" priority="2" />
+      <Item value="System" priority="1" />
+      <Item value="Web" priority="1" />
+      <Item value="DomainModel" priority="2" />
+      <Item value="User" priority="1" />
+      <Item value="UserRegistration" priority="0" />
+      <Item value="UserRegistrationService" priority="0" />
+      <Item value="View" priority="0" />
+      <Item value="InMemoryTestFixtureBase" priority="0" />
+      <Item value="SessionFactory" priority="0" />
+      <Item value="UserName" priority="1" />
+      <Item value="name" priority="0" />
+      <Item value="Email" priority="0" />
+      <Item value="protected" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.UserRegistration.Registration">
+      <Item value="CreateUser" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.MembershipCreateStatus">
+      <Item value="Success" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>

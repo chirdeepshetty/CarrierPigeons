@@ -2,3 +2,9 @@
 *.dat
 #ignore bin
 DomainModel/DomainModel/bin
+DomainModel/Website/Website/obj
+DomainModel/_ReSharper.DomainModel
+DomainModel/DomainModel/obj
+DomainModel/Website/Website/bin
+DomainModel/DomainModel.4.5.resharper.user
+DomainModel/DomainModel.suo

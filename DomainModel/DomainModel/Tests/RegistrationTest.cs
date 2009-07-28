@@ -12,26 +12,6 @@ namespace DomainModel.Tests
     [TestFixture]
     public class RegistrationTest : InMemoryTestFixtureBase
     {
-        private ISession session;
-
-        [TestFixtureSetUp]
-        public void TestFixtureSetUp()
-        {
-            InitalizeSessionFactory(new FileInfo("src/User.hbm.xml"));
-        }
-
-        [SetUp]
-        public void SetUp()
-        {
-            session = this.CreateSession();
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            session.Dispose();
-        }
-
 
         [Test]
         public void TestCreateUser()
@@ -39,6 +19,9 @@ namespace DomainModel.Tests
             UserName name =new UserName("first","last");
             var user = new User(new Email("test@test.com"), name);
             session.Save(user);
+            IQuery query = session.CreateQuery("from User");
+            IList<User> users = query.List<User>();
+            Assert.AreEqual(1, users.Count);
 
         }
     }
