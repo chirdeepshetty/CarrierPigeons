@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI;
+using DomainModel;
 using  DomainModel.UserRegistration;
 
 namespace Website.Controllers
@@ -30,7 +31,7 @@ namespace Website.Controllers
         public AccountController(IFormsAuthentication formsAuth, IUserRegistration service)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            MembershipService = service ?? new UserRegistrationService();
+            UserRegistrationService = service ?? new UserRegistrationService();
         }
 
         public IFormsAuthentication FormsAuth
@@ -39,7 +40,7 @@ namespace Website.Controllers
             private set;
         }
 
-        public IUserRegistration MembershipService
+        public IUserRegistration UserRegistrationService
         {
             get;
             private set;
@@ -84,7 +85,7 @@ namespace Website.Controllers
         public ActionResult Register()
         {
 
-            ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
 
             return View();
         }
@@ -93,12 +94,13 @@ namespace Website.Controllers
         public ActionResult Register(string userName, string email, string password, string confirmPassword)
         {
 
-            ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
+            ViewData["PasswordLength"] = 8;
 
             if (ValidateRegistration(userName, email, password, confirmPassword))
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus = MembershipService.CreateUser(userName, password, email);
+                MembershipCreateStatus createStatus = UserRegistrationService.CreateUser(new User(new Email(email), new UserName(userName, ""), password ));
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
@@ -119,7 +121,7 @@ namespace Website.Controllers
         public ActionResult ChangePassword()
         {
 
-            ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
 
             return View();
         }
@@ -131,7 +133,7 @@ namespace Website.Controllers
         public ActionResult ChangePassword(string currentPassword, string newPassword, string confirmPassword)
         {
 
-            ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
 
             if (!ValidateChangePassword(currentPassword, newPassword, confirmPassword))
             {
@@ -140,7 +142,7 @@ namespace Website.Controllers
 
             //try
             //{
-            //    if (MembershipService.ChangePassword(User.Identity.Name, currentPassword, newPassword))
+            //    if (UserRegistrationService.ChangePassword(User.Identity.Name, currentPassword, newPassword))
             //    {
             //        return RedirectToAction("ChangePasswordSuccess");
             //    }
@@ -180,12 +182,12 @@ namespace Website.Controllers
             {
                 ModelState.AddModelError("currentPassword", "You must specify a current password.");
             }
-            if (newPassword == null || newPassword.Length < MembershipService.MinPasswordLength)
+            if (newPassword == null || newPassword.Length < UserRegistrationService.MinPasswordLength)
             {
                 ModelState.AddModelError("newPassword",
                     String.Format(CultureInfo.CurrentCulture,
                          "You must specify a new password of {0} or more characters.",
-                         MembershipService.MinPasswordLength));
+                         UserRegistrationService.MinPasswordLength));
             }
 
             if (!String.Equals(newPassword, confirmPassword, StringComparison.Ordinal))
@@ -206,7 +208,7 @@ namespace Website.Controllers
             {
                 ModelState.AddModelError("password", "You must specify a password.");
             }
-            if (!MembershipService.ValidateUser(userName, password))
+            if (!UserRegistrationService.ValidateUser(userName, password))
             {
                 ModelState.AddModelError("_FORM", "The username or password provided is incorrect.");
             }
@@ -224,12 +226,12 @@ namespace Website.Controllers
             {
                 ModelState.AddModelError("email", "You must specify an email address.");
             }
-            if (password == null || password.Length < MembershipService.MinPasswordLength)
+            if (password == null || password.Length < UserRegistrationService.MinPasswordLength)
             {
                 ModelState.AddModelError("password",
                     String.Format(CultureInfo.CurrentCulture,
                          "You must specify a password of {0} or more characters.",
-                         MembershipService.MinPasswordLength));
+                         UserRegistrationService.MinPasswordLength));
             }
             if (!String.Equals(password, confirmPassword, StringComparison.Ordinal))
             {
