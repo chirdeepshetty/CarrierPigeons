@@ -17,7 +17,7 @@ namespace DomainModel.Tests
         public void TestCreateUser()
         {
             UserName name =new UserName("first","last");
-            var user = new User(new Email("test@test.com"), name);
+            var user = new User(new Email("test@test.com"), name, "Pwd");
             session.Save(user);
             IQuery query = session.CreateQuery("from User");
             IList<User> users = query.List<User>();

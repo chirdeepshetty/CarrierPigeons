@@ -1,3 +1,4 @@
+using System;
 using System.Web.Security;
 
 namespace DomainModel.UserRegistration
@@ -24,17 +25,22 @@ namespace DomainModel.UserRegistration
             return true;
         }
 
+        public MembershipCreateStatus CreateUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public MembershipCreateStatus CreateUser(string userName, string password, string email)
         {
-            MembershipCreateStatus status = MembershipCreateStatus.Success;// = user.Create(userName, password, email);
-            //_provider.CreateUser(userName, password, email, null, null, true, null, out status);
-            return status;
+            throw new NotImplementedException();
         }
+
 
         //public bool ChangePassword(string userName, string oldPassword, string newPassword)
         //{
         //    //User currentUser = _provider.GetUser(userName, true /* userIsOnline */);
         //    //return currentUser.ChangePassword(oldPassword, newPassword);
         //}
+      
     }
 }

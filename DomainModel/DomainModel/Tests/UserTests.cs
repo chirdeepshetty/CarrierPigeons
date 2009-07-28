@@ -22,7 +22,7 @@ namespace DomainModel.Tests
 
             Email email = new Email("user@carrierpigeons.com");
             UserName name = new UserName("first","last");
-            User user = new User(email, name);
+            User user = new User(email, name, "pwd123");
 
             Assert.AreEqual(user.Email.EmailAddress, email.EmailAddress);
             Assert.AreEqual(user.Name.FirstName, name.FirstName);

@@ -20,7 +20,7 @@ namespace DomainModel.Tests
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            InitalizeSessionFactory(new FileInfo("../UserRegistration/User.hbm.xml"));
+            InitalizeSessionFactory(new FileInfo("UserRegistration/User.hbm.xml"));
         }
 
         [SetUp]
