@@ -7,7 +7,10 @@ using DomainModel.Tests;
 namespace DomainModel
 {
     public class User
-    {   
+    {
+        public virtual  int Id { get; set; }
+        public virtual string Password { get; set; }
+
         public User(Email email, UserName name)
         {
             this.Email = email;
@@ -16,5 +19,6 @@ namespace DomainModel
 
         public virtual  Email Email { get; set; }
         public virtual  UserName Name { get; set; }
+
     }
 }

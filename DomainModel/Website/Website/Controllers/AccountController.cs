@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI;
+using  DomainModel.UserRegistration;
 
 namespace Website.Controllers
 {
@@ -26,10 +27,10 @@ namespace Website.Controllers
         // This constructor is not used by the MVC framework but is instead provided for ease
         // of unit testing this type. See the comments at the end of this file for more
         // information.
-        public AccountController(IFormsAuthentication formsAuth, IMembershipService service)
+        public AccountController(IFormsAuthentication formsAuth, IUserRegistration service)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            MembershipService = service ?? new AccountMembershipService();
+            MembershipService = service ?? new UserRegistrationService();
         }
 
         public IFormsAuthentication FormsAuth
@@ -38,7 +39,7 @@ namespace Website.Controllers
             private set;
         }
 
-        public IMembershipService MembershipService
+        public IUserRegistration MembershipService
         {
             get;
             private set;
@@ -137,23 +138,24 @@ namespace Website.Controllers
                 return View();
             }
 
-            try
-            {
-                if (MembershipService.ChangePassword(User.Identity.Name, currentPassword, newPassword))
-                {
-                    return RedirectToAction("ChangePasswordSuccess");
-                }
-                else
-                {
-                    ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
-                    return View();
-                }
-            }
-            catch
-            {
-                ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
-                return View();
-            }
+            //try
+            //{
+            //    if (MembershipService.ChangePassword(User.Identity.Name, currentPassword, newPassword))
+            //    {
+            //        return RedirectToAction("ChangePasswordSuccess");
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
+            //        return View();
+            //    }
+            //}
+            //catch
+            //{
+            //    ModelState.AddModelError("_FORM", "The current password is incorrect or the new password is invalid.");
+            //    return View();
+            //}
+            return View();
         }
 
         public ActionResult ChangePasswordSuccess()
@@ -246,7 +248,7 @@ namespace Website.Controllers
                     return "Username already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A username for that e-mail address already exists. Please enter a different e-mail address.";
+                    return "Email address is already registered.";
 
                 case MembershipCreateStatus.InvalidPassword:
                     return "The password provided is invalid. Please enter a valid password value.";
@@ -296,56 +298,6 @@ namespace Website.Controllers
         public void SignOut()
         {
             FormsAuthentication.SignOut();
-        }
-    }
-
-    public interface IMembershipService
-    {
-        int MinPasswordLength { get; }
-
-        bool ValidateUser(string userName, string password);
-        MembershipCreateStatus CreateUser(string userName, string password, string email);
-        bool ChangePassword(string userName, string oldPassword, string newPassword);
-    }
-
-    public class AccountMembershipService : IMembershipService
-    {
-        private MembershipProvider _provider;
-
-        public AccountMembershipService()
-            : this(null)
-        {
-        }
-
-        public AccountMembershipService(MembershipProvider provider)
-        {
-            _provider = provider ?? Membership.Provider;
-        }
-
-        public int MinPasswordLength
-        {
-            get
-            {
-                return _provider.MinRequiredPasswordLength;
-            }
-        }
-
-        public bool ValidateUser(string userName, string password)
-        {
-            return _provider.ValidateUser(userName, password);
-        }
-
-        public MembershipCreateStatus CreateUser(string userName, string password, string email)
-        {
-            MembershipCreateStatus status;
-            _provider.CreateUser(userName, password, email, null, null, true, null, out status);
-            return status;
-        }
-
-        public bool ChangePassword(string userName, string oldPassword, string newPassword)
-        {
-            MembershipUser currentUser = _provider.GetUser(userName, true /* userIsOnline */);
-            return currentUser.ChangePassword(oldPassword, newPassword);
         }
     }
 }

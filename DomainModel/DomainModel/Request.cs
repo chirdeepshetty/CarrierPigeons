@@ -4,11 +4,18 @@ namespace DomainModel
 {
     public class Request
     {
-        public virtual  int Id { get; set; }
-        public virtual  string Origin { get; set; }
-        public virtual  string Destination { get; set; }
-        public virtual  DateTime Date { get; set; }
+        public Request(User user, Package package, Location origin, Location destination)
+        {
+            this.Destination = destination;
+            this.RequestedUser = user;
+            this.Origin = origin;
+            
+        }
+        
+
         public virtual User RequestedUser { get; set; }
         public virtual Package Package { get; set; }
+        public virtual Location Origin { get; set; }
+        public virtual Location Destination { get; set; }
     }
 }
