@@ -55,13 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Email.cs" />
     <Compile Include="Journey.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request.cs" />
+<<<<<<< HEAD:DomainModel/DomainModel/DomainModel.csproj
     <Compile Include="Tests\JourneyTests.cs" />
     <Compile Include="Tests\NHibernateInMemoryTextFixtureBase.cs" />
+=======
+    <Compile Include="Tests\InMemoryTextFixtureBase.cs" />
+    <Compile Include="Email.cs" />
+>>>>>>> 7565b92096f3ced939ba3f1e48d3f00d825595f3:DomainModel/DomainModel/DomainModel.csproj
     <Compile Include="Date.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Tests\PackageTests.cs" />
@@ -74,7 +78,7 @@
     <Compile Include="UserRegistration\IUserRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UserRegistration\User.hbm.xml" />
+    <Content Include="Tests\User.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

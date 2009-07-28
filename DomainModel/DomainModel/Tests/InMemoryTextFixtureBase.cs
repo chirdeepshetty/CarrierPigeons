@@ -7,13 +7,33 @@ using System.Text;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using NUnit.Framework;
 
 namespace DomainModel.Tests
 {
-    public class NHibernateInMemoryTestFixtureBase
+    public abstract class InMemoryTestFixtureBase
     {
         protected static ISessionFactory SessionFactory;
         protected static Configuration Configuration;
+        protected ISession session;
+
+        [TestFixtureSetUp]
+        public void TestFixtureSetUp()
+        {
+            InitalizeSessionFactory(new FileInfo("../UserRegistration/User.hbm.xml"));
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+            session = this.CreateSession();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            session.Dispose();
+        }
 
         public static void InitalizeSessionFactory(params FileInfo[] hbmFiles)
         {

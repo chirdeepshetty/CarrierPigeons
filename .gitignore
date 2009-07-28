@@ -2,5 +2,14 @@
 *.dat
 #ignore bin
 DomainModel/DomainModel/bin
+<<<<<<< HEAD:.gitignore
 *.suo
 
+=======
+DomainModel/Website/Website/obj
+DomainModel/_ReSharper.DomainModel
+DomainModel/DomainModel/obj
+DomainModel/Website/Website/bin
+DomainModel/DomainModel.4.5.resharper.user
+DomainModel/DomainModel.suo
+>>>>>>> 7565b92096f3ced939ba3f1e48d3f00d825595f3:.gitignore
