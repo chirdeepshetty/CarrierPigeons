@@ -31,9 +31,7 @@ namespace DomainModel.UserRegistration
 
         public MembershipCreateStatus CreateUser(User user)
         {
-
             Repository.SaveUser(user);
-
             return MembershipCreateStatus.Success;
 
         }

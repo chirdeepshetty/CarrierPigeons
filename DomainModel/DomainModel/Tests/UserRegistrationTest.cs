@@ -22,7 +22,6 @@ namespace DomainModel.Tests
 
 
             UserRepository userRepository = (UserRepository)new RepositoryFactory ().GetUserRepository();
-            userRepository.SaveUser(user);
             UserRegistration.UserRegistrationService  service = new UserRegistrationService();
             service.Repository = userRepository;
 
