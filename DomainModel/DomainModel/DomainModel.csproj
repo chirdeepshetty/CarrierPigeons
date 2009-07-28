@@ -44,6 +44,10 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.61.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\System.Data.SQLite.DLL</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -76,7 +80,10 @@
     <Compile Include="UserRegistration\IUserRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mappings\Package.hbm.xml" />
+    <Content Include="Mappings\Location.hbm.xml" />
     <Content Include="Tests\User.hbm.xml" />
+    <Content Include="Mappings\Request.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
