@@ -15,8 +15,8 @@ namespace DomainModel.Tests
         public void testCreateUserRepository ()
       {
 
-          RepositoryFactory factory = new RepositoryFactory();
-          UserRepository userRepository = (UserRepository)factory.GetUserRepository();
+          //RepositoryFactory factory = new RepositoryFactory();
+          //UserRepository userRepository = (UserRepository)factory.GetUserRepository();
           //userRepository.save(user);
           
           

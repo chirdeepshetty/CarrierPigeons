@@ -43,6 +43,6 @@ namespace DomainModel.UserRegistration
         //    //User currentUser = _provider.GetUser(userName, true /* userIsOnline */);
         //    //return currentUser.ChangePassword(oldPassword, newPassword);
         //}
-      
+
     }
 }
