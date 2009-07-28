@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+ 
+
+
+
+<project name="CarrierPigeons" default="build">
+  <property name="project.version" value="1.0" />
+  <property name="project.config" value="release" />
+  <property name="src.dir" value="./DomainModel/DomainModel" />
+  <property name="output.dir" value="./DomainModel/DomainModel/bin/Debug" />
+
+  <target name="init">
+    <call target="${project.config}" />
+  </target>
+
+  <target name="debug">
+    <property name="project.config" value="debug" />
+    <property name="build.debug" value="true" />
+    <property name="basedir.suffix" value="-debug" />
+  </target>
+
+  <target name="release">
+    <property name="project.config" value="release" />
+    <property name="build.debug" value="false" />
+    <property name="basedir.suffix" value="-release" />
+  </target>
+
+  <target name="build" depends="init" description="compiles the source code">
+    <property name="build.dir" value="${nant.project.basedir}/${nant.project.name}_${project.version}${basedir.suffix}"/>
+    <mkdir dir="${build.dir}" />
+	
+    <csc target="library" output="${output.dir}/CarrierPigeon.dll" debug="${build.debug}">
+      <sources failonempty="true">
+        <include name="${src.dir}/**/*.cs" />
+      </sources>
+		  <references>
+                <include name="${src.dir}/../Lib/*.dll" />
+                                   
+            </references>                         
+    </csc>
+	
+	
+
+  </target>
+</project>

@@ -2,7 +2,9 @@
   <CompletionStatisticsManager />
   <EditorManager>
     <RecentFiles>
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Class1.cs" caret="0" scrollPosition="0|0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="0" scrollPosition="0|0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:PackageTests.cs" caret="0" scrollPosition="0|0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="463" scrollPosition="0|0" />
     </RecentFiles>
   </EditorManager>
   <FileStructureView>
