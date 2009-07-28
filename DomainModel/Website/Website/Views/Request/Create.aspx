@@ -7,6 +7,7 @@
     <h2>
         Create a Request</h2>
     <div>
+        <%= Html.ValidationSummary("Please correct the following to continue...") %>
         <% if (ViewData["Message"] != null)
            { %>
         <%= ViewData["Message"] %>
@@ -15,7 +16,7 @@
            { %>
         <p>
             Origin:
-            <%= Html.TextBox("OriginPlace") %></p>        
+            <%= Html.TextBox("OriginPlace") %></p>
         <p>
             Start Date:
             <%= Html.TextBox("OriginDate")%></p>
