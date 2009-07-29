@@ -13,6 +13,7 @@ namespace DomainModel
             this.Destination = destination;
             this.RequestedUser = user;
             this.Origin = origin;
+            this.Package = package;
             
         }
 

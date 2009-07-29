@@ -1,6 +1,6 @@
 using System;
 
-namespace DomainModel.Tests
+namespace DomainModel
 {
     public class RepositoryFactory
     {

@@ -8,11 +8,11 @@ namespace DomainModel.UserRegistration
 {
     public class UserRegistrationService : IUserRegistration
     {
-        public UserRepository Repository { get; set; }
+        public IUserRepository Repository { get; set; }
 
-        public UserRegistrationService()
+        public UserRegistrationService(IUserRepository repository)
         {
-
+            this.Repository = repository;
         }
 
 
@@ -49,4 +49,5 @@ namespace DomainModel.UserRegistration
         //}
 
     }
+
 }
