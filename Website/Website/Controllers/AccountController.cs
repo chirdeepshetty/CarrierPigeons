@@ -92,20 +92,21 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Register(string userName, string email, string password, string confirmPassword)
+        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword)
         {
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
             ViewData["PasswordLength"] = 8;
+            String fullname = firstname + surname;
 
-            if (ValidateRegistration(userName, email, password, confirmPassword))
+            if (ValidateRegistration(fullname, email, password, confirmPassword))
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus = UserRegistrationService.CreateUser(new User(new Email(email), new UserName(userName, ""), password ));
+                MembershipCreateStatus createStatus = UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password ));
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsAuth.SignIn(userName, false /* createPersistentCookie */);
+                    FormsAuth.SignIn(fullname, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
                 else
