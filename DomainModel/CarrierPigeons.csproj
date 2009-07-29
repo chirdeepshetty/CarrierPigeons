@@ -68,12 +68,10 @@
     <Compile Include="Request.cs" />
     <Compile Include="IRequestRepository.cs" />
     <Compile Include="Tests\JourneyTests.cs" />
-    <Compile Include="Tests\InMemoryTextFixtureBase.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="Date.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Tests\PackageTests.cs" />
-    <Compile Include="Tests\RegistrationTest.cs" />
     <Compile Include="RequestRepository.cs" />
     <Compile Include="RepositoryFactory.cs" />
     <Compile Include="Tests\RequestTests.cs" />
