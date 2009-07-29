@@ -3,7 +3,9 @@ using System.Data;
 using System.IO;
 using NHibernate;
 
+
 using System.Linq;
+
 
 namespace DomainModel
 {
@@ -20,6 +22,7 @@ namespace DomainModel
             session.Close();       
         }
 
+
         public User LoadUser(string username)
         {
             var session = sessionFactory.OpenSession();
@@ -28,5 +31,6 @@ namespace DomainModel
             var user = query.List<User>().FirstOrDefault();
             return user;
         }
+
     }
 }

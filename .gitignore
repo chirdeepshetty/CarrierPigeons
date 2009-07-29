@@ -2,6 +2,7 @@
 *.dat
 #ignore bin
 DomainModel/bin
+bin/
 *.suo
 Website/Website/obj
 _ReSharper.DomainModel
