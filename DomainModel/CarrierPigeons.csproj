@@ -78,7 +78,6 @@
     <Compile Include="RepositoryFactory.cs" />
     <Compile Include="Tests\RequestTests.cs" />
     <Compile Include="Tests\UserRegistrationTest.cs" />
-    <Compile Include="UserRepository.cs" />
     <Compile Include="Tests\UserTests.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserName.cs" />
