@@ -20,7 +20,7 @@ namespace DomainModel.Tests
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            InitalizeSessionFactory(new FileInfo("UserRegistration/User.hbm.xml"));
+            InitalizeSessionFactory();
         }
 
         [SetUp]
@@ -35,7 +35,7 @@ namespace DomainModel.Tests
             session.Dispose();
         }
 
-        public static void InitalizeSessionFactory(params FileInfo[] hbmFiles)
+        public static void InitalizeSessionFactory()
         {
             if (SessionFactory != null)
                 return;
@@ -51,10 +51,8 @@ namespace DomainModel.Tests
             Configuration = new Configuration();
             Configuration.Properties = properties;
 
-            foreach (FileInfo mappingFile in hbmFiles)
-            {
-                Configuration = Configuration.AddFile(mappingFile);
-            }
+            
+                //Configuration = Configuration.;            
             Configuration.BuildMapping();
             SessionFactory = Configuration.BuildSessionFactory();
         }

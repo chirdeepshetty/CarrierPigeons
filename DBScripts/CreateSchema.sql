@@ -1,5 +1,6 @@
-drop table if exists Request
-drop table if exists User
+
+drop table if exists Request;
+drop table if exists User;
 create table Request (
   Id  integer,
    OriginPlace TEXT,
@@ -10,7 +11,7 @@ create table Request (
    Dimensions TEXT,
    Weight TEXT,
    primary key (Id)
-)
+);
 create table User (
   Id  integer,
    FirstName TEXT,
@@ -18,4 +19,6 @@ create table User (
    Email TEXT,
    Password TEXT,
    primary key (Id)
-)
+);
+
+.backup ../DomainModel/bin/Debug/Database.dat

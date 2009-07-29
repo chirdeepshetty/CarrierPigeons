@@ -97,9 +97,9 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DomainModel\DomainModel.csproj">
+    <ProjectReference Include="..\..\DomainModel\CarrierPigeons.csproj">
       <Project>{E51AD5A3-13F8-44AD-B533-273B708F79DF}</Project>
-      <Name>DomainModel</Name>
+      <Name>CarrierPigeons</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

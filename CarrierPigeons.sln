@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "DomainModel\DomainModel.csproj", "{E51AD5A3-13F8-44AD-B533-273B708F79DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrierPigeons", "DomainModel\CarrierPigeons.csproj", "{E51AD5A3-13F8-44AD-B533-273B708F79DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website\Website.csproj", "{2A2BDE59-BCBF-4649-A414-37E2FECDD5E8}"
 EndProject

@@ -6,7 +6,7 @@
   <property name="lib.dir" value="./Lib" />
   <property name="nant.settings.currentframework" value="net-3.5"/>
   <property name="build.debug" value="true" />
-  <property name="output.file.name" value="DomainModel.dll" />  
+  <property name="output.file.name" value="CarrierPigeons.dll" />  
 
   <target name="init">
     <delete dir="${output.dir}"/>
@@ -27,8 +27,10 @@
     <copy todir="${output.dir}">
         <fileset basedir="${lib.dir}">
             <include name="*.dll" />
-        </fileset>
+        </fileset>        
     </copy>
+    <copy tofile="${output.dir}/${output.file.name}.config" file="${src.dir}/App.config"/>
+    <exec program="DBScripts/DBCreate.bat" verbose="true"/>
   </target>
   
   <target name="cruise" depends="build, test" description="compiles and runs tests"/>
