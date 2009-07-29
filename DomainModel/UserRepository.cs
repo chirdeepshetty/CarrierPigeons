@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using NHibernate;
+
+using System.Linq;
 
 namespace DomainModel
 {
@@ -12,6 +15,15 @@ namespace DomainModel
             sessionFactory = InitalizeSessionFactory(new FileInfo("UserRegistration/User.hbm.xml"));
         }
 
+        public User LoadUser(string username)
+        {
+            var session = sessionFactory.OpenSession();
+            IQuery query = session.CreateQuery("from User");
+            User user = query.List<User>().First();
+
+            
+            return null;
+        }
 
         public void SaveUser(User user)
         {
