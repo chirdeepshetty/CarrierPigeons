@@ -10,13 +10,16 @@
         <%= Html.ValidationSummary("Please correct the following to continue...") %>
         <% if (ViewData["Message"] != null)
            { %>
-        <%= ViewData["Message"] %>
-        <% } %>
+        <%= ViewData["Message"]%><br />
+        <%= Html.ActionLink("Go back to homepage...", "Index", "Home") %>
+        <% }
+           else
+           {%>
         <% using (Html.BeginForm())
            { %>
         <p>
             Origin:
-            <%= Html.TextBox("OriginPlace") %></p>
+            <%= Html.TextBox("OriginPlace")%></p>
         <p>
             Start Date:
             <%= Html.TextBox("OriginDate")%></p>
@@ -39,6 +42,7 @@
             Weight:
             <%= Html.TextBox("PackageWeight")%></p>
         <input type="submit" value="Submit Request" />
-        <% } %>
+        <% }
+           } %>
     </div>
 </asp:Content>
