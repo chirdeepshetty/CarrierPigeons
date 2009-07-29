@@ -23,6 +23,9 @@
 	<include name="${lib.dir}/*.dll" />
 	<exclude name="${lib.dir}/sqlite3.dll"/>
     </references>          
+    <resources dynamicprefix="true">
+       <include name="${src.dir}/**/*.hbm.xml"/>
+    </resources>   
     </csc>
     <copy todir="${output.dir}">
         <fileset basedir="${lib.dir}">
