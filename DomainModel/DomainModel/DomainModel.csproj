@@ -77,12 +77,12 @@
     <Compile Include="Tests\RepositoryFactory.cs" />
     <Compile Include="Tests\RequestTests.cs" />
     <Compile Include="Tests\UserRegistrationTest.cs" />
-    <Compile Include="Tests\UserRepository.cs" />
     <Compile Include="Tests\UserTests.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserName.cs" />
     <Compile Include="UserRegistration\UserRegistrationService.cs" />
     <Compile Include="UserRegistration\IUserRegistration.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Request.hbm.xml">
