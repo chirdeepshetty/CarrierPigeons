@@ -36,18 +36,17 @@
        <exclude name="${domain.src.dir}/bin/**/*"/>
     </resources>   
     </csc>
-    <!--
+    
     <csc target="library" output="${output.dir}/${website.output}" debug="${build.debug}">
           <sources failonempty="true">
             <include name="${website.src.dir}/**/*.cs" />        
           </sources>
-        <references >
+        <references> 
+	   <include name="${environment::get-variable('system.web.home')}/*.dll" /> 
     	   <include name="${output.dir}/*.dll" />
     	   <exclude name="${output.dir}/sqlite3.dll"/>
         </references>          
-    </csc>
--->
-   
+    </csc>   
     <exec program="DBScripts/DBCreate.bat" verbose="true"/>
   </target>
   
@@ -56,8 +55,8 @@
   <target name="test" description="Execute the NUnit testcases">
       <nunit2 verbose="true" >
         <formatter type="Plain" />
-        <test assemblyname="${output.dir}/${domain.output}"/>
-        <!--<test assemblyname="${output.dir}/${website.output}"/-->
+        <test assemblyname="${output.dir}/${domain.output}"/>        
+        <test assemblyname="${output.dir}/${website.output}"/>
       </nunit2>
       
   </target>
