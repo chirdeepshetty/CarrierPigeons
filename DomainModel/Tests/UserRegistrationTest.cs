@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class UserRegistrationTest : InMemoryTestFixtureBase
+    public class UserRegistrationTest
     {
 
 
