@@ -33,9 +33,10 @@
     </references>          
     <resources dynamicprefix="true">
        <include name="${domain.src.dir}/**/*.hbm.xml"/>
+       <exclude name="${domain.src.dir}/bin/**/*"/>
     </resources>   
     </csc>
-    
+    <!--
     <csc target="library" output="${output.dir}/${website.output}" debug="${build.debug}">
           <sources failonempty="true">
             <include name="${website.src.dir}/**/*.cs" />        
@@ -45,7 +46,7 @@
     	   <exclude name="${output.dir}/sqlite3.dll"/>
         </references>          
     </csc>
-
+-->
    
     <exec program="DBScripts/DBCreate.bat" verbose="true"/>
   </target>
@@ -56,7 +57,7 @@
       <nunit2 verbose="true" >
         <formatter type="Plain" />
         <test assemblyname="${output.dir}/${domain.output}"/>
-        <test assemblyname="${output.dir}/${website.output}"/>
+        <!--<test assemblyname="${output.dir}/${website.output}"/-->
       </nunit2>
       
   </target>

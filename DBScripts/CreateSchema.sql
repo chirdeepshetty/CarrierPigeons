@@ -21,4 +21,4 @@ create table User (
    primary key (Id)
 );
 
-.backup ../DomainModel/bin/Debug/Database.dat
+.backup ../bin/Debug/Database.dat
