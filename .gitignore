@@ -9,3 +9,4 @@ DomainModel/obj
 Website/Website/bin
 DomainModel.4.5.resharper.user
 DomainModel.suo
+*.dat

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E51AD5A3-13F8-44AD-B533-273B708F79DF}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -86,13 +86,10 @@
     <Compile Include="UserRegistration\IUserRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DomainModel.4.5.resharper.user" />
-    <Content Include="Location.hbm.xml" />
-    <Content Include="Package.hbm.xml" />
-    <Content Include="Request.hbm.xml" />
-    <Content Include="UserRegistration\User.hbm.xml">
+    <EmbeddedResource Include="Request.hbm.xml" />
+    <EmbeddedResource Include="UserRegistration\User.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
