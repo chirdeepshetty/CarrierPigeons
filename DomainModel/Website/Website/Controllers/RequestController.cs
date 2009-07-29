@@ -18,12 +18,9 @@ namespace Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                Package package = new Package(requestResponse.PackageDescription, requestResponse.PackageWeight,
-                                              requestResponse.PackageDescription);
-                Location origin = new Location(requestResponse.OriginPlace,
-                                               new TravelDate(DateTime.Parse(requestResponse.OriginDate)));
-                Location destination = new Location(requestResponse.DestinationPlace,
-                                                    new TravelDate(DateTime.Parse(requestResponse.DestinationDate)));
+                Package package = new Package(requestResponse.PackageDescription, requestResponse.PackageWeight, requestResponse.PackageDescription);
+                Location origin = new Location(requestResponse.OriginPlace, new TravelDate(DateTime.Parse(requestResponse.OriginDate)));
+                Location destination = new Location(requestResponse.DestinationPlace, new TravelDate(DateTime.Parse(requestResponse.DestinationDate)));
                 DomainModel.Request request = new Request(null, package, origin, destination);
                 DomainModel.RequestRepository.Instance.Save(request);
 

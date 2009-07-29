@@ -7,6 +7,10 @@ namespace DomainModel
     {
         public virtual DateTime DateTime { get; set; }
         
+        internal TravelDate()
+        {
+        }
+
         public TravelDate(DateTime dateTime)
         {
             DateTime = dateTime;

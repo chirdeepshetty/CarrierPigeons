@@ -75,7 +75,7 @@
     <Compile Include="Tests\PackageTests.cs" />
     <Compile Include="Tests\RegistrationTest.cs" />
     <Compile Include="RequestRepository.cs" />
-    <Compile Include="Tests\RepositoryFactory.cs" />
+    <Compile Include="RepositoryFactory.cs" />
     <Compile Include="Tests\RequestTests.cs" />
     <Compile Include="Tests\UserRegistrationTest.cs" />
     <Compile Include="UserRepository.cs" />
@@ -92,6 +92,9 @@
     <Content Include="UserRegistration\User.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

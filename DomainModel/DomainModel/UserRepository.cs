@@ -18,4 +18,5 @@ namespace DomainModel
             CreateSession(sessionFactory).Save(user);            
         }
     }
+
 }

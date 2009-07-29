@@ -2,6 +2,10 @@ namespace DomainModel
 {
     public class Package
     {
+        internal Package()
+        {
+        }
+
         public Package(string description, string weight, string dimensions)
         {
             this.Description = description;

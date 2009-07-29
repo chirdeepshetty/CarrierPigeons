@@ -11,23 +11,23 @@ namespace DomainModel.Tests
     public class UserRegistrationTest : InMemoryTestFixtureBase
     {
 
-    
+
         [Test]
-        public void testUserRegistration ()
+        public void testUserRegistration()
         {
-            
+
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
             User user = new User(email, name, "pwd");
 
 
-            IUserRepository userRepository =  RepositoryFactory.GetUserRepository();
+            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
             UserRegistration.UserRegistrationService service = new UserRegistrationService(userRepository);
-            
+
 
             service.CreateUser(user);
-            
-            
+
+
 
 
         }

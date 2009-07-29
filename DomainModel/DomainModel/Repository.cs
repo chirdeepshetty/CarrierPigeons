@@ -39,17 +39,15 @@ namespace DomainModel
             }
             Configuration.BuildMapping();
             ISessionFactory sessionFactory = Configuration.BuildSessionFactory();
-            ISession openSession = sessionFactory.OpenSession();
-           
 
             return sessionFactory;
         }
 
-        public ISession CreateSession(ISessionFactory sessionFactory )
+        public static ISession CreateSession(ISessionFactory sessionFactory )
         {
             ISession openSession = sessionFactory.OpenSession();
-           IDbConnection connection = openSession.Connection;
-           new SchemaExport(Configuration).Execute(false, true, false, true, connection, null);
+            IDbConnection connection = openSession.Connection;
+            new SchemaExport(Configuration).Execute(false, true, false, true, connection, null);
             return openSession;
         }
 
