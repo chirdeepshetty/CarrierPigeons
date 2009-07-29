@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
  
 <project name="CarrierPigeons" default="cruise">
-  <property name="src.dir" value="./DomainModel" />
-  <property name="output.dir" value="./DomainModel/bin/Debug" />
+  <property name="domain.src.dir" value="./DomainModel" />
+  <property name="website.src.dir" value="./Website" />
+  <property name="output.dir" value="./bin/Debug" />
   <property name="lib.dir" value="./Lib" />
   <property name="nant.settings.currentframework" value="net-3.5"/>
   <property name="build.debug" value="true" />
-  <property name="output.file.name" value="CarrierPigeons.dll" />  
+  <property name="domain.output" value="CarrierPigeons.dll" />  
+  <property name="website.output" value="Website.dll" /> 
 
   <target name="init">
     <delete dir="${output.dir}"/>
@@ -14,25 +16,37 @@
 
   <target name="build" depends="init" description="compiles the source code">    
     <mkdir dir="${output.dir}" />
-	
-    <csc target="library" output="${output.dir}/${output.file.name}" debug="${build.debug}">
-      <sources failonempty="true">
-        <include name="${src.dir}/**/*.cs" />        
-      </sources>
-    <references >
-	<include name="${lib.dir}/*.dll" />
-	<exclude name="${lib.dir}/sqlite3.dll"/>
-    </references>          
-    <resources dynamicprefix="true">
-       <include name="${src.dir}/**/*.hbm.xml"/>
-    </resources>   
-    </csc>
     <copy todir="${output.dir}">
         <fileset basedir="${lib.dir}">
             <include name="*.dll" />
         </fileset>        
     </copy>
-    <copy tofile="${output.dir}/${output.file.name}.config" file="${src.dir}/App.config"/>
+     <copy tofile="${output.dir}/${domain.output}.config" file="${domain.src.dir}/App.config"/>
+     
+    <csc target="library" output="${output.dir}/${domain.output}" debug="${build.debug}">
+      <sources failonempty="true">
+        <include name="${domain.src.dir}/**/*.cs" />        
+      </sources>
+    <references >
+	<include name="${output.dir}/*.dll" />
+	<exclude name="${output.dir}/sqlite3.dll"/>
+    </references>          
+    <resources dynamicprefix="true">
+       <include name="${domain.src.dir}/**/*.hbm.xml"/>
+    </resources>   
+    </csc>
+    
+    <csc target="library" output="${output.dir}/${website.output}" debug="${build.debug}">
+          <sources failonempty="true">
+            <include name="${website.src.dir}/**/*.cs" />        
+          </sources>
+        <references >
+    	   <include name="${output.dir}/*.dll" />
+    	   <exclude name="${output.dir}/sqlite3.dll"/>
+        </references>          
+    </csc>
+
+   
     <exec program="DBScripts/DBCreate.bat" verbose="true"/>
   </target>
   
@@ -41,7 +55,8 @@
   <target name="test" description="Execute the NUnit testcases">
       <nunit2 verbose="true" >
         <formatter type="Plain" />
-        <test assemblyname="${output.dir}/${output.file.name}"/>
+        <test assemblyname="${output.dir}/${domain.output}"/>
+        <test assemblyname="${output.dir}/${website.output}"/>
       </nunit2>
       
   </target>
