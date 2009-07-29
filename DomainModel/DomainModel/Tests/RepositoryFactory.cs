@@ -4,7 +4,7 @@ namespace DomainModel.Tests
 {
     public class RepositoryFactory
     {
-        public Repository GetUserRepository()
+        public static IUserRepository GetUserRepository()
         {
             return new UserRepository();
         }

@@ -4,7 +4,7 @@ using NHibernate;
 
 namespace DomainModel
 {
-    public class UserRepository : Repository
+    public class UserRepository : Repository,IUserRepository
     {
         private static ISessionFactory sessionFactory;
         static UserRepository ()

@@ -21,9 +21,9 @@ namespace DomainModel.Tests
             User user = new User(email, name, "pwd");
 
 
-            UserRepository userRepository = (UserRepository)new RepositoryFactory ().GetUserRepository();
-            UserRegistration.UserRegistrationService  service = new UserRegistrationService();
-            service.Repository = userRepository;
+            IUserRepository userRepository =  RepositoryFactory.GetUserRepository();
+            UserRegistration.UserRegistrationService service = new UserRegistrationService(userRepository);
+            
 
             service.CreateUser(user);
             

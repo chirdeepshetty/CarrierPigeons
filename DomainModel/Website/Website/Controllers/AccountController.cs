@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI;
 using DomainModel;
+using DomainModel.Tests;
 using  DomainModel.UserRegistration;
 
 namespace Website.Controllers
@@ -31,7 +32,7 @@ namespace Website.Controllers
         public AccountController(IFormsAuthentication formsAuth, IUserRegistration service)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            UserRegistrationService = service ?? new UserRegistrationService();
+            UserRegistrationService = service ?? new UserRegistrationService(RepositoryFactory.GetUserRepository());
         }
 
         public IFormsAuthentication FormsAuth
