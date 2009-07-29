@@ -4,6 +4,10 @@ namespace DomainModel
 {
     public class Location
     {
+        internal  Location()
+        {
+        }
+
         public Location(string place, TravelDate travelDate)
         {
             this.Place = place;
