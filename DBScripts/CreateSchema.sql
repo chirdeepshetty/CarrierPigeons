@@ -10,6 +10,8 @@ create table Request (
    Description TEXT,
    Dimensions TEXT,
    Weight TEXT,
+   user_id integer,
+
    primary key (Id)
 );
 create table User (
