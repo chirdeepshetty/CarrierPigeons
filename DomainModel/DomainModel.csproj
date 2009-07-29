@@ -86,6 +86,7 @@
     <Compile Include="UserRegistration\IUserRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DomainModel.4.5.resharper.user" />
     <Content Include="Location.hbm.xml" />
     <Content Include="Package.hbm.xml" />
     <Content Include="Request.hbm.xml" />
