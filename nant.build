@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
  
 <project name="CarrierPigeons" default="cruise">
-  <property name="src.dir" value="./DomainModel/DomainModel" />
-  <property name="output.dir" value="./DomainModel/DomainModel/bin/Debug" />
-  <property name="lib.dir" value="./DomainModel/Lib" />
+  <property name="src.dir" value="./DomainModel" />
+  <property name="output.dir" value="./DomainModel/bin/Debug" />
+  <property name="lib.dir" value="./Lib" />
   <property name="nant.settings.currentframework" value="net-3.5"/>
   <property name="build.debug" value="true" />
-  <property name="output.file.name" value="CarrierPigeon.dll" />  
+  <property name="output.file.name" value="DomainModel.dll" />  
 
   <target name="init">
     <delete dir="${output.dir}"/>
