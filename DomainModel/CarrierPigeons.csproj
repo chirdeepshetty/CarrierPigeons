@@ -81,6 +81,7 @@
     <Compile Include="UserName.cs" />
     <Compile Include="UserRegistration\UserRegistrationService.cs" />
     <Compile Include="UserRegistration\IUserRegistration.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Request.hbm.xml" />
