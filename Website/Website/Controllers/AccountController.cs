@@ -97,7 +97,7 @@ namespace Website.Controllers
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
             ViewData["PasswordLength"] = 8;
-            String fullname = firstname + surname;
+            String fullname =  firstname + " " + surname;
 
             if (ValidateRegistration(fullname, email, password, confirmPassword))
             {
