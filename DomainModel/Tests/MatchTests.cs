@@ -25,5 +25,22 @@ namespace DomainModel.Tests
             Assert.AreEqual(destination.Place, match.Request.Destination.Place);
 
         }
+
+        [Test]
+        public void TestMatchRepositorySave()
+        {
+            User user = new User(new Email("abc@def.com"), null, "password");
+            Package package = new Package("Package", "Weight", "Dimensions");
+            Location origin = new Location("Origin", new TravelDate(DateTime.Today));
+            Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
+            Journey journey = new Journey(user, origin, destination);
+            Request request = new Request(user, null, origin, destination);
+            Match match = new Match(journey, request);
+
+            IMatchRepository repository = MatchRepository.Instance;
+            repository.Save(match);
+            var loadedMatch = repository.Load(match.Id);
+            Assert.AreEqual(match.Id, loadedMatch.Id);
+        }
     }
 }
