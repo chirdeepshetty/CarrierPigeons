@@ -40,5 +40,24 @@ namespace Website.Controllers
             return View(requestResponse);
 
         }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ViewResult Search()
+        {
+
+            return View();
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult SearchResult()
+        {
+
+            return View();
+        }
+
+
+
+
+       
+
     }
 }
