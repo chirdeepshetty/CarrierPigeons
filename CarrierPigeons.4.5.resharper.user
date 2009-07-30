@@ -11,9 +11,29 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="417" fromTop="6" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.cs" caret="503" fromTop="14" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="110" fromTop="4" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RepositoryFactory.cs" caret="217" fromTop="11" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Repository.cs" caret="2487" fromTop="24" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="693" fromTop="26" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="924" fromTop="25" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.hbm.xml" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="893" fromTop="18" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="947" fromTop="9" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="0" fromTop="0" />
     </RecentFiles>
-    <RecentEdits />
+    <RecentEdits>
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="1477" fromTop="5" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="918" fromTop="22" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="110" fromTop="4" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="1166" fromTop="16" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="1975" fromTop="22" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.hbm.xml" caret="1377" fromTop="15" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="471" fromTop="11" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2537" fromTop="2" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="663" fromTop="2" />
+    </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
     <Providers />
@@ -21,4 +41,65 @@
   <UnitTestRunnerMSTest>
     <UseTestRunConfigFromMetadataFile>False</UseTestRunConfigFromMetadataFile>
   </UnitTestRunnerMSTest>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Test" priority="0" />
+      <Item value="public" priority="1" />
+      <Item value="volatile" priority="1" />
+      <Item value="userRepository" priority="2" />
+      <Item value="user" priority="3" />
+      <Item value="User" priority="8" />
+      <Item value="string" priority="1" />
+      <Item value="var" priority="0" />
+      <Item value="Assert" priority="0" />
+      <Item value="loadedUser" priority="0" />
+      <Item value="if" priority="0" />
+      <Item value="else" priority="0" />
+      <Item value="ViewData" priority="0" />
+      <Item value="DomainModel" priority="2" />
+      <Item value="UserRepository" priority="1" />
+      <Item value="openSession" priority="0" />
+      <Item value="true" priority="1" />
+      <Item value="new" priority="3" />
+      <Item value="StringWriter" priority="0" />
+      <Item value="writer" priority="0" />
+      <Item value="false" priority="0" />
+      <Item value="null" priority="2" />
+      <Item value="RepositoryFactory" priority="0" />
+      <Item value="configuration" priority="0" />
+      <Item value="connection" priority="0" />
+      <Item value="Email" priority="0" />
+      <Item value="UserName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.IUserRepository">
+      <Item value="SaveUser" priority="1" />
+      <Item value="LoadUser" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="AreEqual" priority="0" />
+      <Item value="IsNotNull" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.User">
+      <Item value="Email" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Email">
+      <Item value="EmailAddress" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IPrincipal">
+      <Item value="Identity" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IIdentity">
+      <Item value="IsAuthenticated" priority="0" />
+      <Item value="Name" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="Close" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DomainModel.RepositoryFactory">
+      <Item value="GetUserRepository" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.Cfg.Configuration">
+      <Item value="BuildMapping" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>

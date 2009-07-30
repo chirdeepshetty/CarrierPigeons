@@ -21,9 +21,6 @@
             Origin:
             <%= Html.TextBox("OriginPlace")%></p>
         <p>
-            Start Date:
-            <%= Html.TextBox("OriginDate")%></p>
-        <p>
             Destination:
             <%= Html.TextBox("DestinationPlace")%></p>
         <p>

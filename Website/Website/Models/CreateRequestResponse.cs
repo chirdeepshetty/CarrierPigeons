@@ -20,8 +20,6 @@ namespace Website.Models
 
         public string OriginPlace { get; set; }
 
-        public string OriginDate { get; set; }
-
         public string DestinationPlace { get; set; }
 
         public string DestinationDate { get; set; }
@@ -46,9 +44,9 @@ namespace Website.Models
                     return "Please enter the weight of your package.";
                 if ((propName == "OriginPlace") && string.IsNullOrEmpty(OriginPlace))
                     return "Please enter the origin station.";
-                if ((propName == "OriginDate") && !DateTime.TryParse(OriginDate, out datetime))
-                    return "Please enter a valid Date.";
-                if ((propName == "DestinationDate") && !DateTime.TryParse(DestinationDate, out datetime))
+                if ((propName == "DestinationDate") && 
+                    ((!DateTime.TryParse(DestinationDate, out datetime)) || (datetime < DateTime.Today.Date))
+                   )
                     return "Please enter a valid Date.";
                 if ((propName == "DestinationPlace") && string.IsNullOrEmpty(DestinationPlace))
                     return "Please enter the destination station.";
