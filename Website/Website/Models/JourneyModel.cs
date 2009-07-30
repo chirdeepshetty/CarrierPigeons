@@ -38,15 +38,15 @@ namespace Website.Models
                 if ((propName == "OriginDate") && 
                     ((!DateTime.TryParse(OriginDate, out originDate)) || (originDate < DateTime.Today.Date))
                    )
-                    return "Please enter a valid Date.";
+                    return "Please enter a valid departure date.";
                 if ((propName == "DestinationPlace") && string.IsNullOrEmpty(DestinationPlace))
                     return "Please enter the destination station.";
-                if ((propName == "DestinationDate") &&
-                   (!DateTime.TryParse(DestinationDate, out destinationDate))
-                  )
+                if (propName == "DestinationDate")
                 {
+                    if(!DateTime.TryParse(DestinationDate, out destinationDate))
+                        return "Please enter a valid arrival date.";
                     if(!(DateTime.TryParse(OriginDate, out originDate) && destinationDate >= originDate))
-                        return "Please enter a valid Date.";
+                        return "Arrival date cannot be less than departure date.";
                 }
 
                 return null;
