@@ -97,25 +97,22 @@ namespace Website.Controllers
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
             ViewData["PasswordLength"] = 8;
-            String fullname =  firstname + " " + surname;
+            String fullname = firstname + " " + surname;
 
             if (ValidateRegistration(fullname, email, password, confirmPassword))
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus = UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password ));
-
-                if (createStatus == MembershipCreateStatus.Success)
+                try
                 {
+                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password));
                     FormsAuth.SignIn(fullname, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
-                else
+                catch (DuplicateRegistrationException)
                 {
-                    ModelState.AddModelError("_FORM", ErrorCodeToString(createStatus));
+                    ModelState.AddModelError("_FORM", "Email address already registered with us.");
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return View();
         }
 
