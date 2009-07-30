@@ -23,6 +23,7 @@
             
                 <ul id="menu">              
                     <li><%= Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li><%= Html.ActionLink("Journey", "Create", "Journey")%></li>
                     <li><%= Html.ActionLink("Request", "Create", "Request")%></li>
                     <li><%= Html.ActionLink("About", "About", "Home")%></li>
                 </ul>

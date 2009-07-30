@@ -22,5 +22,15 @@ create table User (
    Password TEXT,
    primary key (Id)
 );
+create table Journey (
+  Id  integer,
+   OriginPlace TEXT,
+   OriginDate DATETIME,
+   DestinationPlace TEXT,
+   DestinationDate DATETIME,
+   user_id integer,
+
+   primary key (Id)
+);
 
 .backup ../bin/Debug/Database.dat
