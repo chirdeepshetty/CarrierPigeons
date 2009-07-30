@@ -13,7 +13,8 @@ namespace DomainModel
     {
         protected static ISessionFactory sessionFactory;
         protected static Configuration configuration;
-        
+        public event JourneyCreatedEventHandler JourneyCreated;
+
         private JourneyRepository()
         {
             if(sessionFactory!=null)
@@ -38,10 +39,12 @@ namespace DomainModel
         {
             var session = sessionFactory.OpenSession();
             IDbConnection connection = session.Connection;
-
+            
             session.Save(journey);
             
             session.Close();
+            if(this.JourneyCreated != null)
+                JourneyCreated(new JourneyCreatedEventArgs{Journey = journey});
         }
 
         public Journey Load(int journeyId)
@@ -60,5 +63,13 @@ namespace DomainModel
     {
         void Save(Journey journey);
         Journey Load(int journeyId);
+        event JourneyCreatedEventHandler JourneyCreated;
+    }
+
+    public delegate void JourneyCreatedEventHandler(JourneyCreatedEventArgs e);
+
+    public class JourneyCreatedEventArgs : EventArgs
+    {
+        public Journey Journey { get; set; }
     }
 }
