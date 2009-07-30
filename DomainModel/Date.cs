@@ -325,5 +325,25 @@ namespace DomainModel
         {
             get { return DateTime.Year; }
         }
+
+        public bool Equals(TravelDate other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return other.DateTime.Date.Equals(DateTime.Date);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (TravelDate)) return false;
+            return Equals((TravelDate) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return DateTime.GetHashCode();
+        }
     }
 }
