@@ -31,6 +31,9 @@ namespace DomainModel.UserRegistration
 
         public MembershipCreateStatus CreateUser(User user)
         {
+            User existingUser = Repository.LoadUser(user.EmailAddress);
+            if (existingUser != null)
+                throw new DuplicateRegistrationException();
             Repository.SaveUser(user);
             return MembershipCreateStatus.Success;
 
