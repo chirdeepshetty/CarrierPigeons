@@ -26,6 +26,8 @@
                     <li><%= Html.ActionLink("Journey", "Create", "Journey")%></li>
                     <li><%= Html.ActionLink("Request", "Create", "Request")%></li>
                     <li><%= Html.ActionLink("About", "About", "Home")%></li>
+                    <li><%= Html.ActionLink("Matched Requests", "MatchRequest", "RequestMatch")%></li>
+                     <li><%= Html.ActionLink("Matched Journeys", "MatchJourney", "JourneyMatch")%></li>
                 </ul>
             
             </div>
