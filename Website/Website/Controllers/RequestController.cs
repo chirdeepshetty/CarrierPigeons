@@ -41,22 +41,7 @@ namespace Website.Controllers
 
         }
 
-        [AcceptVerbs(HttpVerbs.Get)]
-        public ViewResult Search()
-        {
-
-            return View();
-        }
-        [AcceptVerbs(HttpVerbs.Post)]
-        [ActionName("Search")]
-        public ViewResult SearchResult()
-        {
-
-            return View();
-        }
-
-
-
+      
 
        
 
