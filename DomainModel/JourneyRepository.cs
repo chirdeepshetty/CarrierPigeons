@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Reflection;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using NUnit.Framework;
 
 namespace DomainModel
 {
@@ -56,6 +58,20 @@ namespace DomainModel
             
         }
 
+      
+        public List<Journey> FindJourneysByUser(string emailid)
+        {
+
+            User user = RepositoryFactory.GetUserRepository().LoadUser(emailid);
+            var session = sessionFactory.OpenSession();
+            string querystring = "from Journey as J  where J.Traveller.Id= :user_id";
+            IQuery query = session.CreateQuery(querystring);
+            query.SetInt32("user_id", user.Id);
+            var journeyList = (List<Journey>)query.List<Journey>();
+            return journeyList;
+
+        }
+
         #endregion
     }
 
@@ -64,6 +80,7 @@ namespace DomainModel
         void Save(Journey journey);
         Journey Load(int journeyId);
         event JourneyCreatedEventHandler JourneyCreated;
+        List<Journey> FindJourneysByUser(string emailid);
     }
 
     public delegate void JourneyCreatedEventHandler(JourneyCreatedEventArgs e);
