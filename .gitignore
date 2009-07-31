@@ -5,9 +5,9 @@ DomainModel/bin
 bin/
 *.suo
 Website/Website/obj
-_ReSharper.DomainModel
+_ReSharper.CarrierPigeons
 DomainModel/obj
 Website/Website/bin
-DomainModel.4.5.resharper.user
-DomainModel.suo
+CarrierPigeons.4.5.resharper.user
+CarrierPigeons.suo
 *.dat

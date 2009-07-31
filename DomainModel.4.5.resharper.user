@@ -1,0 +1,103 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="this" priority="1" />
+      <Item value="package" priority="0" />
+      <Item value="else" priority="0" />
+      <Item value="HtmlHelper" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="HtmlLink" priority="1" />
+      <Item value="Html" priority="0" />
+      <Item value="public" priority="0" />
+      <Item value="User" priority="1" />
+      <Item value="return" priority="0" />
+      <Item value="null" priority="0" />
+      <Item value="using" priority="0" />
+      <Item value="System" priority="0" />
+      <Item value="Linq" priority="0" />
+      <Item value="u" priority="0" />
+      <Item value="var" priority="0" />
+      <Item value="sessionFactory" priority="0" />
+      <Item value="service" priority="0" />
+      <Item value="UserRepository" priority="0" />
+      <Item value="userRepository" priority="1" />
+      <Item value="user" priority="0" />
+      <Item value="username" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Request">
+      <Item value="Package" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
+      <Item value="ActionLink" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Where" priority="0" />
+      <Item value="First" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISessionFactory">
+      <Item value="OpenSession" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DomainModel.UserRepository">
+      <Item value="CreateSession" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="Load" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.IUserRepository">
+      <Item value="SaveUser" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Package.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.cs" caret="385" fromTop="15" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="11732" fromTop="22" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Email.cs" caret="60" fromTop="4" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1028" fromTop="24" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="108" fromTop="4" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:User.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:App.config" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:UserRegistrationService.cs" caret="311" fromTop="12" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="581" fromTop="12" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:User.hbm.xml" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Repository.cs" caret="1094" fromTop="21" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="641" fromTop="18" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="1180" fromTop="43" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="498" fromTop="22" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Package.cs" caret="337" fromTop="13" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.cs" caret="385" fromTop="15" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="11732" fromTop="22" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="701" fromTop="13" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="1540" fromTop="32" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="581" fromTop="12" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="108" fromTop="4" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="666" fromTop="22" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="107" fromTop="5" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Email.cs" caret="60" fromTop="4" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="1249" fromTop="37" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="824" fromTop="20" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="1210" fromTop="20" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="1029" fromTop="16" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="1164" fromTop="20" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="650" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerMSTest>
+    <UseTestRunConfigFromMetadataFile>False</UseTestRunConfigFromMetadataFile>
+  </UnitTestRunnerMSTest>
+</Configuration>
