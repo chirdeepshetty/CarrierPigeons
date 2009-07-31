@@ -63,8 +63,14 @@ namespace DomainModel.Tests
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
             Location fromLocation = new Location("place", travelDate);
             Location toLocation = new Location("place", travelDate);
+            Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
+            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            Request request = new Request(user, package, fromLocation, toLocation);
+
+
+            DomainModel.TravelDate travelDate2 = new TravelDate(DateTime.Now);
             IRequestRepository repository = RequestRepository.Instance;
-            List<Request> requestlist = repository.Search(fromLocation,toLocation,travelDate);
+            List<Request> requestlist = repository.Search(fromLocation,toLocation,travelDate2);
             Assert.GreaterOrEqual(requestlist.Count,1);
 
 
