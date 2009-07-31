@@ -25,6 +25,7 @@ namespace DomainModel
 
         public virtual  Email Email { get; set; }
         public virtual  UserName Name { get; set; }
+        public virtual string EmailAddress { get { return Email.EmailAddress; } }
 
     }
 }
