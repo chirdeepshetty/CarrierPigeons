@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="CarrierPigeons" namespace="DomainModel">
+  <class name="DomainModel.Journey" table="Journey">
+    <id column="Id" name="Id">
+      <generator class="native" />
+    </id>
+    <component class="DomainModel.Location" name="Origin" >
+      <property name="Place" column="OriginPlace" type="String" length="50"/>
+      <component class="DomainModel.TravelDate" name="Date" >
+        <property name="DateTime" column="OriginDate" type="DateTime"/>
+      </component>
+    </component>
+    <!--sep -->
+
+    <component class="DomainModel.Location" name="Destination" >
+      <property name="Place" column="DestinationPlace" type="String" length="50"/>
+      <component class="DomainModel.TravelDate" name="Date" >
+        <property name="DateTime" column="DestinationDate" type="DateTime"/>
+      </component>
+    </component>
+
+    <many-to-one class="DomainModel.User" column="user_id" name="Traveller">
+    </many-to-one>
+  </class>
+</hibernate-mapping>
