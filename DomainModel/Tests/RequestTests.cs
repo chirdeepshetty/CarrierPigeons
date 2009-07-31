@@ -56,5 +56,20 @@ namespace DomainModel.Tests
             repository.Save(request);
         }
 
+        [Test]
+        public void TestRequestSearch()
+        {
+
+            DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
+            Location fromLocation = new Location("place", travelDate);
+            Location toLocation = new Location("place", travelDate);
+            IRequestRepository repository = RequestRepository.Instance;
+            List<Request> requestlist = repository.Search(fromLocation,toLocation,travelDate);
+            Assert.GreaterOrEqual(requestlist.Count,1);
+
+
+        }
+
+
     }
 }
