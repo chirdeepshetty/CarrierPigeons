@@ -33,9 +33,15 @@ namespace DomainModel.Tests
             journeyRepository.Save(journey);
             int journeyid = journey.Id;
             Journey journeyEntity = journeyRepository.Load(journeyid);
-            Assert.AreEqual("London", journey.Origin.Place);
-            Assert.AreEqual("Mumbai", journey.Destination.Place);
-            Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
+            try
+            {
+                Assert.AreEqual("London", journey.Origin.Place);
+                Assert.AreEqual("Mumbai", journey.Destination.Place);
+                Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
+            }finally
+            {
+                journeyRepository.Delete(journey);
+            }
 
         }
 
@@ -53,14 +59,21 @@ namespace DomainModel.Tests
 
             User user = new User(new Email("asd@dsf.com"), new UserName(null, null), null);
             IList<Journey> journeyList = journeyRepository.FindJourneysByUser(user.Email.EmailAddress);
+        try{
+            Assert.GreaterOrEqual(journeyList.Count,1);
+        }finally
+            {
+                journeyRepository.Delete(journey);
+            }
+        
         }
+
 
         [Test]
         public void TestGetJourneyByRequest()
         {
             Journey journey = null;
-            try
-            {
+            
                 Guid locationId = Guid.NewGuid();
                 User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
                 RepositoryFactory.GetUserRepository().SaveUser(traveller);
@@ -72,7 +85,8 @@ namespace DomainModel.Tests
 
                 Request request = new Request(traveller, new Package(null, null, null), origin, destination);
                 IEnumerable<Journey> journeyList = journeyRepository.Find(request);
-
+                try
+                {
                 Assert.IsTrue(journeyList.Where(a => a.Origin.Place == request.Origin.Place && a.Destination.Equals(request.Destination)).Count() == 1);
             }
             finally

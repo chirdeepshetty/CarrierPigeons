@@ -41,8 +41,16 @@ namespace DomainModel.Tests
             IMatchRepository repository = MatchRepository.Instance;
             repository.Save(match);
             var loadedMatch = repository.Load(match.Id);
-            Assert.AreEqual(match.Id, loadedMatch.Id);
-            Assert.AreEqual(request.Destination.Place, loadedMatch.Request.Destination.Place);
+            try
+            {
+                Assert.AreEqual(match.Id, loadedMatch.Id);
+                Assert.AreEqual(request.Destination.Place, loadedMatch.Request.Destination.Place);
+        
+            }
+            finally
+            {
+                repository.Delete(match);
+            }
         }
 
         [Test]

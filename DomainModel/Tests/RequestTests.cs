@@ -53,6 +53,14 @@ namespace DomainModel.Tests
 
             IRequestRepository repository = RequestRepository.Instance;
             repository.Save(request);
+            try
+            {
+                Assert.NotNull(request.Id);
+            }
+            finally
+            {
+                repository.Delete(request);
+            }
         }
 
         [Test]
@@ -68,8 +76,15 @@ namespace DomainModel.Tests
             IRequestRepository repository = RequestRepository.Instance;
             repository.Save(request);
             DomainModel.TravelDate travelDate2 = new TravelDate(DateTime.Now);
-            List<Request> requestlist = repository.Search(fromLocation, toLocation, travelDate2);
-            Assert.GreaterOrEqual(requestlist.Count, 1);
+            List<Request> requestlist = repository.Search(fromLocation, toLocation, travelDate2);           
+            try
+            {
+                Assert.GreaterOrEqual(requestlist.Count, 1);
+            }
+            finally
+            {
+                repository.Delete(request);
+            }
         }
 
         [Test]
@@ -99,8 +114,8 @@ namespace DomainModel.Tests
             }
             finally
             {
-                userRepository.Delete(user1);
-                userRepository.Delete(user2);
+                requestRepository.Delete(request1);
+                requestRepository.Delete(request2);
             }
         }
 

@@ -38,8 +38,7 @@ namespace DomainModel.Tests
             Journey journey = null;
             Request request = null;
             User traveller = null;
-            try
-            {
+           
                 Guid locationId = Guid.NewGuid();
                 traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
                 RepositoryFactory.GetUserRepository().SaveUser(traveller);
@@ -53,13 +52,13 @@ namespace DomainModel.Tests
                 RequestRepository.Instance.Save(request);
                 Match match = new Match(journey, request);
                 MatchRepository.Instance.Save(match);
-                var loadedMatch = MatchRepository.Instance.Load(match.Id);
-
-                Assert.AreEqual(match.Id, loadedMatch.Id);
+                try
+                {
+                Assert.NotNull(match.Id);
             }
             finally
             {
-                RepositoryFactory.GetUserRepository().Delete(traveller);
+                MatchRepository.Instance.Delete(match);
             }
         }
     }
