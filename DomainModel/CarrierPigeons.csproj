@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MatchRepository.cs" />
     <Compile Include="JourneyRepository.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="Journey.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="Repository.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="IRequestRepository.cs" />
-    <Compile Include="Tests\Match.cs" />
+    <Compile Include="Match.cs" />
     <Compile Include="Tests\MatchTests.cs" />
     <Compile Include="UserRegistration\DuplicateRegistrationException.cs" />
     <Compile Include="Tests\JourneyTests.cs" />
@@ -104,6 +105,9 @@
     <EmbeddedResource Include="Journey.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Match.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

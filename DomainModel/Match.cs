@@ -1,4 +1,6 @@
-namespace DomainModel.Tests
+using NHibernate.Type;
+
+namespace DomainModel
 {
     public class Match
     {
@@ -11,6 +13,8 @@ namespace DomainModel.Tests
             this.Journey = journey;
             this.Request = request;
         }
+
+        public virtual int Id { get; set; }
 
         public virtual Journey Journey
         {
