@@ -48,6 +48,7 @@ namespace Website.Controllers
             return View();
         }
         [AcceptVerbs(HttpVerbs.Post)]
+        [ActionName("Search")]
         public ViewResult SearchResult()
         {
 

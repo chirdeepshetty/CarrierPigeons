@@ -49,7 +49,7 @@ namespace DomainModel
         {
             
             var session = sessionFactory.OpenSession();
-            string querystring = "from Request as R where R.Destination.Place = :destination and R.Origin.Place= :origin and R.Destination.Date.DateTime < :date";
+            string querystring = "from Request as R where R.Destination.Place = :destination and R.Origin.Place= :origin and R.Destination.Date.DateTime <= :date";
             IQuery query = session.CreateQuery(querystring);
             query.SetString("destination", toLocation.Place);
             query.SetString("origin", location.Place);
