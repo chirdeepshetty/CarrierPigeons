@@ -32,5 +32,12 @@ create table Journey (
 
    primary key (Id)
 );
+create table Match (
+  Id  integer,
+  Status TEXT,
+   request_id integer,
+   journey_id integer,
+   primary key (Id)
+); 
 
 .backup ../bin/Debug/Database.dat
