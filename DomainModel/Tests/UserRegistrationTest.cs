@@ -27,10 +27,7 @@ namespace DomainModel.Tests
 
 
             service.CreateUser(user);
-
-
-
-
+            userRepository.Delete(user);
         }
         [Test]
         public void ShouldRegisterUserIfNotDuplicate()

@@ -41,7 +41,14 @@ namespace DomainModel.Tests
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
             userRepository.SaveUser(user);
             var loadedUser = userRepository.LoadUser("clinton@usa.gov");
-            Assert.AreEqual(user.Email.EmailAddress, loadedUser.Email.EmailAddress);
+            try
+            {
+                Assert.AreEqual(user.Email.EmailAddress, loadedUser.Email.EmailAddress);
+            }finally
+            {
+                userRepository.Delete(user);
+            }
+
         }
     }
 }
