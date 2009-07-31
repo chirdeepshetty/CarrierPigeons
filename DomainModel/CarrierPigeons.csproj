@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JourneyRequestMatcher.cs" />
     <Compile Include="MatchRepository.cs" />
     <Compile Include="JourneyRepository.cs" />
     <Compile Include="IUserRepository.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Request.cs" />
     <Compile Include="IRequestRepository.cs" />
     <Compile Include="Match.cs" />
+    <Compile Include="Tests\JourneyRequestMatcherTests.cs" />
     <Compile Include="Tests\MatchTests.cs" />
     <Compile Include="UserRegistration\DuplicateRegistrationException.cs" />
     <Compile Include="Tests\JourneyTests.cs" />

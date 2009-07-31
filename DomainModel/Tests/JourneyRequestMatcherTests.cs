@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Moq;
+using NUnit.Framework;
+
+namespace DomainModel.Tests
+{
+    [TestFixture()]
+    public class JourneyRequestMatcherTests
+    {
+        [Test]
+        public void TestJourneyRequestMatcherConstructor()
+        {
+            var requestRepository = new Mock<IRequestRepository>();
+            var journeyRepository = new Mock<IJourneyRepository>();
+            JourneyRequestMatcher matcher = new JourneyRequestMatcher(requestRepository.Object, journeyRepository.Object);
+        }
+
+        [Test]
+        public void TestIfEventsAreSubscribedTo()
+        {
+            var requestRepository = new Mock<IRequestRepository>();
+            var journeyRepository = new Mock<IJourneyRepository>();
+            Request request = new Request();
+            Journey journey = new Journey();
+            requestRepository.Setup(a => a.Save(request)).Raises(a => a.RequestCreated += null, RequestCreatedEventArgs.Empty);
+            journeyRepository.Setup(a => a.Save(journey)).Raises(a => a.JourneyCreated += null, new JourneyCreatedEventArgs());
+            JourneyRequestMatcher matcher = new JourneyRequestMatcher(requestRepository.Object, journeyRepository.Object);
+            matcher.EventPublisher = new EventPublisher();
+            //TODO: Fix later
+        }
+
+        [Test]
+        public void TestMatchRepositorySave()
+        {
+            Journey journey = null;
+            Request request = null;
+            User traveller = null;
+            try
+            {
+                Guid locationId = Guid.NewGuid();
+                traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
+                Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));
+                journey = new Journey(traveller, origin, destination);
+                IJourneyRepository journeyRepository = JourneyRepository.Instance;
+                journeyRepository.Save(journey);
+
+                request = new Request(traveller, new Package(null, null, null), origin, destination);
+                RequestRepository.Instance.Save(request);
+                Match match = new Match(journey, request);
+                MatchRepository.Instance.Save(match);
+                var loadedMatch = MatchRepository.Instance.Load(match.Id);
+
+                Assert.AreEqual(match.Id, loadedMatch.Id);
+            }
+            finally
+            {
+                JourneyRepository.Instance.Delete(journey);
+                RequestRepository.Instance.Delete(request);
+                RepositoryFactory.GetUserRepository().Delete(traveller);
+            }
+        }
+    }
+
+    public class EventPublisher : IEventPublisher
+    {
+        List<string> _EventsReceived = new List<string>();
+        
+        public void AddEvent(EventArgs e)
+        {
+            var eventType = e.GetType().ToString();
+            _EventsReceived.Add(eventType);
+        }
+
+        public IEnumerable<string> Events
+        {
+            get
+            {
+                return this._EventsReceived.AsEnumerable();
+            }
+        }
+    }
+}

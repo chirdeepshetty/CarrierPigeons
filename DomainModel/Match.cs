@@ -4,7 +4,7 @@ namespace DomainModel
 {
     public class Match
     {
-        internal Match()
+        public Match()
         {
         }
 

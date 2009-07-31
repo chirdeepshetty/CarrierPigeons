@@ -58,6 +58,16 @@ namespace DomainModel
             
         }
 
+        public void Delete(Journey journey)
+        {
+            var session = sessionFactory.OpenSession();
+            IDbConnection connection = session.Connection;
+
+            session.Delete(journey);
+            session.Flush();
+            session.Close();
+        }
+
       
         public List<Journey> FindJourneysByUser(string emailid)
         {
@@ -72,6 +82,18 @@ namespace DomainModel
 
         }
 
+        public IEnumerable<Journey> Find(Request request)
+        {
+            var session = sessionFactory.OpenSession();
+            string findByRequest =
+                "from Journey as J where J.Origin.Place = :origin and J.Destination.Place = :destination and J.Destination.Date.DateTime <= :arrivalDate";
+            IQuery query = session.CreateQuery(findByRequest);
+            query.SetString("origin", request.Origin.Place);
+            query.SetString("destination", request.Destination.Place);
+            query.SetDateTime("arrivalDate", request.Destination.Date.DateTime);
+            return query.List<Journey>();
+        }
+
         #endregion
     }
 
@@ -81,6 +103,8 @@ namespace DomainModel
         Journey Load(int journeyId);
         event JourneyCreatedEventHandler JourneyCreated;
         List<Journey> FindJourneysByUser(string emailid);
+        IEnumerable<Journey> Find(Request request);
+        void Delete(Journey journey);
     }
 
     public delegate void JourneyCreatedEventHandler(JourneyCreatedEventArgs e);

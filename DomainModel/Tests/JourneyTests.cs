@@ -11,13 +11,13 @@ namespace DomainModel.Tests
     {
 
         [Test]
-        public void TestJourneyCreation ()
+        public void TestJourneyCreation()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
             Journey journey = new Journey(traveller, origin, destination);
-            Assert.AreEqual("London",journey.Origin.Place);
+            Assert.AreEqual("London", journey.Origin.Place);
             Assert.AreEqual("Mumbai", journey.Destination.Place);
             Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
         }
@@ -36,11 +36,11 @@ namespace DomainModel.Tests
             Assert.AreEqual("London", journey.Origin.Place);
             Assert.AreEqual("Mumbai", journey.Destination.Place);
             Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
-            
+
         }
 
         [Test]
-        public void TestGetJourneyByUser ()
+        public void TestGetJourneyByUser()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
             RepositoryFactory.GetUserRepository().SaveUser(traveller);
@@ -55,9 +55,36 @@ namespace DomainModel.Tests
             List<Journey> journeyList = journeyRepository.FindJourneysByUser(user.Email.EmailAddress);
         }
 
+        [Test]
+        public void TestGetJourneyByRequest()
+        {
+            Journey journey = null;
+            try
+            {
+                Guid locationId = Guid.NewGuid();
+                User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
+                Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));
+                journey = new Journey(traveller, origin, destination);
+                IJourneyRepository journeyRepository = JourneyRepository.Instance;
+                journeyRepository.Save(journey);
+
+                Request request = new Request(traveller, new Package(null, null, null), origin, destination);
+                IEnumerable<Journey> journeyList = journeyRepository.Find(request);
+
+                Assert.IsTrue(journeyList.Where(a => a.Origin.Place == request.Origin.Place && a.Destination.Equals(request.Destination)).Count() == 1);
+            }
+            finally
+            {
+                JourneyRepository.Instance.Delete(journey);
+            }
+
+        }
+
 
 
 
 
     }
-    }
+}

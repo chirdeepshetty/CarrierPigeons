@@ -53,6 +53,17 @@ namespace DomainModel
             
         }
 
+        public void Delete(Match match)
+        {
+            var session = sessionFactory.OpenSession();
+            IDbConnection connection = session.Connection;
+
+            session.Delete(match);
+            session.Flush();
+
+            session.Close();
+        }
+
         #endregion
     }
 
@@ -60,5 +71,6 @@ namespace DomainModel
     {
         void Save(Match match);
         Match Load(int matchId);
+        void Delete(Match match);
     }
 }
