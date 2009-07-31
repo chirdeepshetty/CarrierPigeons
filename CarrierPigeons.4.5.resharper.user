@@ -11,52 +11,67 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Repository.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RepositoryFactory.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:App.config" caret="797" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="11690" fromTop="31" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Date.cs" caret="156" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="0" fromTop="0" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.cs" caret="0" fromTop="0" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Location.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="483" fromTop="25" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="176" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2027" fromTop="56" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="381" fromTop="7" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:SearchResults.aspx" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Search.aspx" caret="1982" fromTop="43" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="297" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="92" fromTop="4" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.hbm.xml" caret="661" fromTop="14" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2867" fromTop="40" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="1186" fromTop="33" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="1539" fromTop="22" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:Index.aspx" caret="369" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:MatchList.aspx" caret="374" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Global.asax.cs" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:RequestMatch/f:MatchRequest.aspx" caret="389" fromTop="13" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="1326" fromTop="29" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="464" fromTop="22" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="115" fromTop="1" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Content/f:Site.css" caret="2600" fromTop="44" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1150" fromTop="26" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="133" fromTop="5" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="1013" fromTop="24" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.hbm.xml" caret="1037" fromTop="21" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.cs" caret="523" fromTop="17" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="243" fromTop="14" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:User.cs" caret="161" fromTop="8" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="176" fromTop="7" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1336" fromTop="9" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1989" fromTop="20" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="0" fromTop="0" />
     </RecentFiles>
     <RecentEdits>
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="3191" fromTop="24" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="262" fromTop="10" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="171" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1337" fromTop="23" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:App.config" caret="797" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="11748" fromTop="31" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Location.cs" caret="152" fromTop="10" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1881" fromTop="39" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1858" fromTop="48" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="927" fromTop="14" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="3099" fromTop="41" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1894" fromTop="52" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1637" fromTop="43" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1886" fromTop="54" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1987" fromTop="56" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Search.aspx" caret="2002" fromTop="16" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Search.aspx" caret="496" fromTop="12" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Search.aspx" caret="1450" fromTop="18" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Search.aspx" caret="827" fromTop="25" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Search.aspx" caret="309" fromTop="10" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1832" fromTop="43" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1635" fromTop="54" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1988" fromTop="56" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2270" fromTop="37" />
       <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2270" fromTop="31" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2798" fromTop="39" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2867" fromTop="40" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2796" fromTop="39" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2680" fromTop="30" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1638" fromTop="29" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1635" fromTop="25" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:MatchList.aspx" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:MatchList.aspx" caret="374" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:Index.aspx" caret="369" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="1525" fromTop="36" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="495" fromTop="10" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:RequestMatch/f:MatchRequest.aspx" caret="0" fromTop="11" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:RequestMatch/f:MatchRequest.aspx" caret="389" fromTop="13" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="1326" fromTop="29" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="453" fromTop="21" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1150" fromTop="26" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="1285" fromTop="42" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="289" fromTop="10" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1578" fromTop="19" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2366" fromTop="28" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="2627" fromTop="32" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2543" fromTop="32" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2123" fromTop="38" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.cs" caret="523" fromTop="17" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2142" fromTop="31" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="2450" fromTop="25" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="1954" fromTop="17" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1989" fromTop="17" />
     </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
@@ -74,16 +89,32 @@
       <Item value="Request" priority="0" />
       <Item value="location" priority="1" />
       <Item value="TravelDate" priority="0" />
-      <Item value="string" priority="0" />
-      <Item value="query" priority="0" />
+      <Item value="string" priority="3" />
+      <Item value="query" priority="1" />
       <Item value="date" priority="0" />
       <Item value="requestlist" priority="0" />
-      <Item value="public" priority="0" />
+      <Item value="public" priority="2" />
+      <Item value="ActionName" priority="0" />
+      <Item value="ViewData" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="void" priority="0" />
+      <Item value="null" priority="0" />
+      <Item value="List" priority="0" />
+      <Item value="User" priority="0" />
+      <Item value="UserRepository" priority="2" />
+      <Item value="RepositoryFactory" priority="1" />
+      <Item value="Journey" priority="4" />
+      <Item value="user" priority="1" />
+      <Item value="return" priority="0" />
+      <Item value="journeyList" priority="0" />
+      <Item value="IUserRepository" priority="0" />
+      <Item value="traveller" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:NHibernate.IQuery">
-      <Item value="SetEntity" priority="0" />
+      <Item value="SetEntity" priority="1" />
       <Item value="SetString" priority="0" />
       <Item value="SetDateTime" priority="0" />
+      <Item value="SetInt32" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.Location">
       <Item value="Place" priority="1" />
@@ -101,6 +132,24 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Web.Mvc.HttpVerbs">
       <Item value="Post" priority="0" />
+      <Item value="Get" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.IJourneyRepository">
+      <Item value="Load" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DomainModel.RepositoryFactory">
+      <Item value="GetUserRepository" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.IUserRepository">
+      <Item value="LoadUser" priority="0" />
+      <Item value="SaveUser" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.User">
+      <Item value="Email" priority="0" />
+      <Item value="Id" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Email">
+      <Item value="EmailAddress" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

@@ -14,6 +14,7 @@ namespace DomainModel
     {
         protected static ISessionFactory sessionFactory;
         protected static Configuration configuration;
+        public event RequestCreatedEventHandler RequestCreated;
         
         private RequestRepository()
         {
@@ -33,7 +34,7 @@ namespace DomainModel
             }
         }
 
-        #region IRequestRepository Members
+        
 
         public void Save(Request request)
         {
@@ -43,13 +44,16 @@ namespace DomainModel
             session.Save(request);
             
             session.Close();
+
+            if(this.RequestCreated != null)
+                RequestCreated(new RequestCreatedEventArgs{Request = request});
         }
 
         public List<Request> Search(Location location, Location toLocation, TravelDate date)
         {
-            
             var session = sessionFactory.OpenSession();
-            string querystring = "from Request as R where R.Destination.Place = :destination and R.Origin.Place= :origin and R.Destination.Date.DateTime <= :date";
+            string querystring =
+                "from Request as R where R.Destination.Place = :destination and R.Origin.Place= :origin and R.Destination.Date.DateTime <= :date";
             IQuery query = session.CreateQuery(querystring);
             query.SetString("destination", toLocation.Place);
             query.SetString("origin", location.Place);
@@ -58,6 +62,31 @@ namespace DomainModel
             return requestList;
         }
 
-        #endregion
+        public IEnumerable<Request> SearchByUser(string address)
+        {
+            var session = sessionFactory.OpenSession();
+            string findByUser = 
+                "from Request as R where R.RequestedUser.Email.EmailAddress = :email";
+            IQuery query = session.CreateQuery(findByUser);
+            query.SetString("email", address);
+            return query.List<Request>();
+        }
+
+        public void Delete(Request request)
+        {
+            var session = sessionFactory.OpenSession();
+            IDbConnection connection = session.Connection;
+
+            session.Delete(request);
+
+            session.Close();
+        }
+    }
+
+    public delegate void RequestCreatedEventHandler(RequestCreatedEventArgs e);
+
+    public class RequestCreatedEventArgs : EventArgs
+    {
+        public Request Request { get; set; }
     }
 }
