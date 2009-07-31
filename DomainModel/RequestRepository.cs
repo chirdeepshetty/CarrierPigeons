@@ -93,7 +93,6 @@ namespace DomainModel
 
             session.Delete(request);
             session.Flush();
-
             session.Close();
         }
     }

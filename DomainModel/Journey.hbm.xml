@@ -19,7 +19,7 @@
       </component>
     </component>
 
-    <many-to-one class="DomainModel.User" column="user_id" name="Traveller">
+    <many-to-one class="DomainModel.User" column="user_id" name="Traveller" cascade="all">
     </many-to-one>
   </class>
 </hibernate-mapping>

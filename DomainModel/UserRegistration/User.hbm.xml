@@ -14,6 +14,13 @@
     </component>
 
     <property name="Password" column="Password" type="String" length="10"/>
-
+    <set name="UserJournies" cascade="all"  inverse="true">
+      <key column="user_id"/>
+      <one-to-many class="Request"/>
+    </set>
+    <set name="UserRequests" cascade="all" inverse="true">
+      <key column="user_id"/>
+      <one-to-many class="Journey"/>
+    </set>
   </class>
 </hibernate-mapping>

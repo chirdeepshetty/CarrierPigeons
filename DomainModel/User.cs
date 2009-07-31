@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DomainModel.Tests;
+using Iesi.Collections.Generic;
 
 namespace DomainModel
 {
@@ -26,6 +28,8 @@ namespace DomainModel
         public virtual  Email Email { get; set; }
         public virtual  UserName Name { get; set; }
         public virtual string EmailAddress { get { return Email.EmailAddress; } }
+        public virtual ISet<Journey> UserJournies { get; set; }
+        public virtual ISet<Request> UserRequests { get; set; }
 
         public virtual bool Equals(User other)
         {

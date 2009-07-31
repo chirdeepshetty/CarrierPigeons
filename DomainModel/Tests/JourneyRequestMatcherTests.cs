@@ -59,8 +59,6 @@ namespace DomainModel.Tests
             }
             finally
             {
-                JourneyRepository.Instance.Delete(journey);
-                RequestRepository.Instance.Delete(request);
                 RepositoryFactory.GetUserRepository().Delete(traveller);
             }
         }
