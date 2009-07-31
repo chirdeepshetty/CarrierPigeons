@@ -16,9 +16,12 @@ namespace Website.Controllers
         {
             return View();
         }
-
+        [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult MatchJourney()
         {
+            var matches = DomainModel.MatchRepository.Instance.LoadMatchesByUserJourney(User.Identity.Name);
+           
+            ViewData["MatchList"] = matches;
             return View();
         }
 

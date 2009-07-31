@@ -79,7 +79,10 @@
     <Compile Include="Request.cs" />
     <Compile Include="IRequestRepository.cs" />
     <Compile Include="Match.cs" />
+<<<<<<< HEAD:DomainModel/CarrierPigeons.csproj
+=======
     <Compile Include="Tests\JourneyRequestMatcherTests.cs" />
+>>>>>>> 6acf48eff995a798dfb7d883020c940f349897c6:DomainModel/CarrierPigeons.csproj
     <Compile Include="Tests\MatchTests.cs" />
     <Compile Include="UserRegistration\DuplicateRegistrationException.cs" />
     <Compile Include="Tests\JourneyTests.cs" />

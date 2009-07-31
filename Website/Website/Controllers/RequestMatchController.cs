@@ -20,10 +20,8 @@ namespace Website.Controllers
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult MatchRequest()
         {
-
-
-            ViewData["MatchList"] = "Matched";
             return View();
+           
         }
 
     }

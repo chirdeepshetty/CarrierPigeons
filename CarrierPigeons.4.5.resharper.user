@@ -3,6 +3,7 @@
     <string />
     <integer />
     <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
@@ -11,113 +12,68 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
-<<<<<<< HEAD:CarrierPigeons.4.5.resharper.user
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="1571" fromTop="60" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:Match.cs" caret="519" fromTop="16" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1226" fromTop="14" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:User.hbm.xml" caret="674" fromTop="14" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of Request.hbm.xml" caret="338" fromTop="6" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="931" fromTop="14" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="8257" fromTop="9" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="348" fromTop="8" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="476" fromTop="4" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="11187" fromTop="121" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="174" fromTop="7" />
-    </RecentFiles>
-    <RecentEdits>
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="223" fromTop="5" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="407" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="530" fromTop="11" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="792" fromTop="17" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="998" fromTop="9" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="1255" fromTop="19" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1199" fromTop="15" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="2003" fromTop="25" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of Request.hbm.xml" caret="212" fromTop="2" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1226" fromTop="8" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of JourneyRepository.cs" caret="1435" fromTop="30" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:Match.cs" caret="753" fromTop="10" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:Match.cs" caret="650" fromTop="15" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:Match.cs" caret="919" fromTop="22" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Copy of Request.hbm.xml" caret="338" fromTop="6" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:Match.cs" caret="768" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2285" fromTop="21" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="428" fromTop="10" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1482" fromTop="3" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2002" fromTop="39" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2101" fromTop="43" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="433" fromTop="11" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1429" fromTop="18" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1226" fromTop="20" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1868" fromTop="14" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1603" fromTop="12" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2175" fromTop="21" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="292" fromTop="8" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2574" fromTop="46" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2773" fromTop="53" />
-=======
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Date.cs" caret="156" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Location.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.hbm.xml" caret="661" fromTop="14" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="1186" fromTop="33" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:AccountController.cs" caret="1539" fromTop="22" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:Index.aspx" caret="369" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:MatchList.aspx" caret="374" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Match.hbm.xml" caret="547" fromTop="8" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.cs" caret="311" fromTop="13" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Request.hbm.xml" caret="1355" fromTop="27" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.hbm.xml" caret="1052" fromTop="21" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:User.cs" caret="866" fromTop="18" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.cs" caret="230" fromTop="10" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="166" fromTop="6" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="1751" fromTop="19" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Repository.cs" caret="470" fromTop="21" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RepositoryFactory.cs" caret="206" fromTop="9" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Email.cs" caret="110" fromTop="9" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="1394" fromTop="37" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="302" fromTop="13" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="314" fromTop="10" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2205" fromTop="6" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1999" fromTop="29" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="4751" fromTop="39" />
       <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Global.asax.cs" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:RequestMatch/f:MatchRequest.aspx" caret="389" fromTop="13" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="1326" fromTop="29" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="464" fromTop="22" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="115" fromTop="1" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Content/f:Site.css" caret="2600" fromTop="44" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1150" fromTop="26" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IUserRepository.cs" caret="133" fromTop="5" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="1013" fromTop="24" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.hbm.xml" caret="1037" fromTop="21" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.cs" caret="523" fromTop="17" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="243" fromTop="14" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:User.cs" caret="161" fromTop="8" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:IRequestRepository.cs" caret="176" fromTop="7" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1336" fromTop="9" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserRegistrationTest.cs" caret="0" fromTop="0" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1989" fromTop="20" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="0" fromTop="0" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="4259" fromTop="25" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Match.cs" caret="69" fromTop="4" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Models/f:JourneyModel.cs" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Models/f:CreateRequestResponse.cs" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestMatchController.cs" caret="485" fromTop="22" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:MatchRepository.cs" caret="1718" fromTop="9" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:UserRepository.cs" caret="845" fromTop="31" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:User.hbm.xml" caret="1019" fromTop="22" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="12378" fromTop="43" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="598" fromTop="23" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="678" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1635" fromTop="54" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1988" fromTop="56" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2270" fromTop="37" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2270" fromTop="31" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2796" fromTop="39" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="2680" fromTop="30" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="1638" fromTop="29" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestController.cs" caret="1635" fromTop="25" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:MatchList.aspx" caret="0" fromTop="0" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/f:MatchList.aspx" caret="374" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Home/f:Index.aspx" caret="369" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="1525" fromTop="36" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="495" fromTop="10" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:RequestMatch/f:MatchRequest.aspx" caret="0" fromTop="11" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:RequestMatch/f:MatchRequest.aspx" caret="389" fromTop="13" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Shared/f:Site.Master" caret="1326" fromTop="29" />
-      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="453" fromTop="21" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="1150" fromTop="26" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:UserTests.cs" caret="1285" fromTop="42" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="289" fromTop="10" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1578" fromTop="19" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2366" fromTop="28" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="2627" fromTop="32" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2543" fromTop="32" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2123" fromTop="38" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:Journey.cs" caret="523" fromTop="17" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2142" fromTop="31" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="2450" fromTop="25" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:JourneyTests.cs" caret="1954" fromTop="17" />
-      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="1989" fromTop="17" />
->>>>>>> 8c29b5c03248bde016c3510ee296990a167b5aba:CarrierPigeons.4.5.resharper.user
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="2383" fromTop="12" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:RequestRepository.cs" caret="2824" fromTop="19" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:JourneyRepository.cs" caret="2008" fromTop="12" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:MatchRepository.cs" caret="1430" fromTop="17" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="4571" fromTop="32" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="4557" fromTop="21" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="4430" fromTop="24" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="3589" fromTop="13" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="4324" fromTop="23" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="3413" fromTop="24" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="3216" fromTop="13" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="2221" fromTop="23" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:MatchTests.cs" caret="2221" fromTop="16" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:Tests/f:RequestTests.cs" caret="4751" fromTop="30" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:MatchRepository.cs" caret="176" fromTop="1" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:MatchRepository.cs" caret="2305" fromTop="10" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:MatchRepository.cs" caret="2307" fromTop="11" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/f:MatchRepository.cs" caret="2709" fromTop="20" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="658" fromTop="27" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:JourneyMatchController.cs" caret="629" fromTop="23" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="357" fromTop="8" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:User.hbm.xml" caret="878" fromTop="18" />
+      <File id="E51AD5A3-13F8-44AD-B533-273B708F79DF/d:UserRegistration/f:User.hbm.xml" caret="1019" fromTop="22" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:Request/f:Create.aspx" caret="0" fromTop="0" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="808" fromTop="22" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Controllers/f:RequestMatchController.cs" caret="485" fromTop="18" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="11863" fromTop="7" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/f:Web.config" caret="12378" fromTop="15" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="625" fromTop="18" />
+      <File id="2A2BDE59-BCBF-4649-A414-37E2FECDD5E8/d:Views/d:JourneyMatch/f:MatchJourney.aspx" caret="515" fromTop="14" />
     </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
@@ -128,217 +84,96 @@
   </UnitTestRunnerMSTest>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-<<<<<<< HEAD:CarrierPigeons.4.5.resharper.user
-      <Item value="Test" priority="1" />
-      <Item value="public" priority="19" />
-      <Item value="volatile" priority="1" />
-      <Item value="userRepository" priority="2" />
-      <Item value="user" priority="5" />
-      <Item value="User" priority="11" />
-      <Item value="string" priority="2" />
-      <Item value="var" priority="1" />
-      <Item value="Assert" priority="4" />
-      <Item value="loadedUser" priority="0" />
-      <Item value="if" priority="3" />
-      <Item value="else" priority="1" />
-      <Item value="ViewData" priority="0" />
-      <Item value="DomainModel" priority="2" />
-      <Item value="UserRepository" priority="1" />
-      <Item value="openSession" priority="0" />
-      <Item value="true" priority="1" />
-      <Item value="new" priority="17" />
-      <Item value="StringWriter" priority="0" />
-      <Item value="writer" priority="0" />
-      <Item value="false" priority="0" />
-      <Item value="null" priority="9" />
-      <Item value="RepositoryFactory" priority="0" />
-      <Item value="configuration" priority="0" />
-      <Item value="connection" priority="0" />
-      <Item value="Email" priority="1" />
-      <Item value="UserName" priority="0" />
-      <Item value="DestinationDate" priority="0" />
-      <Item value="DateTime" priority="3" />
-      <Item value="datetime" priority="0" />
-      <Item value="journey" priority="10" />
-      <Item value="Journey" priority="18" />
-      <Item value="void" priority="8" />
-      <Item value="journeyRepository" priority="2" />
-      <Item value="JourneyRepository" priority="2" />
-      <Item value="int" priority="2" />
-      <Item value="journeyId" priority="1" />
-      <Item value="session" priority="0" />
-      <Item value="internal" priority="1" />
-      <Item value="return" priority="2" />
-      <Item value="ViewResult" priority="0" />
-      <Item value="OriginDate" priority="0" />
-      <Item value="originDate" priority="1" />
-      <Item value="destinationDate" priority="0" />
-      <Item value="using" priority="0" />
-      <Item value="AcceptVerbs" priority="0" />
-      <Item value="HttpVerbs" priority="0" />
-      <Item value="Match" priority="6" />
-      <Item value="Request" priority="3" />
-      <Item value="request" priority="2" />
-      <Item value="Location" priority="2" />
-      <Item value="TravelDate" priority="0" />
-      <Item value="origin" priority="2" />
-      <Item value="destination" priority="2" />
-      <Item value="Package" priority="1" />
-      <Item value="package" priority="0" />
-      <Item value="match" priority="5" />
-      <Item value="this" priority="4" />
-      <Item value="virtual" priority="4" />
-      <Item value="bool" priority="2" />
-      <Item value="const" priority="0" />
-      <Item value="enum" priority="0" />
-      <Item value="MatchStatus" priority="0" />
-      <Item value="Math" priority="0" />
-      <Item value="IMatchRepository" priority="1" />
-      <Item value="matchId" priority="0" />
-      <Item value="Id" priority="0" />
-      <Item value="MatchRepository" priority="0" />
-      <Item value="repository" priority="1" />
-      <Item value="loadedMatch" priority="0" />
-      <Item value="delegate" priority="1" />
-      <Item value="RequestCreatedEventArgs" priority="3" />
-      <Item value="protected" priority="0" />
-      <Item value="event" priority="1" />
-      <Item value="RequestCreatedEventHandler" priority="1" />
-      <Item value="throw" priority="0" />
-      <Item value="RequestCreated" priority="0" />
-      <Item value="JourneyCreatedEventHandler" priority="0" />
-      <Item value="JourneyCreated" priority="0" />
-      <Item value="JourneyCreatedEventArgs" priority="0" />
-      <Item value="RequestRepository" priority="0" />
-      <Item value="e" priority="1" />
-      <Item value="Action" priority="0" />
-      <Item value="action" priority="1" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.IUserRepository">
-      <Item value="SaveUser" priority="1" />
-      <Item value="LoadUser" priority="1" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="AreEqual" priority="4" />
-      <Item value="IsNotNull" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.User">
-      <Item value="Email" priority="2" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.Email">
-      <Item value="EmailAddress" priority="2" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:System.Security.Principal.IPrincipal">
-      <Item value="Identity" priority="1" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:System.Security.Principal.IIdentity">
-      <Item value="IsAuthenticated" priority="0" />
-      <Item value="Name" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:NHibernate.ISession">
-      <Item value="Close" priority="0" />
-      <Item value="Load" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:@DomainModel.RepositoryFactory">
-      <Item value="GetUserRepository" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:NHibernate.Cfg.Configuration">
-      <Item value="BuildMapping" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:@System.DateTime">
-      <Item value="Today" priority="1" />
-      <Item value="Now" priority="0" />
-      <Item value="MinValue" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:System.DateTime">
-      <Item value="Date" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.Journey">
-      <Item value="Origin" priority="0" />
-      <Item value="Destination" priority="0" />
-      <Item value="Traveller" priority="0" />
-      <Item value="Id" priority="0" />
-=======
-      <Item value="repository" priority="0" />
+      <Item value="repository" priority="4" />
       <Item value="fromLocation" priority="0" />
       <Item value="toLocation" priority="2" />
       <Item value="travelDate" priority="0" />
-      <Item value="Request" priority="0" />
+      <Item value="Request" priority="1" />
       <Item value="location" priority="1" />
       <Item value="TravelDate" priority="0" />
-      <Item value="string" priority="3" />
-      <Item value="query" priority="1" />
+      <Item value="string" priority="11" />
+      <Item value="query" priority="2" />
       <Item value="date" priority="0" />
       <Item value="requestlist" priority="0" />
       <Item value="public" priority="2" />
       <Item value="ActionName" priority="0" />
-      <Item value="ViewData" priority="0" />
-      <Item value="new" priority="0" />
+      <Item value="ViewData" priority="1" />
+      <Item value="new" priority="4" />
       <Item value="void" priority="0" />
       <Item value="null" priority="0" />
       <Item value="List" priority="0" />
-      <Item value="User" priority="0" />
-      <Item value="UserRepository" priority="2" />
-      <Item value="RepositoryFactory" priority="1" />
-      <Item value="Journey" priority="4" />
+      <Item value="User" priority="1" />
+      <Item value="UserRepository" priority="3" />
+      <Item value="RepositoryFactory" priority="2" />
+      <Item value="Journey" priority="8" />
       <Item value="user" priority="1" />
-      <Item value="return" priority="0" />
+      <Item value="return" priority="2" />
       <Item value="journeyList" priority="0" />
       <Item value="IUserRepository" priority="0" />
       <Item value="traveller" priority="0" />
+      <Item value="IList" priority="3" />
+      <Item value="Match" priority="12" />
+      <Item value="matchList" priority="3" />
+      <Item value="Assert" priority="0" />
+      <Item value="IRequestRepository" priority="0" />
+      <Item value="RequestRepository" priority="2" />
+      <Item value="request" priority="2" />
+      <Item value="match" priority="5" />
+      <Item value="virtual" priority="0" />
+      <Item value="session" priority="6" />
+      <Item value="JourneyRepository" priority="0" />
+      <Item value="journey" priority="2" />
+      <Item value="try" priority="0" />
+      <Item value="finally" priority="0" />
+      <Item value="DomainModel" priority="3" />
+      <Item value="MatchRepository" priority="0" />
+      <Item value="ushort" priority="1" />
+      <Item value="foreach" priority="1" />
+      <Item value="matches" priority="1" />
+      <Item value="typeof" priority="1" />
+      <Item value="Math" priority="0" />
+      <Item value="var" priority="0" />
+      <Item value="criteria" priority="2" />
+      <Item value="ICriteria" priority="0" />
+      <Item value="emailAddress" priority="0" />
+      <Item value="FetchMode" priority="1" />
+      <Item value="ParameterAttributes" priority="0" />
+      <Item value="Parameter" priority="0" />
+      <Item value="NHibernateUtil" priority="0" />
+      <Item value="AcceptVerbs" priority="0" />
+      <Item value="InputType" priority="0" />
+      <Item value="for" priority="0" />
+      <Item value="int" priority="0" />
+      <Item value="count" priority="0" />
+      <Item value="checkbox" priority="1" />
+      <Item value="to" priority="1" />
+      <Item value="from" priority="0" />
+      <Item value="html" priority="0" />
+      <Item value="View" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:NHibernate.IQuery">
       <Item value="SetEntity" priority="1" />
       <Item value="SetString" priority="0" />
       <Item value="SetDateTime" priority="0" />
       <Item value="SetInt32" priority="0" />
->>>>>>> 8c29b5c03248bde016c3510ee296990a167b5aba:CarrierPigeons.4.5.resharper.user
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.Location">
-      <Item value="Place" priority="1" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:@DomainModel.JourneyRepository">
-      <Item value="Instance" priority="1" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.IJourneyRepository">
-      <Item value="Save" priority="0" />
-      <Item value="Load" priority="0" />
-      <Item value="JourneyCreated" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:Website.Models.JourneyModel">
-      <Item value="OriginDate" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:@System.Web.Mvc.HttpVerbs">
-      <Item value="Get" priority="0" />
-      <Item value="Post" priority="0" />
+      <Item value="Place" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.TravelDate">
-      <Item value="AddDays" priority="0" />
+      <Item value="DateTime" priority="0" />
     </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.Tests.Match">
-      <Item value="Request" priority="1" />
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="AreEqual" priority="1" />
+      <Item value="GreaterOrEqual" priority="0" />
     </ItemStatistics>
-    <ItemStatistics item="Qualified:@DomainModel.MatchRepository">
-      <Item value="Instance" priority="0" />
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Indexer" priority="0" />
+      <Item value="Count" priority="1" />
     </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.IMatchRepository">
-      <Item value="Save" priority="0" />
-      <Item value="Load" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.Match">
-      <Item value="Id" priority="2" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.RequestRepository">
-      <Item value="RequestCreated" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.JourneyRepository">
-      <Item value="JourneyCreated" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:@DomainModel.RequestRepository">
-      <Item value="Instance" priority="0" />
-    </ItemStatistics>
-    <ItemStatistics item="Qualified:DomainModel.JourneyCreatedEventArgs">
-      <Item value="Journey" priority="0" />
+    <ItemStatistics item="Qualified:@System.Web.Mvc.HttpVerbs">
+      <Item value="Post" priority="0" />
+      <Item value="Get" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.IJourneyRepository">
       <Item value="Load" priority="0" />
@@ -348,7 +183,8 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.IUserRepository">
       <Item value="LoadUser" priority="0" />
-      <Item value="SaveUser" priority="0" />
+      <Item value="SaveUser" priority="1" />
+      <Item value="Delete" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.User">
       <Item value="Email" priority="0" />
@@ -356,6 +192,62 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:DomainModel.Email">
       <Item value="EmailAddress" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DomainModel.RequestRepository">
+      <Item value="Instance" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.IRequestRepository">
+      <Item value="Save" priority="0" />
+      <Item value="Delete" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Request">
+      <Item value="Destination" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Match">
+      <Item value="Request" priority="1" />
+      <Item value="Journey" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.IMatchRepository">
+      <Item value="Delete" priority="1" />
+      <Item value="LoadMatchesByUserRequest" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="Flush" priority="2" />
+      <Item value="CreateCriteria" priority="2" />
+      <Item value="Close" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DomainModel.MatchRepository">
+      <Item value="Instance" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IPrincipal">
+      <Item value="Identity" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IIdentity">
+      <Item value="Name" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ICriteria">
+      <Item value="Add" priority="0" />
+      <Item value="SetFetchMode" priority="0" />
+      <Item value="List" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NHibernate.Criterion.Expression">
+      <Item value="Eq" priority="0" />
+      <Item value="Sql" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NHibernate.FetchMode">
+      <Item value="Eager" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NHibernate.NHibernateUtil">
+      <Item value="Initialize" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="GetType" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Journey">
+      <Item value="Origin" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
