@@ -11,5 +11,6 @@ namespace DomainModel
         void Delete(Request request);
 
         event RequestCreatedEventHandler RequestCreated;
+        IEnumerable<Request> Find(Journey journey);
     }
 }

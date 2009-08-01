@@ -97,5 +97,6 @@ namespace DomainModel
         void Delete(Match match);
         IList<Match> LoadMatchesByUserRequest(string emailAddress);
         IList<Match> LoadMatchesByUserJourney(string emailAddress);
+
     }
 }

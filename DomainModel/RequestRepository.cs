@@ -16,6 +16,8 @@ namespace DomainModel
         protected static Configuration configuration;
         public event RequestCreatedEventHandler RequestCreated;
         
+       
+
         private RequestRepository()
         {
             if(sessionFactory!=null)
@@ -69,6 +71,18 @@ namespace DomainModel
                 "from Request as R where R.RequestedUser.Email.EmailAddress = :email";
             IQuery query = session.CreateQuery(findByUser);
             query.SetString("email", address);
+            return query.List<Request>();
+        }
+
+        public IEnumerable<Request> Find(Journey journey)
+        {
+            var session = sessionFactory.OpenSession();
+            string findByJourney =
+                "from Request as R where R.Origin.Place = :origin and R.Destination.Place = :destination and R.Destination.Date.DateTime <= :arrivalDate";
+            IQuery query = session.CreateQuery(findByJourney);
+            query.SetString("origin", journey.Origin.Place);
+            query.SetString("destination", journey.Destination.Place);
+            query.SetDateTime("arrivalDate", journey.Destination.Date.DateTime);
             return query.List<Request>();
         }
 

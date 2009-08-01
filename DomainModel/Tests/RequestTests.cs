@@ -103,5 +103,7 @@ namespace DomainModel.Tests
                 userRepository.Delete(user2);
             }
         }
+
+       
     }
 }
