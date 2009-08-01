@@ -61,9 +61,10 @@ namespace DomainModel
 
             User user = RepositoryFactory.GetUserRepository().LoadUser(emailid);
             var session = sessionFactory.OpenSession();
-            string querystring = "from Journey as J  where J.Traveller.Id= :user_id";
+            string querystring = "from Journey as J  where J.Traveller = :user_id";
             IQuery query = session.CreateQuery(querystring);
-            query.SetInt32("user_id", user.Id);
+            query.SetEntity("user_id", user);
+            //query.SetInt32("user_id", user.Id);
             var journeyList = (List<Journey>)query.List<Journey>();
             return journeyList;
 
