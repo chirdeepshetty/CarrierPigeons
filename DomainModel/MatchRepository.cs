@@ -76,12 +76,14 @@ namespace DomainModel
 
         public IList<Match> LoadMatchesByUserJourney(string emailAddress)
         {
+
             var session = sessionFactory.OpenSession();
             const string querystring = "from Match as M  where M.Journey.Traveller.Email.EmailAddress = :user_id";
             IQuery query = session.CreateQuery(querystring);
             query.SetString("user_id", emailAddress);
-
             var matchList = (List<Match>)query.List<Match>();
+            NHibernateUtil.Initialize(matchList);
+            session.Close();
             return matchList;
         }
 

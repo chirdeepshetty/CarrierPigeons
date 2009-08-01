@@ -78,7 +78,6 @@
     <Compile Include="Request.cs" />
     <Compile Include="IRequestRepository.cs" />
     <Compile Include="Match.cs" />
-    <Compile Include="Tests\EmailTest.cs" />
     <Compile Include="Tests\MatchTests.cs" />
     <Compile Include="UserRegistration\DuplicateRegistrationException.cs" />
     <Compile Include="Tests\JourneyTests.cs" />
