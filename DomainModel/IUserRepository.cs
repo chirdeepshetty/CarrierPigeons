@@ -4,5 +4,6 @@ namespace DomainModel
     {
         User LoadUser(string username);
         void SaveUser(User user);
+        void Delete(User user);
     }
 }

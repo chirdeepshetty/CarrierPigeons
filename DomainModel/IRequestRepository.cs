@@ -6,5 +6,10 @@ namespace DomainModel
     {
         void Save(Request request);
         List<Request> Search(Location location, Location toLocation, TravelDate date);
+
+        IEnumerable<Request> SearchByUser(string address);
+        void Delete(Request request);
+
+        event RequestCreatedEventHandler RequestCreated;
     }
 }
