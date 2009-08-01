@@ -20,6 +20,7 @@ namespace DomainModel
         {
             var session = sessionFactory.OpenSession();
             session.Delete(user);
+            session.Flush();
             session.Close();
         }
 

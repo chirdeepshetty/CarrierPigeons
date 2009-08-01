@@ -99,8 +99,6 @@ namespace DomainModel.Tests
             }
             finally
             {
-                requestRepository.Delete(request1);
-                requestRepository.Delete(request2);
                 userRepository.Delete(user1);
                 userRepository.Delete(user2);
             }

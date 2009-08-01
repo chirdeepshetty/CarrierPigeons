@@ -4,7 +4,7 @@ namespace DomainModel
 {
     public class Journey
     {
-        internal Journey(){}
+        public Journey(){}
         
         public Journey(User traveller, Location origin, Location destination)
         {

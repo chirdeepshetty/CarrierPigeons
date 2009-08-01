@@ -78,7 +78,7 @@ namespace DomainModel
             IDbConnection connection = session.Connection;
 
             session.Delete(request);
-
+            session.Flush();
             session.Close();
         }
     }

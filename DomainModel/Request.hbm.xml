@@ -25,7 +25,7 @@
       <property name="Weight" column="Weight" type="String" length="16"/>
     </component>
 
-    <many-to-one class="DomainModel.User" column="user_id" name="RequestedUser">
+    <many-to-one class="DomainModel.User" column="user_id" name="RequestedUser" cascade="all">
     </many-to-one>
 
   </class>

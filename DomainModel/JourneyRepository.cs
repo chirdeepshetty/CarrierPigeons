@@ -58,8 +58,17 @@ namespace DomainModel
             
         }
 
-      
-        public List<Journey> FindJourneysByUser(string emailid)
+        public void Delete(Journey journey)
+        {
+            var session = sessionFactory.OpenSession();
+            IDbConnection connection = session.Connection;
+
+            session.Delete(journey);
+            session.Flush();
+            session.Close();
+        }
+
+        public IList<Journey> FindJourneysByUser(string emailid)
         {
 
             User user = RepositoryFactory.GetUserRepository().LoadUser(emailid);
@@ -81,7 +90,8 @@ namespace DomainModel
         void Save(Journey journey);
         Journey Load(int journeyId);
         event JourneyCreatedEventHandler JourneyCreated;
-        List<Journey> FindJourneysByUser(string emailid);
+        IList<Journey> FindJourneysByUser(string emailid);
+        void Delete(Journey journey);
     }
 
     public delegate void JourneyCreatedEventHandler(JourneyCreatedEventArgs e);

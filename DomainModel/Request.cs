@@ -4,7 +4,7 @@ namespace DomainModel
 {
     public class Request
     {
-        internal Request()
+        public Request()
         {
         }
 

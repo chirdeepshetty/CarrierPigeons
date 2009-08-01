@@ -52,7 +52,7 @@ namespace DomainModel.Tests
 
 
             User user = new User(new Email("asd@dsf.com"), new UserName(null, null), null);
-            List<Journey> journeyList = journeyRepository.FindJourneysByUser(user.Email.EmailAddress);
+            IList<Journey> journeyList = journeyRepository.FindJourneysByUser(user.Email.EmailAddress);
         }
 
 
