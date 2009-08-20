@@ -14,6 +14,7 @@ namespace DomainModel.Tests
         public void TestJourneyCreation()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
             Journey journey = new Journey(traveller, origin, destination);
@@ -26,6 +27,7 @@ namespace DomainModel.Tests
         public void TestJourneyRepositorySave()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            RepositoryFactory.GetUserRepository().SaveUser(traveller);
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
             Journey journey = new Journey(traveller, origin, destination);
@@ -41,6 +43,7 @@ namespace DomainModel.Tests
             }finally
             {
                 journeyRepository.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(traveller);
             }
 
         }
@@ -48,7 +51,7 @@ namespace DomainModel.Tests
         [Test]
         public void TestGetJourneyByUser()
         {
-            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            User traveller = new User(new Email("wrongtestcase@thoughtworks.com"), new UserName("first", "last"), "pwd");
             RepositoryFactory.GetUserRepository().SaveUser(traveller);
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
@@ -56,14 +59,14 @@ namespace DomainModel.Tests
             IJourneyRepository journeyRepository = JourneyRepository.Instance;
             journeyRepository.Save(journey);
 
-
-            User user = new User(new Email("asd@dsf.com"), new UserName(null, null), null);
-            IList<Journey> journeyList = journeyRepository.FindJourneysByUser(user.Email.EmailAddress);
+           // User user = new User(new Email("asd@dsf.com"), new UserName(null, null), null);
+            IList<Journey> journeyList = journeyRepository.FindJourneysByUser(traveller.Email.EmailAddress);
         try{
             Assert.GreaterOrEqual(journeyList.Count,1);
         }finally
             {
                 journeyRepository.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(traveller);
             }
         
         }
@@ -92,6 +95,7 @@ namespace DomainModel.Tests
             finally
             {
                 JourneyRepository.Instance.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(traveller);
             }
 
         }
