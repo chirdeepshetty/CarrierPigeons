@@ -19,7 +19,7 @@ namespace Website.Controllers
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult MatchJourney()
         {
-            var matches = DomainModel.MatchRepository.Instance.LoadMatchesByUserJourney(User.Identity.Name);
+            var matches = DomainModel.MatchRepository.Instance.LoadMatchesByUserRequest(User.Identity.Name);
            
             ViewData["MatchList"] = matches;
             return View();

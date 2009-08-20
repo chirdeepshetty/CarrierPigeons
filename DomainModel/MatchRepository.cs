@@ -69,8 +69,8 @@ namespace DomainModel
             const string querystring = "from Match as M  where M.Request.RequestedUser.Email.EmailAddress = :user_id";
             IQuery query = session.CreateQuery(querystring);
             query.SetString("user_id", emailAddress);
-            
             var matchList = (List<Match>)query.List<Match>();
+            session.Close();
             return matchList;
         }
 
@@ -82,7 +82,6 @@ namespace DomainModel
             IQuery query = session.CreateQuery(querystring);
             query.SetString("user_id", emailAddress);
             var matchList = (List<Match>)query.List<Match>();
-            NHibernateUtil.Initialize(matchList);
             session.Close();
             return matchList;
         }
