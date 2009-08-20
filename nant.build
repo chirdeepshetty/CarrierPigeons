@@ -16,6 +16,7 @@
 
   <target name="build" depends="init" description="compiles the source code">    
     <mkdir dir="${output.dir}" />
+    <mkdir dir="${output.dir}/results" />
     <copy todir="${output.dir}">
         <fileset basedir="${lib.dir}">
             <include name="*.dll" />
@@ -54,7 +55,7 @@
 
   <target name="test" description="Execute the NUnit testcases">
       <nunit2 verbose="true" >
-        <formatter type="Plain" />
+        <formatter type="Xml" usefile="true" extension=".xml" outputdir="${output.dir}/results" />
         <test assemblyname="${output.dir}/${domain.output}"/>        
         <test assemblyname="${output.dir}/${website.output}"/>
       </nunit2>
