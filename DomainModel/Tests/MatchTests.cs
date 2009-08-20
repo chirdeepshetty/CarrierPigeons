@@ -86,6 +86,8 @@ namespace DomainModel.Tests
 
             
                 User user = new User(new Email("eml@twks.com"), null, "password");
+                RepositoryFactory.GetUserRepository().SaveUser(user);
+
                 Package package = new Package("Package", "Weight", "Dimensions");
                 Location origin = new Location("Origin", new TravelDate(DateTime.Today));
                 Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
@@ -104,6 +106,7 @@ namespace DomainModel.Tests
             {
 
                 repository.Delete(match); 
+                RepositoryFactory.GetUserRepository().Delete(user);
             }
             
                       

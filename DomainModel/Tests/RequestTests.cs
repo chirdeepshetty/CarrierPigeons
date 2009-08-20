@@ -43,11 +43,14 @@ namespace DomainModel.Tests
         [Test]
         public void TestRequestRepository()
         {
+            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            RepositoryFactory.GetUserRepository().SaveUser(user);
+
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
             Location fromLocation = new Location("place", travelDate);
             Location toLocation = new Location("place", travelDate);
             Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
-            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            
 
             Request request = new Request(user, package, fromLocation, toLocation);
 
@@ -60,17 +63,21 @@ namespace DomainModel.Tests
             finally
             {
                 repository.Delete(request);
+                RepositoryFactory.GetUserRepository().Delete(user);
             }
         }
 
         [Test]
         public void TestRequestSearch()
         {
+            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            RepositoryFactory.GetUserRepository().SaveUser(user);
+
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
             Location fromLocation = new Location("place", travelDate);
             Location toLocation = new Location("place", travelDate);
             Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
-            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"),"pwd");
+            
             Request request = new Request(user, package, fromLocation, toLocation);
 
             IRequestRepository repository = RequestRepository.Instance;
@@ -84,6 +91,7 @@ namespace DomainModel.Tests
             finally
             {
                 repository.Delete(request);
+                RepositoryFactory.GetUserRepository().Delete(user);
             }
         }
 

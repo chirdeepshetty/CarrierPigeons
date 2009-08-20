@@ -68,15 +68,12 @@ namespace DomainModel
             session.Close();
         }
 
-        public IList<Journey> FindJourneysByUser(string emailid)
+        public IList<Journey> FindJourneysByUser(User user)
         {
-
-            User user = RepositoryFactory.GetUserRepository().LoadUser(emailid);
             var session = sessionFactory.OpenSession();
-            string querystring = "from Journey as J  where J.Traveller = :user_id";
+            const string querystring = "from Journey as J  where J.Traveller = :traveller";
             IQuery query = session.CreateQuery(querystring);
-            query.SetEntity("user_id", user);
-            //query.SetInt32("user_id", user.Id);
+            query.SetEntity("traveller", user);
             var journeyList = (List<Journey>)query.List<Journey>();
             return journeyList;
 
@@ -85,8 +82,7 @@ namespace DomainModel
         public IEnumerable<Journey> Find(Request request)
         {
             var session = sessionFactory.OpenSession();
-            string findByRequest =
-                "from Journey as J where J.Origin.Place = :origin and J.Destination.Place = :destination and J.Destination.Date.DateTime <= :arrivalDate";
+            const string findByRequest = "from Journey as J where J.Origin.Place = :origin and J.Destination.Place = :destination and J.Destination.Date.DateTime <= :arrivalDate";
             IQuery query = session.CreateQuery(findByRequest);
             query.SetString("origin", request.Origin.Place);
             query.SetString("destination", request.Destination.Place);
@@ -102,7 +98,7 @@ namespace DomainModel
         void Save(Journey journey);
         Journey Load(int journeyId);
         event JourneyCreatedEventHandler JourneyCreated;
-        IList<Journey> FindJourneysByUser(string emailid);
+        IList<Journey> FindJourneysByUser(User user);
         IEnumerable<Journey> Find(Request request);
         void Delete(Journey journey);
     }
