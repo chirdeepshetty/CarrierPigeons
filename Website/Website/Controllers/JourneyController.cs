@@ -12,9 +12,17 @@ namespace Website.Controllers
 {
     public class JourneyController : Controller
     {
+        private IList<Journey> GetJourneyList(User user)
+        {
+            return  JourneyRepository.Instance.FindJourneysByUser(user);
+        }
+
+       
         [AcceptVerbs(HttpVerbs.Get)]
         public ViewResult Create()
         {
+            ViewData["EmailId"] = User.Identity.Name;
+            ViewData["MyOtherJourneyDetails"] = GetJourneyList(RepositoryFactory.GetUserRepository().LoadUser(User.Identity.Name));
             return View();
         }
 
@@ -30,6 +38,8 @@ namespace Website.Controllers
                 DomainModel.User user = userRepository.LoadUser(User.Identity.Name);
                 DomainModel.Journey journey = new Journey(user,  origin, destination);
                 DomainModel.JourneyRepository.Instance.Save(journey);
+
+                ViewData["MyOtherJourneyDetails"] = GetJourneyList(user);
 
                 ViewData["Message"] = "Journey Created Successfully!";
                

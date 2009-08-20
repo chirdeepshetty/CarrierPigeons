@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DomainModel;
 
 namespace Website
 {
@@ -27,6 +28,7 @@ namespace Website
         protected void Application_Start()
         {
             RegisterRoutes(RouteTable.Routes);
+            new JourneyRequestMatcher(RequestRepository.Instance, JourneyRepository.Instance);
         }
     }
 }

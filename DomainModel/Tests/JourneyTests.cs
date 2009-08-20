@@ -15,6 +15,7 @@ namespace DomainModel.Tests
         public void TestJourneyCreation()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
             Journey journey = new Journey(traveller, origin, destination);
@@ -23,10 +24,37 @@ namespace DomainModel.Tests
             Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
         }
 
-        [Test]
+ 
+        public void TestJourneyRepositorySave()
+        {
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            Location origin = new Location("London", new TravelDate(DateTime.Now));
+            Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
+            Journey journey = new Journey(traveller, origin, destination);
+            IJourneyRepository journeyRepository = JourneyRepository.Instance;
+            journeyRepository.Save(journey);
+            int journeyid = journey.Id;
+            Journey journeyEntity = journeyRepository.Load(journeyid);
+            try
+            {
+                Assert.AreEqual("London", journey.Origin.Place);
+                Assert.AreEqual("Mumbai", journey.Destination.Place);
+                Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
+            }finally
+            {
+                journeyRepository.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(traveller);
+            }
+
+        }
+
+               [Test]
+
         public void TestGetJourneyByUser()
         {
             User traveller = new User(new Email("abcd@dsf.com"), new UserName("first", "last"), "pwd");
+
             RepositoryFactory.GetUserRepository().SaveUser(traveller);
 
             Location origin = new Location("London", new TravelDate(DateTime.Now));

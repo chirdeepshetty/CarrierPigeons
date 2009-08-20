@@ -105,7 +105,7 @@ namespace Website.Controllers
                 try
                 {
                     UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password));
-                    FormsAuth.SignIn(fullname, false /* createPersistentCookie */);
+                    FormsAuth.SignIn(email, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (DuplicateRegistrationException)
