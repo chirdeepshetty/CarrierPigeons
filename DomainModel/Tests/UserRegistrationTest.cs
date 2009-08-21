@@ -11,7 +11,13 @@ namespace DomainModel.Tests
     [TestFixture]
     public class UserRegistrationTest
     {
+        private Mock<IUserRepository> _mockRepository;
 
+        [SetUp]
+        public void SetUp()
+        {
+            _mockRepository = new Mock<IUserRepository>();
+        }
 
         [Test]
         public void testUserRegistration()
@@ -59,8 +65,36 @@ namespace DomainModel.Tests
             });
 
             mockRepository.Verify(ur => ur.LoadUser(user.EmailAddress));
-
-
         }
+
+        [Test]
+        public void ShouldTestInvalidUserLogin()
+        {
+            UserName name = new UserName("Bill", "Clinton");
+            Email email = new Email("clinton@usa.gov");
+            User nonExistentUser = new User(email, name, "pwd");
+
+            _mockRepository.Setup(ur => ur.LoadUser(nonExistentUser.EmailAddress)).Returns((User)null);
+            UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
+
+            Assert.False(service.ValidateCredentials(email.EmailAddress, nonExistentUser.Password));
+        }
+
+        [Test]
+        public void ShouldTestValidUserLogin()
+        {
+            UserName name = new UserName("Bill", "Clinton");
+            Email email = new Email("clinton@usa.gov");
+            User user = new User(email, name, "pwd");
+
+
+            _mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns(user);
+            UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
+            
+            Assert.True(service.ValidateCredentials(email.EmailAddress, user.Password));
+          
+        }
+
+       
     }
 }
