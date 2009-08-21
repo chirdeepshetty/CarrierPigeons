@@ -92,7 +92,7 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword,String id)
+        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword, Int32 userGroups)
         {
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
@@ -104,7 +104,8 @@ namespace Website.Controllers
                 // Attempt to register the user
                 try
                 {
-                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, null));
+                    UserGroup userGroup = UserGroupRepository.Instance.LoadGroupById(userGroups);   
+                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, userGroup));
                     //FormsAuth.SignIn(email, false /* createPersistentCookie */);
                     return RedirectToAction("LogOn", "Account");
                 }
