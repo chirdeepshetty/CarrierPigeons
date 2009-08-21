@@ -105,8 +105,8 @@ namespace Website.Controllers
                 try
                 {
                     UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password));
-                    FormsAuth.SignIn(email, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    //FormsAuth.SignIn(email, false /* createPersistentCookie */);
+                    return RedirectToAction("LogOn", "Account");
                 }
                 catch (DuplicateRegistrationException)
                 {
@@ -207,7 +207,7 @@ namespace Website.Controllers
             {
                 ModelState.AddModelError("password", "You must specify a password.");
             }
-            if (!UserRegistrationService.ValidateUser(userName, password))
+            if (!UserRegistrationService.ValidateCredentials(userName, password))
             {
                 ModelState.AddModelError("_FORM", "The username or password provided is incorrect.");
             }
