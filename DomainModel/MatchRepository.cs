@@ -38,10 +38,7 @@ namespace DomainModel
         public void Save(Match match)
         {
             var session = sessionFactory.OpenSession();
-            IDbConnection connection = session.Connection;
-
             session.Save(match);
-            
             session.Close();
         }
 
@@ -86,6 +83,18 @@ namespace DomainModel
             return matchList;
         }
 
+        public void UpdateMatches(IList<Match> matches)
+        {
+            var session = sessionFactory.OpenSession();
+            foreach (Match match in matches)
+            {
+                session.SaveOrUpdate(match);
+
+            }
+            session.Flush();
+            session.Close();
+        }
+
         #endregion
     }
 
@@ -96,6 +105,7 @@ namespace DomainModel
         void Delete(Match match);
         IList<Match> LoadMatchesByUserRequest(string emailAddress);
         IList<Match> LoadMatchesByUserJourney(string emailAddress);
+        void UpdateMatches(IList<Match> matches);
 
     }
 }
