@@ -25,7 +25,7 @@ namespace DomainModel.Tests
 
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
 
 
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
@@ -41,7 +41,7 @@ namespace DomainModel.Tests
             Mock<IUserRepository> mockRepository = new Mock<IUserRepository>();
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
             mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns((User)null);
             mockRepository.Setup(ur => ur.SaveUser(user));
             new UserRegistrationService(mockRepository.Object).CreateUser(user);
@@ -56,7 +56,7 @@ namespace DomainModel.Tests
             Mock<IUserRepository> mockRepository = new Mock<IUserRepository>();
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
             mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns(user);
             Assert.Throws(typeof(DuplicateRegistrationException), delegate()
             {
@@ -72,7 +72,7 @@ namespace DomainModel.Tests
         {
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User nonExistentUser = new User(email, name, "pwd");
+            User nonExistentUser = new User(email, name, "pwd", null);
 
             _mockRepository.Setup(ur => ur.LoadUser(nonExistentUser.EmailAddress)).Returns((User)null);
             UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
@@ -85,7 +85,7 @@ namespace DomainModel.Tests
         {
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
 
 
             _mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns(user);

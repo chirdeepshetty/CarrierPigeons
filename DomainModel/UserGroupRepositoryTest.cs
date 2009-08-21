@@ -24,5 +24,12 @@ namespace DomainModel
 
             
         }
+
+        [Test]
+        public void ShouldLoadGroupWithSpecificId()
+        {
+            UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
+            Assert.AreEqual(group, new UserGroup{Id = 1, Name = "Pune"});
+        }
     }
 }

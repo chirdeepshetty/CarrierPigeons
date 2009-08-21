@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Criterion;
 
 namespace DomainModel
 {
@@ -34,7 +35,16 @@ namespace DomainModel
         {
             ISession session = sessionFactory.OpenSession();
             IList list = session.CreateCriteria(typeof(UserGroup)).List();
+            session.Close();
             return list;
+        }
+
+        public UserGroup LoadGroupById(int id)
+        {
+            ISession session = sessionFactory.OpenSession();
+            UserGroup group = (UserGroup) session.CreateCriteria(typeof (UserGroup)).Add(Expression.Eq("Id", id)).UniqueResult();
+            session.Close();
+            return group;
         }
     }
 }

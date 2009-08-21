@@ -87,12 +87,12 @@ namespace Website.Controllers
         {
 
             ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
-
+            ViewData["UserGroups"] = new SelectList(UserGroupRepository.Instance.LoadGroups(),"Id","Name");
             return View();
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword)
+        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword,String id)
         {
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
@@ -104,7 +104,7 @@ namespace Website.Controllers
                 // Attempt to register the user
                 try
                 {
-                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password));
+                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, null));
                     //FormsAuth.SignIn(email, false /* createPersistentCookie */);
                     return RedirectToAction("LogOn", "Account");
                 }
