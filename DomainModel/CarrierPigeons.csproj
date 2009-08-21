@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E51AD5A3-13F8-44AD-B533-273B708F79DF}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserGroupRepository.cs" />
     <Compile Include="JourneyRequestMatcher.cs" />
     <Compile Include="MatchRepository.cs" />
     <Compile Include="JourneyRepository.cs" />
@@ -79,8 +80,9 @@
     <Compile Include="Request.cs" />
     <Compile Include="IRequestRepository.cs" />
     <Compile Include="Match.cs" />
-   <Compile Include="Tests\JourneyRequestMatcherTests.cs" />
+    <Compile Include="Tests\JourneyRequestMatcherTests.cs" />
     <Compile Include="Tests\MatchTests.cs" />
+    <Compile Include="UserGroup.cs" />
     <Compile Include="UserRegistration\DuplicateRegistrationException.cs" />
     <Compile Include="Tests\JourneyTests.cs" />
     <Compile Include="Email.cs" />
@@ -114,6 +116,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Match.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Group.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
