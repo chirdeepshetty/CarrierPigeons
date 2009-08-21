@@ -40,4 +40,18 @@ create table Match (
    primary key (Id)
 ); 
 
+create table User_Group 
+(
+	id integer,
+	name text
+);
+
+alter table User
+add column group_id integer;
+
+insert into User_Group(id,name) values(1,'Pune');
+insert into User_Group(id,name) values(2,'Bangalore');
+insert into User_Group(id,name) values(3,'Chennai');
+insert into User_Group(id,name) values(4,'Global');
+
 .backup ../bin/Debug/Database.dat

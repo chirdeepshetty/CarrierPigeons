@@ -14,7 +14,7 @@ namespace DomainModel.Tests
         [Test]
         public void TestJourneyCreation()
         {
-            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
             
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
@@ -27,7 +27,7 @@ namespace DomainModel.Tests
  
         public void TestJourneyRepositorySave()
         {
-            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
             RepositoryFactory.GetUserRepository().SaveUser(traveller);
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
@@ -53,7 +53,7 @@ namespace DomainModel.Tests
 
         public void TestGetJourneyByUser()
         {
-            User traveller = new User(new Email("abcd@dsf.com"), new UserName("first", "last"), "pwd");
+            User traveller = new User(new Email("abcd@dsf.com"), new UserName("first", "last"), "pwd", null);
 
             RepositoryFactory.GetUserRepository().SaveUser(traveller);
 
@@ -81,7 +81,7 @@ namespace DomainModel.Tests
             Journey journey = null;
             
                 Guid locationId = Guid.NewGuid();
-                User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+                User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
                 RepositoryFactory.GetUserRepository().SaveUser(traveller);
                 Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
                 Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));
@@ -108,7 +108,7 @@ namespace DomainModel.Tests
         {
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
             UserRegistration.UserRegistrationService service = new UserRegistrationService(userRepository);
-            User traveller = new User(new Email("test@test.com"), new UserName("Test", "User"), "12345");
+            User traveller = new User(new Email("test@test.com"), new UserName("Test", "User"), "12345", null);
 
             service.CreateUser(traveller);
             

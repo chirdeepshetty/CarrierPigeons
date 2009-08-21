@@ -12,7 +12,7 @@ namespace DomainModel.Tests
         [Test]
         public void TestMatchConstructor()
         {
-            User user = new User(new Email("abc@def.com"), null, "password");
+            User user = new User(new Email("abc@def.com"), null, "password", null);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
@@ -29,7 +29,7 @@ namespace DomainModel.Tests
         [Test]
         public void TestMatchRepositorySave()
         {
-            User user = new User(new Email("abc@def.com"), null, "password");
+            User user = new User(new Email("abc@def.com"), null, "password", null);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
@@ -57,7 +57,7 @@ namespace DomainModel.Tests
         public void MatchRepositoryLoadMatchesListByUserRequest()
         {
 
-            User user = new User(new Email("abcdef1@tws.com"), null, "password");
+            User user = new User(new Email("abcdef1@tws.com"), null, "password", null);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
@@ -85,7 +85,7 @@ namespace DomainModel.Tests
         {
 
             
-                User user = new User(new Email("eml@twks.com"), null, "password");
+                User user = new User(new Email("eml@twks.com"), null, "password", null);
                 RepositoryFactory.GetUserRepository().SaveUser(user);
 
                 Package package = new Package("Package", "Weight", "Dimensions");

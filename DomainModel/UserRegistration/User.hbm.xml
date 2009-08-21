@@ -22,5 +22,7 @@
       <key column="user_id"/>
       <one-to-many class="Request"/>
     </set>
+    <many-to-one class="DomainModel.UserGroup" column="group_id" name="UserGroup" lazy="false">
+    </many-to-one>
   </class>
 </hibernate-mapping>

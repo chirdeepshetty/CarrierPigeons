@@ -42,6 +42,11 @@
                     <label for="confirmPassword">Confirm password:</label>
                     <%= Html.Password("confirmPassword") %>
                     <%= Html.ValidationMessage("confirmPassword") %>
+                </p
+                <p>
+                    <label for="userGroups">Select Group:</label>
+                    <%= Html.DropDownList("UserGroups") %>
+                    <%= Html.ValidationMessage("confirmPassword") %>
                 </p>
                 <p>
                     <input type="submit" value="Register" />

@@ -16,18 +16,11 @@ namespace DomainModel.Tests
         [Test]
         public void TestUserConstructor()
         {
-
-            //Email email = new Email("user@carrierpigeons.com");
-            //UserName name = new UserName();
-            //User user = new User(email, name);
-
             Email email = new Email("user@carrierpigeons.com");
             UserName name = new UserName("first","last");
-            User user = new User(email, name, "pwd123");
-
+            User user = new User(email, name, "pwd123", null);
             Assert.AreEqual(user.Email.EmailAddress, email.EmailAddress);
             Assert.AreEqual(user.Name.FirstName, name.FirstName);
-
         }
 
         [Test]
@@ -35,9 +28,7 @@ namespace DomainModel.Tests
         {
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
-
-
+            User user = new User(email, name, "pwd", null);
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
             userRepository.SaveUser(user);
             var loadedUser = userRepository.LoadUser("clinton@usa.gov");
@@ -49,6 +40,26 @@ namespace DomainModel.Tests
                 userRepository.Delete(user);
             }
 
+        }
+
+        [Test]
+        public void TestUserGroupAssociation()
+        {
+            UserName name = new UserName("Bill", "Clinton");
+            Email email = new Email("clinton@usa.gov");
+            UserGroup userGroup=new UserGroup{Id = 1,Name = "Pune",};
+            User user = new User(email, name, "pwd", userGroup);
+            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+            userRepository.SaveUser(user);
+            var loadedUser = userRepository.LoadUser("clinton@usa.gov");
+            try
+            {
+                Assert.AreEqual(userGroup,loadedUser.UserGroup);
+            } 
+            finally
+            {
+                userRepository.Delete(user);                   
+            }
         }
     }
 }

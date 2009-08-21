@@ -1,4 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Website.Models.CreateRequestResponse>" %>
+<%@ Import Namespace="DomainModel"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Create
@@ -41,5 +42,24 @@
         <input type="submit" value="Submit Request" />
         <% }
            } %>
+         <h4>Your All Requests</h4>
+        <table >
+        <tr><th>Origin</th><th>Destination</th><th>Package</th>
+        <%
+            IEnumerable<DomainModel.Request> allRequests = (IList<DomainModel.Request>) ViewData["AllRequests"];
+                 
+            foreach (Request request in allRequests)
+            {
+            %>
+              <tr><td><%=request.Origin.Place%>  
+               <td> <%=request.Destination.Place%> [<%=request.Destination.Date.ToShortDateString() %>] 
+               <td><b>Desc:</b> <%=request.Package.Description %> <br />
+                    <b>Dim:</b> <%=request.Package.Dimensions %> <br />
+                    <b>Wt:</b><%= request.Package.Weight %>               
+               </tr>
+            <%}
+           
+           %>    
+        </table>
     </div>
 </asp:Content>

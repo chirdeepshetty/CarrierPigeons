@@ -24,9 +24,14 @@ namespace DomainModel.UserRegistration
             }
         }
 
-        public bool ValidateUser(string userName, string password)
+        public bool ValidateCredentials(string email, string password)
         {
-            return true;
+            User ExistingUser = Repository.LoadUser(email);
+            if(ExistingUser!=null && ExistingUser.Password.Equals(password))
+            {
+                return true;
+            }
+            return false;
         }
 
         public MembershipCreateStatus CreateUser(User user)

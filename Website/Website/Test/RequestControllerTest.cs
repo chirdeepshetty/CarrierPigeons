@@ -10,13 +10,5 @@ namespace Website.Test
     [TestFixture]
     public class RequestControllerTest
     {
-        [Test]
-        public void TestRequestControllerCreation()
-        {
-            Website.Controllers.RequestController controller = new Website.Controllers.RequestController();
-            ViewResult result = controller.Create();
-            Assert.IsNotNull(result);
-
-        }
     }
 }

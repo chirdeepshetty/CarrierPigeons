@@ -12,17 +12,19 @@ namespace DomainModel
     {
         public virtual  int Id { get; set; }
         public virtual string Password { get; set; }
+        public virtual UserGroup UserGroup { get; set; }
 
         public User ()
         {
             
         }
 
-        public User(Email email, UserName name, string password)
+        public User(Email email, UserName name, string password, UserGroup userGroup)
         {
             this.Email = email;
             this.Name = name;
             this.Password = password;
+            UserGroup = userGroup;
         }
 
         public virtual  Email Email { get; set; }
@@ -50,5 +52,7 @@ namespace DomainModel
         {
             return (Email != null ? Email.GetHashCode() : 0);
         }
+
+        
     }
 }

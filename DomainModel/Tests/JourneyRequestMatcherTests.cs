@@ -40,7 +40,7 @@ namespace DomainModel.Tests
             User traveller = null;
            
                 Guid locationId = Guid.NewGuid();
-                traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd");
+                traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
                 RepositoryFactory.GetUserRepository().SaveUser(traveller);
                 Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
                 Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));

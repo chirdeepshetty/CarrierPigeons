@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using DomainModel;
 using Website.Models;
@@ -7,10 +9,15 @@ namespace Website.Controllers
 {
     public class RequestController : Controller
     {
+        private IEnumerable<Request> GetAllRequests(String emailId)
+        {
+            return RequestRepository.Instance.SearchByUser(emailId);
+        }
+
         [AcceptVerbs(HttpVerbs.Get)]
         public ViewResult Create()
         {
-           
+            ViewData["AllRequests"] = GetAllRequests(User.Identity.Name);
             return View();
         }
 
@@ -30,6 +37,7 @@ namespace Website.Controllers
                     DomainModel.RequestRepository.Instance.Save(request);
 
                     ViewData["Message"] = "Request Submitted Successfully!";
+                    ViewData["AllRequests"] = GetAllRequests(User.Identity.Name);
                 }
                 else
                 {

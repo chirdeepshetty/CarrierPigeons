@@ -11,7 +11,13 @@ namespace DomainModel.Tests
     [TestFixture]
     public class UserRegistrationTest
     {
+        private Mock<IUserRepository> _mockRepository;
 
+        [SetUp]
+        public void SetUp()
+        {
+            _mockRepository = new Mock<IUserRepository>();
+        }
 
         [Test]
         public void testUserRegistration()
@@ -19,7 +25,7 @@ namespace DomainModel.Tests
 
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
 
 
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
@@ -35,7 +41,7 @@ namespace DomainModel.Tests
             Mock<IUserRepository> mockRepository = new Mock<IUserRepository>();
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
             mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns((User)null);
             mockRepository.Setup(ur => ur.SaveUser(user));
             new UserRegistrationService(mockRepository.Object).CreateUser(user);
@@ -50,7 +56,7 @@ namespace DomainModel.Tests
             Mock<IUserRepository> mockRepository = new Mock<IUserRepository>();
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            User user = new User(email, name, "pwd");
+            User user = new User(email, name, "pwd", null);
             mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns(user);
             Assert.Throws(typeof(DuplicateRegistrationException), delegate()
             {
@@ -59,8 +65,36 @@ namespace DomainModel.Tests
             });
 
             mockRepository.Verify(ur => ur.LoadUser(user.EmailAddress));
-
-
         }
+
+        [Test]
+        public void ShouldTestInvalidUserLogin()
+        {
+            UserName name = new UserName("Bill", "Clinton");
+            Email email = new Email("clinton@usa.gov");
+            User nonExistentUser = new User(email, name, "pwd", null);
+
+            _mockRepository.Setup(ur => ur.LoadUser(nonExistentUser.EmailAddress)).Returns((User)null);
+            UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
+
+            Assert.False(service.ValidateCredentials(email.EmailAddress, nonExistentUser.Password));
+        }
+
+        [Test]
+        public void ShouldTestValidUserLogin()
+        {
+            UserName name = new UserName("Bill", "Clinton");
+            Email email = new Email("clinton@usa.gov");
+            User user = new User(email, name, "pwd", null);
+
+
+            _mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns(user);
+            UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
+            
+            Assert.True(service.ValidateCredentials(email.EmailAddress, user.Password));
+          
+        }
+
+       
     }
 }

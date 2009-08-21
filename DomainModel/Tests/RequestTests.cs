@@ -36,14 +36,14 @@ namespace DomainModel.Tests
             Location fromLocation = new Location("place", travelDate);
             Location toLocation = new Location("place", travelDate);
             Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
-            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd", null);
             Request request = new Request(user, package, fromLocation, toLocation);
         }
 
         [Test]
         public void TestRequestRepository()
         {
-            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd", null);
             RepositoryFactory.GetUserRepository().SaveUser(user);
 
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
@@ -70,7 +70,7 @@ namespace DomainModel.Tests
         [Test]
         public void TestRequestSearch()
         {
-            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd");
+            User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd", null);
             RepositoryFactory.GetUserRepository().SaveUser(user);
 
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
@@ -102,8 +102,8 @@ namespace DomainModel.Tests
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
             Email email1 = new Email("lokeshwer1@gmail.com");
             Email email2 = new Email("lokeshwer2@gmail.com");
-            User user1 = new User(new Email("user1@carrierpigeons.com"), new UserName("User1", "Last"), "pwd");
-            User user2 = new User(new Email("user2@carrierpigeons.com"), new UserName("User2", "Last"), "pwd");
+            User user1 = new User(new Email("user1@carrierpigeons.com"), new UserName("User1", "Last"), "pwd", null);
+            User user2 = new User(new Email("user2@carrierpigeons.com"), new UserName("User2", "Last"), "pwd", null);
             userRepository.SaveUser(user1);
             userRepository.SaveUser(user2);
             Request request1 = new Request(user1, new Package("test pkg", "1kg", "1x1x1kg"),

@@ -87,12 +87,12 @@ namespace Website.Controllers
         {
 
             ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
-
+            ViewData["UserGroups"] = new SelectList(UserGroupRepository.Instance.LoadGroups(),"Id","Name");
             return View();
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword)
+        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword,String id)
         {
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
@@ -104,9 +104,9 @@ namespace Website.Controllers
                 // Attempt to register the user
                 try
                 {
-                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password));
-                    FormsAuth.SignIn(email, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, null));
+                    //FormsAuth.SignIn(email, false /* createPersistentCookie */);
+                    return RedirectToAction("LogOn", "Account");
                 }
                 catch (DuplicateRegistrationException)
                 {
@@ -207,7 +207,7 @@ namespace Website.Controllers
             {
                 ModelState.AddModelError("password", "You must specify a password.");
             }
-            if (!UserRegistrationService.ValidateUser(userName, password))
+            if (!UserRegistrationService.ValidateCredentials(userName, password))
             {
                 ModelState.AddModelError("_FORM", "The username or password provided is incorrect.");
             }
