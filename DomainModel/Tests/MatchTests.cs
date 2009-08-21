@@ -117,7 +117,7 @@ namespace DomainModel.Tests
         public void ShouldUpdateMatchStatus()
         {
 
-            User user = new User(new Email("abcdef1@tws.com"), null, "password");
+            User user = new User(new Email("abcdef1@tws.com"), null, "password", null);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
