@@ -116,6 +116,7 @@ namespace DomainModel.Tests
 
             IEnumerable<Request> requests = RequestRepository.Instance.Find(journey);
             try{
+                Console.WriteLine("####" + requests.Count());
             Assert.True(requests.Count() == 0);
             }
             finally

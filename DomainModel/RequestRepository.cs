@@ -88,9 +88,9 @@ namespace DomainModel
             var session = sessionFactory.OpenSession();
             string findByJourney =
                 @"select R from Request as R, Journey J 
-                where J.Traveller <> R.RequestedUser                 
-                and J.Traveller.UserGroup = R.RequestedUser.UserGroup
-                and J.Traveller = :journeyUser
+                where J.Traveller = :journeyUser 
+                and J.Traveller <> R.RequestedUser                 
+                and J.Traveller.UserGroup = R.RequestedUser.UserGroup               
                 and R.Origin.Place = :origin                 
                 and R.Destination.Place = :destination
                 and R.Destination.Date.DateTime <= :arrivalDate";

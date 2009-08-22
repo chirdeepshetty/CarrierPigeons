@@ -107,6 +107,8 @@ namespace DomainModel.Tests
             {
                 JourneyRepository.Instance.Delete(journey);
                 RepositoryFactory.GetUserRepository().Delete(traveller);
+                RepositoryFactory.GetUserRepository().Delete(another);
+                RequestRepository.Instance.Delete(request);
             }
 
         }
@@ -139,6 +141,7 @@ namespace DomainModel.Tests
             {
                 JourneyRepository.Instance.Delete(journey);
                 RepositoryFactory.GetUserRepository().Delete(traveller);
+                RequestRepository.Instance.Delete(request);
             }
 
         }
