@@ -25,33 +25,45 @@ namespace Website.Test
         [Test]
         public void ShouldReturnListOfMatchedRequestsForUserJourney()
         {
-            var matchRepositoryMock = new Mock<IMatchRepository> {}; 
+            var matchRepositoryMock = new Mock<IMatchRepository> {};
+            var userRepositoryMock = new Mock<IUserRepository> { };
             List<Match> matchedRequests = new List<Match>();
             Match match = new Match(new Journey(),new Request());
-            match.Status = MatchStatus.Created;
+            match.Status = MatchStatus.Potential;
             matchedRequests.Add(match);
-            matchRepositoryMock.Setup(ps => ps.LoadMatchesByUserJourney("test@test.com")).Returns(matchedRequests);
+            matchRepositoryMock.Setup(ps => ps.LoadPotentialMatchesByUserJourney("test@test.com")).Returns(matchedRequests);
 
-            Website.Controllers.RequestMatchController requestMatchController = 
-                            new Website.Controllers.RequestMatchController(matchRepositoryMock.Object,"test@test.com");
+            Website.Controllers.RequestMatchController requestMatchController =
+                            new Website.Controllers.RequestMatchController(matchRepositoryMock.Object, userRepositoryMock.Object, "test@test.com");
             ActionResult result = requestMatchController.MatchRequest();
             Assert.AreEqual(((IList<Match>) requestMatchController.ViewData["MatchList"]).Count, 1);
-            matchRepositoryMock.Verify(ps => ps.LoadMatchesByUserJourney("test@test.com"));
+            matchRepositoryMock.Verify(ps => ps.LoadPotentialMatchesByUserJourney("test@test.com"));
         }
 
         [Test]
         public void ShouldAcceptSelectedMatchedRequestsAndChangeStatusOfTheRequests()
         {
             var matchRepositoryMock = new Mock<IMatchRepository> { };
+            var userRepositoryMock = new Mock<IUserRepository> {};
+
             List<Match> matchedRequests = new List<Match>();
-            Match match = new Match(new Journey(), new Request());
-            match.Status = MatchStatus.Created;
+            Request request = new Request();
+            User user = new User();
+            user.Email = new Email("test@test.com");
+
+            Match match = new Match(new Journey(), request);
+            match.Status = MatchStatus.Potential;
+            match.Id = 1;
             matchedRequests.Add(match);
-            matchRepositoryMock.Setup(ps => ps.LoadMatchesByUserJourney("test@test.com")).Returns(matchedRequests);
+            matchRepositoryMock.Setup(ps => ps.LoadPotentialMatchesByUserJourney("test@test.com")).Returns(matchedRequests);
+            userRepositoryMock.Setup(ps => ps.LoadUser("test@test.com")).Returns(user);
 
             Website.Controllers.RequestMatchController requestMatchController =
-                            new Website.Controllers.RequestMatchController(matchRepositoryMock.Object, "test@test.com");
-            //TBC
-        }
+                            new Website.Controllers.RequestMatchController(matchRepositoryMock.Object,userRepositoryMock.Object ,"test@test.com");
+            requestMatchController.AcceptRequest(new string[]{"1"});
+            Assert.AreEqual(match.Status,MatchStatus.Accepted);
+            Assert.AreEqual(match.Request.AcceptingUser,user);
+            matchRepositoryMock.Verify(ps => ps.UpdateMatches(matchedRequests));
+          }
     }
 }

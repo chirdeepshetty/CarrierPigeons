@@ -22,6 +22,7 @@ namespace DomainModel
         public virtual Package Package { get; set; }
         public virtual Location Origin { get; set; }
         public virtual Location Destination { get; set; }
+        public virtual User AcceptingUser{ get; set;}
 
         public virtual bool Equals(Request other)
         {

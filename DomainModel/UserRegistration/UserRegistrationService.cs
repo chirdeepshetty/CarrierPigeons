@@ -24,10 +24,10 @@ namespace DomainModel.UserRegistration
             }
         }
 
-        public bool ValidateCredentials(string email, string password)
+        public bool AreCredentialsValid(string email, string password)
         {
             User ExistingUser = Repository.LoadUser(email);
-            if(ExistingUser!=null && ExistingUser.Password.Equals(password))
+            if (ExistingUser != null && ExistingUser.Password.Equals(password))
             {
                 return true;
             }

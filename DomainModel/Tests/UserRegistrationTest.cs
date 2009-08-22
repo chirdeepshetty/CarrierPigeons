@@ -80,7 +80,7 @@ namespace DomainModel.Tests
             _mockRepository.Setup(ur => ur.LoadUser(nonExistentUser.EmailAddress)).Returns((User)null);
             UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
 
-            Assert.False(service.ValidateCredentials(email.EmailAddress, nonExistentUser.Password));
+            Assert.False(service.AreCredentialsValid(email.EmailAddress, nonExistentUser.Password));
         }
 
         [Test]
@@ -94,7 +94,7 @@ namespace DomainModel.Tests
             _mockRepository.Setup(ur => ur.LoadUser(user.EmailAddress)).Returns(user);
             UserRegistration.UserRegistrationService service = new UserRegistrationService(_mockRepository.Object);
             
-            Assert.True(service.ValidateCredentials(email.EmailAddress, user.Password));
+            Assert.True(service.AreCredentialsValid(email.EmailAddress, user.Password));
           
         }
 

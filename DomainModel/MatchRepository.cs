@@ -59,15 +59,16 @@ namespace DomainModel
             return matchList;
         }
 
-        public IList<Match> LoadMatchesByUserJourney(string emailAddress)
+        public IList<Match> LoadPotentialMatchesByUserJourney(string emailAddress)
         {
-
-            const string querystring = "from Match as M  where M.Journey.Traveller.Email.EmailAddress = :user_id";
+            const string querystring =
+                "from Match as M  where M.Journey.Traveller.Email.EmailAddress = :user_id and M.Status = :status";
             IQuery query = Session.CreateQuery(querystring);
             query.SetString("user_id", emailAddress);
-            var matchList = (List<Match>)query.List<Match>();
+            query.SetEnum("status", MatchStatus.Potential);
+            var matchList = (List<Match>) query.List<Match>();
             return matchList;
-        }
+       }
 
         public void UpdateMatches(IList<Match> matches)
         {
@@ -88,7 +89,7 @@ namespace DomainModel
         Match Load(int matchId);
         void Delete(Match match);
         IList<Match> LoadMatchesByUserRequest(string emailAddress);
-        IList<Match> LoadMatchesByUserJourney(string emailAddress);
+        IList<Match> LoadPotentialMatchesByUserJourney(string emailAddress);
         void UpdateMatches(IList<Match> matches);
 
     }

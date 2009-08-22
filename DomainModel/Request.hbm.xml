@@ -28,5 +28,8 @@
     <many-to-one class="DomainModel.User" column="user_id" name="RequestedUser" lazy="false">
     </many-to-one>
 
+    <many-to-one class="DomainModel.User" column="accepting_user_id" name="AcceptingUser" lazy="false">
+    </many-to-one>
+
   </class>
 </hibernate-mapping>

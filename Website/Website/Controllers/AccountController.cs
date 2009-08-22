@@ -208,7 +208,7 @@ namespace Website.Controllers
             {
                 ModelState.AddModelError("password", "You must specify a password.");
             }
-            if (!UserRegistrationService.ValidateCredentials(userName, password))
+            if (!UserRegistrationService.AreCredentialsValid(userName, password))
             {
                 ModelState.AddModelError("_FORM", "The username or password provided is incorrect.");
             }
