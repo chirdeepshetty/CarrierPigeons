@@ -7,7 +7,7 @@ namespace DomainModel.UserRegistration
     {
         int MinPasswordLength { get; }
 
-        bool ValidateCredentials(string userName, string password);
+        bool AreCredentialsValid(string userName, string password);
         MembershipCreateStatus CreateUser(User user);
         //bool ChangePassword(string userName, string oldPassword, string newPassword);
     }

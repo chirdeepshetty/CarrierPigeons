@@ -82,11 +82,19 @@ namespace DomainModel
         public IEnumerable<Journey> Find(Request request)
         {
             var session = sessionFactory.OpenSession();
-            const string findByRequest = "from Journey as J where J.Origin.Place = :origin and J.Destination.Place = :destination and J.Destination.Date.DateTime <= :arrivalDate";
+            const string findByRequest = @"select J from Journey J, Request R 
+                                            where J.Traveller <> R.RequestedUser                                            
+                                            and R.RequestedUser = :requestedUser
+                                            and J.Traveller.UserGroup = R.RequestedUser.UserGroup 
+                                            and J.Origin.Place = :origin 
+                                            and J.Destination.Place = :destination 
+                                            and J.Destination.Date.DateTime <= :arrivalDate ";
+
             IQuery query = session.CreateQuery(findByRequest);
             query.SetString("origin", request.Origin.Place);
             query.SetString("destination", request.Destination.Place);
             query.SetDateTime("arrivalDate", request.Destination.Date.DateTime);
+            query.SetParameter("requestedUser",request.RequestedUser);
             return query.List<Journey>();
         }
 

@@ -81,19 +81,59 @@ namespace DomainModel.Tests
             Journey journey = null;
             
                 Guid locationId = Guid.NewGuid();
-                User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
+                UserGroup userGroup = UserGroupRepository.Instance.LoadGroupById(1);
+                User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", userGroup);
                 RepositoryFactory.GetUserRepository().SaveUser(traveller);
-                Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
-                Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));
+
+                Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
+                Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(10)));
                 journey = new Journey(traveller, origin, destination);
                 IJourneyRepository journeyRepository = JourneyRepository.Instance;
                 journeyRepository.Save(journey);
 
-                Request request = new Request(traveller, new Package(null, null, null), origin, destination);
+        
+                User another = new User(new Email("r@abc.com"), new UserName("first", "last"), "pwd", userGroup);
+                RepositoryFactory.GetUserRepository().SaveUser(another);
+
+                Request request = new Request(another, new Package(null, null, null), origin, new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20))));
+                RequestRepository.Instance.Save(request);
                 IEnumerable<Journey> journeyList = journeyRepository.Find(request);
+                Assert.True(journeyList.Count() > 0 );
                 try
                 {
-                Assert.IsTrue(journeyList.Where(a => a.Origin.Place == request.Origin.Place && a.Destination.Equals(request.Destination)).Count() == 1);
+                Assert.IsTrue(journeyList.Where(a => a.Origin.Place == request.Origin.Place && a.Destination.Place.Equals(request.Destination.Place)).Count() == 1);
+            }
+            finally
+            {
+                JourneyRepository.Instance.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(traveller);
+            }
+
+        }
+
+        [Test]
+        public void TestShouldFailIfSameUsersJourneysAreMatching()
+        {
+            Journey journey = null;
+
+            Guid locationId = Guid.NewGuid();
+            UserGroup userGroup = UserGroupRepository.Instance.LoadGroupById(1);
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", userGroup);
+            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+
+            Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
+            Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(10)));
+            journey = new Journey(traveller, origin, destination);
+            IJourneyRepository journeyRepository = JourneyRepository.Instance;
+            journeyRepository.Save(journey);
+
+            Request request = new Request(traveller, new Package(null, null, null), origin, new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20))));
+            RequestRepository.Instance.Save(request);
+            IEnumerable<Journey> journeyList = journeyRepository.Find(request);
+            
+            try
+            {
+                Assert.True(journeyList.Count() == 0);
             }
             finally
             {

@@ -96,6 +96,75 @@ namespace DomainModel.Tests
         }
 
         [Test]
+        public void TestFindRequestHavingSameLocationButFromASameUser()
+        {
+            Journey journey = null;
+
+            UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
+            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+
+            Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
+            Request request = new Request(traveller, new Package(null, null, null), origin,
+                                          new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(10))));
+            RequestRepository.Instance.Save(request);
+
+            Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20)));
+            journey = new Journey(traveller, origin, destination);
+            IJourneyRepository journeyRepository = JourneyRepository.Instance;
+            journeyRepository.Save(journey);
+
+            IEnumerable<Request> requests = RequestRepository.Instance.Find(journey);
+            try{
+            Assert.True(requests.Count() == 0);
+            }
+            finally
+            {
+                RequestRepository.Instance.Delete(request);
+                JourneyRepository.Instance.Delete(journey);
+                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            }
+    }
+
+
+
+        [Test]
+        public void TestFindRequestHavingSameLocationButFromADifferentUser()
+        {
+            Journey journey = null;
+            UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
+            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+
+            Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
+            Request request = new Request(traveller, new Package(null, null, null), origin, new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(10))));
+            RequestRepository.Instance.Save(request);
+
+            Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20)));
+
+            User traveller1 = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
+            RepositoryFactory.GetUserRepository().SaveUser(traveller1);
+
+            journey = new Journey(traveller1, origin, destination);
+            IJourneyRepository journeyRepository = JourneyRepository.Instance;
+            journeyRepository.Save(journey);
+
+            IEnumerable<Request> requests = RequestRepository.Instance.Find(journey);
+
+            try
+            {
+                Assert.True(requests.Count() == 1);
+            }
+            finally
+            {
+                RequestRepository.Instance.Delete(request);
+                JourneyRepository.Instance.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(traveller1);
+                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            }
+        }
+
+        [Test]
         public void GetRequestsByUser()
         {
             IRequestRepository requestRepository = RequestRepository.Instance;
