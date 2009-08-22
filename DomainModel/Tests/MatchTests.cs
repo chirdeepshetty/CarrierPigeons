@@ -97,7 +97,7 @@ namespace DomainModel.Tests
                 IMatchRepository repository = MatchRepository.Instance;
 
                 repository.Save(match);
-                IList<Match> matchList = repository.LoadMatchesByUserJourney("eml@twks.com");
+                IList<Match> matchList = repository.LoadPotentialMatchesByUserJourney("eml@twks.com");
                 try
                 {
                 Assert.AreEqual(1, matchList.Count);
@@ -114,18 +114,18 @@ namespace DomainModel.Tests
         }
 
         [Test]
-        public void ShouldUpdateMatchStatus()
+        public void ShouldUpdateMatchStatusAndAcceptingUserInRequest()
         {
 
-            User user = new User(new Email("abcdef1@tws.com"), null, "password", null);
+            User user1 = new User(new Email("abcdef1@tws.com"), null, "password", null);
+            User user2 = new User(new Email("abcdef1@tws.com"), null, "password", null);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
-            Journey journey = new Journey(user, origin, destination);
-            Request request = new Request(user, package, origin, destination);
-            RepositoryFactory.GetUserRepository().SaveUser(user);
-            //RequestRepository.Instance.Save(request);
-            //JourneyRepository.Instance.Save(journey);
+            Journey journey = new Journey(user1, origin, destination);
+            Request request = new Request(user2, package, origin, destination);
+            RepositoryFactory.GetUserRepository().SaveUser(user1);
+            RepositoryFactory.GetUserRepository().SaveUser(user2);
 
             Match match = new Match(journey, request);
             
@@ -137,6 +137,7 @@ namespace DomainModel.Tests
             foreach (Match myMatch in matchList)
             {
                 myMatch.Status = MatchStatus.Accepted;
+                myMatch.Request.AcceptingUser = user1;
             }
 
             matchRepository.UpdateMatches(matchList);
@@ -149,15 +150,15 @@ namespace DomainModel.Tests
                 foreach (Match myMatch in updatedMatchList)
                 {
                     Assert.AreEqual(MatchStatus.Accepted,myMatch.Status);
+                    Assert.AreEqual(myMatch.Request.AcceptingUser,user1);
                 }
             }
             finally
             {
 
                 matchRepository.Delete(match);
-                RepositoryFactory.GetUserRepository().Delete(user);
-                //RequestRepository.Instance.Delete(request);
-                //JourneyRepository.Instance.Delete(journey);
+                RepositoryFactory.GetUserRepository().Delete(user1);
+                RepositoryFactory.GetUserRepository().Delete(user2);
             }
         }
     }

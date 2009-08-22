@@ -5,9 +5,14 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+<% if (ViewData["Message"] != null)
+           { %>
+        <%= ViewData["Message"]%><br />
+        <% }%>
+        
     <h2>Matched Requests</h2>
-    
+<%    
+   using (Html.BeginForm("AcceptRequest","RequestMatch")) {%>
     <table border="1">
         <tr align="center">
             <td>&nbsp;&nbsp</td>
@@ -25,10 +30,10 @@
             string from = "";
             string to = "";
             foreach (DomainModel.Match match in (IEnumerable)ViewData["MatchList"])
-            {
+            { 
 %>
                 <tr>
-                    <td><input type='checkbox' name="<%=match.Id%>" /></td>
+                    <td><input type='checkbox' name="acceptRequest" value="<%=match.Id%>" /></td>
                     <td><%=match.Request.RequestedUser.Name.FirstName %></td>
                     <td><%=match.Request.RequestedUser.Email.EmailAddress%></td>
                     <td><%=match.Request.Origin.Place%></td>
@@ -38,8 +43,10 @@
                     <td><%=match.Request.Package.Weight%> </td>   
                 </tr>
 <%
-    }
+            }
 %>
     </table>
-
+    <br />
+    <input type="submit" value="Accept" />
+<%   }%> 
 </asp:Content>

@@ -11,7 +11,7 @@ create table Request (
    Dimensions TEXT,
    Weight TEXT,
    user_id integer,
-
+   accepting_user_id integer,
    primary key (Id)
 );
 create table User (

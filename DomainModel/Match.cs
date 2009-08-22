@@ -1,3 +1,4 @@
+using System;
 using NHibernate.Type;
 
 namespace DomainModel
@@ -32,14 +33,23 @@ namespace DomainModel
             get; 
             set;
         }
+
+        public virtual void Accept(User user)
+        {
+            Status = MatchStatus.Accepted;
+            Request.AcceptingUser = user;
+        }
+
+        public virtual bool IsAccepted()
+        {
+            return Status==MatchStatus.Accepted;
+        }
+
     }
 
     public enum MatchStatus
     {
-        Created,
-        Requested,
-        Accepted,
-        Rejected,
-        Cancelled
+        Potential,
+        Accepted
     }
 }
