@@ -113,6 +113,52 @@ namespace DomainModel.Tests
             
         }
 
+        [Test]
+        public void ShouldUpdateMatchStatus()
+        {
 
+            User user = new User(new Email("abcdef1@tws.com"), null, "password", null);
+            Package package = new Package("Package", "Weight", "Dimensions");
+            Location origin = new Location("Origin", new TravelDate(DateTime.Today));
+            Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
+            Journey journey = new Journey(user, origin, destination);
+            Request request = new Request(user, package, origin, destination);
+            RepositoryFactory.GetUserRepository().SaveUser(user);
+            //RequestRepository.Instance.Save(request);
+            //JourneyRepository.Instance.Save(journey);
+
+            Match match = new Match(journey, request);
+            
+            IMatchRepository matchRepository = MatchRepository.Instance;
+            matchRepository.Save(match);
+
+            IList<Match> matchList = matchRepository.LoadMatchesByUserRequest("abcdef1@tws.com");
+
+            foreach (Match myMatch in matchList)
+            {
+                myMatch.Status = MatchStatus.Accepted;
+            }
+
+            matchRepository.UpdateMatches(matchList);
+            
+            IList<Match> updatedMatchList = matchRepository.LoadMatchesByUserRequest("abcdef1@tws.com");
+
+            try
+            {
+                Assert.AreEqual(1, matchList.Count);
+                foreach (Match myMatch in updatedMatchList)
+                {
+                    Assert.AreEqual(MatchStatus.Accepted,myMatch.Status);
+                }
+            }
+            finally
+            {
+
+                matchRepository.Delete(match);
+                RepositoryFactory.GetUserRepository().Delete(user);
+                //RequestRepository.Instance.Delete(request);
+                //JourneyRepository.Instance.Delete(journey);
+            }
+        }
     }
 }
