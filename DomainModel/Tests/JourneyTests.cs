@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using DomainModel.UserRegistration;
+using NHibernate;
 using NUnit.Framework;
 
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class JourneyTests
+    public class JourneyTests : TestBase
     {
-
         [Test]
         public void TestJourneyCreation()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
-            
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
             Journey journey = new Journey(traveller, origin, destination);
@@ -24,11 +24,11 @@ namespace DomainModel.Tests
             Assert.AreEqual("asd@dsf.com", journey.Traveller.Email.EmailAddress);
         }
 
- 
+        
         public void TestJourneyRepositorySave()
         {
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
-            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            UserRepository.Instance.SaveUser(traveller);
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
             Journey journey = new Journey(traveller, origin, destination);
@@ -44,18 +44,17 @@ namespace DomainModel.Tests
             }finally
             {
                 journeyRepository.Delete(journey);
-                RepositoryFactory.GetUserRepository().Delete(traveller);
+                UserRepository.Instance.Delete(traveller);
             }
 
         }
 
-               [Test]
-
+        [Test]
         public void TestGetJourneyByUser()
         {
             User traveller = new User(new Email("abcd@dsf.com"), new UserName("first", "last"), "pwd", null);
 
-            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            UserRepository.Instance.SaveUser(traveller);
 
             Location origin = new Location("London", new TravelDate(DateTime.Now));
             Location destination = new Location("Mumbai", new TravelDate(DateTime.Now));
@@ -69,7 +68,7 @@ namespace DomainModel.Tests
         }finally
             {
                 journeyRepository.Delete(journey);
-                RepositoryFactory.GetUserRepository().Delete(traveller);
+                UserRepository.Instance.Delete(traveller);
             }
         
         }
@@ -82,7 +81,7 @@ namespace DomainModel.Tests
             
                 Guid locationId = Guid.NewGuid();
                 User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
-                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                UserRepository.Instance.SaveUser(traveller);
                 Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
                 Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));
                 journey = new Journey(traveller, origin, destination);
@@ -98,7 +97,7 @@ namespace DomainModel.Tests
             finally
             {
                 JourneyRepository.Instance.Delete(journey);
-                RepositoryFactory.GetUserRepository().Delete(traveller);
+                UserRepository.Instance.Delete(traveller);
             }
 
         }
@@ -106,9 +105,9 @@ namespace DomainModel.Tests
         [Test]
         public void TestCreateJourneyForAnExistingUser()
         {
-            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+            IUserRepository userRepository = UserRepository.Instance;
             UserRegistration.UserRegistrationService service = new UserRegistrationService(userRepository);
-            User traveller = new User(new Email("test@test.com"), new UserName("Test", "User"), "12345", null);
+            User traveller = new User(new Email("test2@test.com"), new UserName("Test", "User"), "12345", null);
 
             service.CreateUser(traveller);
             

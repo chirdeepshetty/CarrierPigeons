@@ -8,18 +8,11 @@ using NHibernate.Criterion;
 
 namespace DomainModel
 {
-    public class UserGroupRepository
+    public class UserGroupRepository : RepositoryBase
     {
-        protected static ISessionFactory sessionFactory;
-        protected static Configuration configuration;
 
         private UserGroupRepository()
         {
-            if(sessionFactory!=null)
-                return;
-            configuration = new Configuration();
-            configuration.AddAssembly(this.GetType().Assembly);
-            sessionFactory = configuration.BuildSessionFactory();
         }
         static readonly UserGroupRepository _userGroupRepository = new UserGroupRepository();
 
@@ -27,23 +20,20 @@ namespace DomainModel
         {
             get
             {
+                _userGroupRepository.SetSession();
                 return _userGroupRepository;
             }
         }
 
         public IList LoadGroups()
         {
-            ISession session = sessionFactory.OpenSession();
-            IList list = session.CreateCriteria(typeof(UserGroup)).List();
-            session.Close();
+            IList list = Session.CreateCriteria(typeof(UserGroup)).List();
             return list;
         }
 
         public UserGroup LoadGroupById(int id)
         {
-            ISession session = sessionFactory.OpenSession();
-            UserGroup group = (UserGroup) session.CreateCriteria(typeof (UserGroup)).Add(Expression.Eq("Id", id)).UniqueResult();
-            session.Close();
+            UserGroup group = (UserGroup) Session.CreateCriteria(typeof (UserGroup)).Add(Expression.Eq("Id", id)).UniqueResult();
             return group;
         }
     }

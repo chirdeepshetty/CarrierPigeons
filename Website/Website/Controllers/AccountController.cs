@@ -32,7 +32,7 @@ namespace Website.Controllers
         public AccountController(IFormsAuthentication formsAuth, IUserRegistration service)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            UserRegistrationService = service ?? new UserRegistrationService(RepositoryFactory.GetUserRepository());
+            UserRegistrationService = service ?? new UserRegistrationService(UserRepository.Instance);
         }
 
         public IFormsAuthentication FormsAuth

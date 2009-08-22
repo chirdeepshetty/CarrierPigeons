@@ -32,6 +32,7 @@ namespace DomainModel
             get; 
             set;
         }
+
     }
 
     public enum MatchStatus

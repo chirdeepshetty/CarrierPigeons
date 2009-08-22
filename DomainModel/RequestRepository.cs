@@ -10,21 +10,14 @@ using NHibernate.Tool.hbm2ddl;
 
 namespace DomainModel
 {
-    public class RequestRepository : IRequestRepository
+    public class RequestRepository : RepositoryBase, IRequestRepository
     {
-        protected static ISessionFactory sessionFactory;
-        protected static Configuration configuration;
         public event RequestCreatedEventHandler RequestCreated;
         
        
 
         private RequestRepository()
         {
-            if(sessionFactory!=null)
-                return;
-            configuration = new Configuration();
-            configuration.AddAssembly(this.GetType().Assembly);
-            sessionFactory = configuration.BuildSessionFactory();
         }
         static RequestRepository _requestRepository = new RequestRepository();
         
@@ -32,6 +25,7 @@ namespace DomainModel
         {
             get
             {
+                _requestRepository.SetSession();
                 return _requestRepository;
             }
         }
@@ -40,23 +34,16 @@ namespace DomainModel
 
         public void Save(Request request)
         {
-            var session = sessionFactory.OpenSession();
-            IDbConnection connection = session.Connection;
-            
-            session.Save(request);
-            
-            session.Close();
-
+            Session.Save(request);
             if(this.RequestCreated != null)
                 RequestCreated(new RequestCreatedEventArgs{Request = request});
         }
 
         public List<Request> Search(Location location, Location toLocation, TravelDate date)
         {
-            var session = sessionFactory.OpenSession();
             string querystring =
                 "from Request as R where R.Destination.Place = :destination and R.Origin.Place= :origin and R.Destination.Date.DateTime <= :date";
-            IQuery query = session.CreateQuery(querystring);
+            IQuery query = Session.CreateQuery(querystring);
             query.SetString("destination", toLocation.Place);
             query.SetString("origin", location.Place);
             query.SetDateTime("date", date.DateTime);
@@ -66,20 +53,18 @@ namespace DomainModel
 
         public IEnumerable<Request> SearchByUser(string address)
         {
-            var session = sessionFactory.OpenSession();
             string findByUser = 
                 "from Request as R where R.RequestedUser.Email.EmailAddress = :email";
-            IQuery query = session.CreateQuery(findByUser);
+            IQuery query = Session.CreateQuery(findByUser);
             query.SetString("email", address);
             return query.List<Request>();
         }
 
         public IEnumerable<Request> Find(Journey journey)
         {
-            var session = sessionFactory.OpenSession();
             string findByJourney =
                 "from Request as R where R.Origin.Place = :origin and R.Destination.Place = :destination and R.Destination.Date.DateTime <= :arrivalDate";
-            IQuery query = session.CreateQuery(findByJourney);
+            IQuery query = Session.CreateQuery(findByJourney);
             query.SetString("origin", journey.Origin.Place);
             query.SetString("destination", journey.Destination.Place);
             query.SetDateTime("arrivalDate", journey.Destination.Date.DateTime);
@@ -88,12 +73,7 @@ namespace DomainModel
 
         public void Delete(Request request)
         {
-            var session = sessionFactory.OpenSession();
-            IDbConnection connection = session.Connection;
-
-            session.Delete(request);
-            session.Flush();
-            session.Close();
+            Session.Delete(request);
         }
     }
 

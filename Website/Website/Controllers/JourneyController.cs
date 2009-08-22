@@ -22,7 +22,7 @@ namespace Website.Controllers
         public ViewResult Create()
         {
             ViewData["EmailId"] = User.Identity.Name;
-            ViewData["MyOtherJourneyDetails"] = GetJourneyList(RepositoryFactory.GetUserRepository().LoadUser(User.Identity.Name));
+            ViewData["MyOtherJourneyDetails"] = GetJourneyList(UserRepository.Instance.LoadUser(User.Identity.Name));
             return View();
         }
 
@@ -34,7 +34,7 @@ namespace Website.Controllers
                 Location origin = new Location(journeyModel.OriginPlace, new TravelDate(DateTime.Parse(journeyModel.OriginDate)));
                 Location destination = new Location(journeyModel.DestinationPlace, new TravelDate(DateTime.Parse(journeyModel.DestinationDate)));
                
-                IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+                IUserRepository userRepository = UserRepository.Instance;
                 DomainModel.User user = userRepository.LoadUser(User.Identity.Name);
                 DomainModel.Journey journey = new Journey(user,  origin, destination);
                 DomainModel.JourneyRepository.Instance.Save(journey);

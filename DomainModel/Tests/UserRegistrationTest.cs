@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using DomainModel.UserRegistration;
 using Moq;
+using NHibernate;
 using NUnit.Framework;
 
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class UserRegistrationTest
+    public class UserRegistrationTest : TestBase
     {
         private Mock<IUserRepository> _mockRepository;
 
         [SetUp]
         public void SetUp()
         {
+            TestSetup();
             _mockRepository = new Mock<IUserRepository>();
         }
 
@@ -28,7 +31,7 @@ namespace DomainModel.Tests
             User user = new User(email, name, "pwd", null);
 
 
-            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+            IUserRepository userRepository = UserRepository.Instance;
             UserRegistration.UserRegistrationService service = new UserRegistrationService(userRepository);
 
 

@@ -10,18 +10,11 @@ using NHibernate.Tool.hbm2ddl;
 
 namespace DomainModel
 {
-    public class MatchRepository : IMatchRepository
+    public class MatchRepository : RepositoryBase, IMatchRepository
     {
-        protected static ISessionFactory sessionFactory;
-        protected static Configuration configuration;
 
         private MatchRepository()
         {
-            if(sessionFactory!=null)
-                return;
-            configuration = new Configuration();
-            configuration.AddAssembly(this.GetType().Assembly);
-            sessionFactory = configuration.BuildSessionFactory();
         }
         static MatchRepository _matchRepository = new MatchRepository();
 
@@ -29,73 +22,64 @@ namespace DomainModel
         {
             get
             {
+                _matchRepository.SetSession();
                 return _matchRepository;
             }
         }
 
+ 
+        
         #region IMatchRepository Members
 
         public void Save(Match match)
         {
-            var session = sessionFactory.OpenSession();
-            session.Save(match);
-            session.Close();
+            Session.Save(match);
         }
 
 
         public void Delete(Match match)
         {
-            var session = sessionFactory.OpenSession();
-            session.Delete(match);
-            session.Flush();
-            session.Close();
+            Session.Delete(match);
         }
 
         public Match Load(int matchId)
         {
-            var session = sessionFactory.OpenSession();
             Match match = new Match();
-            session.Load(match, matchId);
+            Session.Load(match, matchId);
             return match;
             
         }
 
         public IList<Match> LoadMatchesByUserRequest(string emailAddress)
         {
-            var session = sessionFactory.OpenSession();
             const string querystring = "from Match as M  where M.Request.RequestedUser.Email.EmailAddress = :user_id";
-            IQuery query = session.CreateQuery(querystring);
+            IQuery query = Session.CreateQuery(querystring);
             query.SetString("user_id", emailAddress);
             var matchList = (List<Match>)query.List<Match>();
-            session.Close();
             return matchList;
         }
 
         public IList<Match> LoadMatchesByUserJourney(string emailAddress)
         {
 
-            var session = sessionFactory.OpenSession();
             const string querystring = "from Match as M  where M.Journey.Traveller.Email.EmailAddress = :user_id";
-            IQuery query = session.CreateQuery(querystring);
+            IQuery query = Session.CreateQuery(querystring);
             query.SetString("user_id", emailAddress);
             var matchList = (List<Match>)query.List<Match>();
-            session.Close();
             return matchList;
         }
 
         public void UpdateMatches(IList<Match> matches)
         {
-            var session = sessionFactory.OpenSession();
             foreach (Match match in matches)
             {
-                session.SaveOrUpdate(match);
+                Session.SaveOrUpdate(match);
 
             }
-            session.Flush();
-            session.Close();
         }
 
         #endregion
+
     }
 
     public interface IMatchRepository

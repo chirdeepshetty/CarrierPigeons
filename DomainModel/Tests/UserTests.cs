@@ -1,17 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using DomainModel;
-using DomainModel.UserRegistration;
-using NUnit.Framework;
-
-
+﻿using NUnit.Framework;
 
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class UserTests
+    public class UserTests : TestBase
     {
         [Test]
         public void TestUserConstructor()
@@ -29,7 +21,7 @@ namespace DomainModel.Tests
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
             User user = new User(email, name, "pwd", null);
-            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+            IUserRepository userRepository = UserRepository.Instance;
             userRepository.SaveUser(user);
             var loadedUser = userRepository.LoadUser("clinton@usa.gov");
             try
@@ -49,7 +41,7 @@ namespace DomainModel.Tests
             Email email = new Email("clinton@usa.gov");
             UserGroup userGroup=new UserGroup{Id = 1,Name = "Pune",};
             User user = new User(email, name, "pwd", userGroup);
-            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+            IUserRepository userRepository = UserRepository.Instance;
             userRepository.SaveUser(user);
             var loadedUser = userRepository.LoadUser("clinton@usa.gov");
             try
