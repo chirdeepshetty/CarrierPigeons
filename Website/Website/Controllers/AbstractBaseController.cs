@@ -14,7 +14,7 @@ using DomainModel;
 
 namespace Website.Controllers
 {
-    public class AbstractBaseController : Controller
+    public abstract class AbstractBaseController : Controller
     {
         protected String _loggedInUser;
 
@@ -22,5 +22,7 @@ namespace Website.Controllers
         {
             return _loggedInUser ?? User.Identity.Name;
         }
+
+        public abstract void initialize();
     }
 }

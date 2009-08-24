@@ -11,11 +11,10 @@ namespace Website.Controllers
 {
     public class RequestMatchController : AbstractBaseController
     {
-        private readonly IMatchRepository _matchRepository;
-        private readonly IUserRepository _userRepository;
+        private IMatchRepository _matchRepository;
+        private IUserRepository _userRepository;
 
         public RequestMatchController()
-         : this(null, null, null)
         {}
 
         public RequestMatchController(IMatchRepository matchRepository, IUserRepository userRepository,string loggedInUser)
@@ -23,6 +22,12 @@ namespace Website.Controllers
             _matchRepository = matchRepository ?? DomainModel.MatchRepository.Instance;
             _userRepository = userRepository ?? UserRepository.Instance;
             _loggedInUser = loggedInUser;
+        }
+
+        public override void initialize()
+        {
+            _matchRepository =  MatchRepository.Instance;
+            _userRepository =  UserRepository.Instance;
         }
 
         [HibernateSessionFilter]
