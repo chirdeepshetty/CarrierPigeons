@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="HibernateSessionFilter.cs" />
     <Compile Include="RepositoryBase.cs" />
+    <Compile Include="Tests\HibernateSessionFilterTest.cs" />
     <Compile Include="Tests\TestBase.cs" />
     <Compile Include="UserGroupRepository.cs" />
     <Compile Include="JourneyRequestMatcher.cs" />

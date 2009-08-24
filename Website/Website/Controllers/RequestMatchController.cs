@@ -25,12 +25,14 @@ namespace Website.Controllers
             _loggedInUser = loggedInUser;
         }
 
+        [HibernateSessionFilter]
         public ActionResult Index()
         {
             return View();
         }
 
         [AcceptVerbs(HttpVerbs.Get)]
+        [HibernateSessionFilter]
         public ActionResult MatchRequest()
         {
             var matches = _matchRepository.LoadPotentialMatchesByUserJourney(GetLoggedInUser());
@@ -39,6 +41,7 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [HibernateSessionFilter]
         public ActionResult AcceptRequest(string[] acceptRequest)
         {
             var matches = _matchRepository.LoadPotentialMatchesByUserJourney(GetLoggedInUser());

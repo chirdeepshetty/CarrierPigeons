@@ -7,6 +7,7 @@ using Website.Models;
 
 namespace Website.Controllers
 {
+    //[HibernateSessionFilter]
     public class RequestController : Controller
     {
         private IEnumerable<Request> GetAllRequests(String emailId)
@@ -15,6 +16,7 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Get)]
+        [HibernateSessionFilter]
         public ViewResult Create()
         {
             ViewData["AllRequests"] = GetAllRequests(User.Identity.Name);
@@ -22,6 +24,7 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [HibernateSessionFilter]
         public ViewResult Create(CreateRequestResponse requestResponse)
         {
             if (ModelState.IsValid)

@@ -3,7 +3,7 @@ using System.Threading;
 using NHibernate;
 using NHibernate.Cfg;
 using NUnit.Framework;
-
+using HSF = DomainModel.HibernateSessionFilter;
 namespace DomainModel.Tests
 {
     public class TestBase
@@ -11,13 +11,15 @@ namespace DomainModel.Tests
         protected static ISessionFactory SessionFactory;
         private ISession _session;
         private ITransaction _transaction;
-        private static int _init=0;
+        private static int _init;
 
         [SetUp]
         public void TestSetup()
         {
-            Thread.AllocateNamedDataSlot("hibernateSession");
-            LocalDataStoreSlot hibernateSessionDataStoreSlot = Thread.GetNamedDataSlot("hibernateSession");
+            if (Thread.GetNamedDataSlot(HSF.HIBERNATE_SESSION_DATA_SLOT) == null)
+                Thread.AllocateNamedDataSlot(HSF.HIBERNATE_SESSION_DATA_SLOT);
+
+            LocalDataStoreSlot hibernateSessionDataStoreSlot = Thread.GetNamedDataSlot(HSF.HIBERNATE_SESSION_DATA_SLOT);
             Thread.SetData(hibernateSessionDataStoreSlot, GetSession());
             _transaction=_session.BeginTransaction();
             if(_init==0)
@@ -30,10 +32,10 @@ namespace DomainModel.Tests
         [TearDown]
         public void TearDown()
         {
-            LocalDataStoreSlot hibernateSessionDataSlot = Thread.GetNamedDataSlot("hibernateSession");
+            LocalDataStoreSlot hibernateSessionDataSlot = Thread.GetNamedDataSlot(HSF.HIBERNATE_SESSION_DATA_SLOT);
             ISession session = (ISession)Thread.GetData(hibernateSessionDataSlot);
             _transaction.Rollback();
-            Thread.FreeNamedDataSlot("hibernateSession");
+            Thread.FreeNamedDataSlot(HSF.HIBERNATE_SESSION_DATA_SLOT);
         }
 
 
