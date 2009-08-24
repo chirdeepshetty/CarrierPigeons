@@ -19,6 +19,7 @@ namespace Website.Controllers
 
        
         [AcceptVerbs(HttpVerbs.Get)]
+        [HibernateSessionFilter]
         public ViewResult Create()
         {
             ViewData["EmailId"] = User.Identity.Name;
@@ -27,6 +28,7 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [HibernateSessionFilter]
         public ViewResult Create(JourneyModel journeyModel)
         {
             if (ModelState.IsValid)
@@ -47,6 +49,7 @@ namespace Website.Controllers
 
             return View(journeyModel);
         }
+
 
     }
 }

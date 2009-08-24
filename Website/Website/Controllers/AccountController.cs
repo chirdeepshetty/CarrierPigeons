@@ -84,6 +84,7 @@ namespace Website.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HibernateSessionFilter]
         public ActionResult Register()
         {
 
@@ -94,6 +95,7 @@ namespace Website.Controllers
             return View();
         }
 
+        [HibernateSessionFilter]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword, Int32 userGroups)
         {
@@ -121,6 +123,7 @@ namespace Website.Controllers
         }
 
         [Authorize]
+        [HibernateSessionFilter]
         public ActionResult ChangePassword()
         {
 
@@ -130,6 +133,7 @@ namespace Website.Controllers
         }
 
         [Authorize]
+        [HibernateSessionFilter]
         [AcceptVerbs(HttpVerbs.Post)]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes",
             Justification = "Exceptions result in password not being changed.")]
@@ -163,6 +167,7 @@ namespace Website.Controllers
             return View();
         }
 
+        [HibernateSessionFilter]
         public ActionResult ChangePasswordSuccess()
         {
 
