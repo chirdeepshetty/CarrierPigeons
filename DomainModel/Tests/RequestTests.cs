@@ -160,7 +160,7 @@ namespace DomainModel.Tests
 
             UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
             User requestingUser = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
-            RepositoryFactory.GetUserRepository().SaveUser(requestingUser);
+            UserRepository.Instance.SaveUser(requestingUser);
 
             Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
             Request request = new Request(requestingUser, new Package(null, null, null), origin,
@@ -169,7 +169,7 @@ namespace DomainModel.Tests
 
             UserGroup group2 = UserGroupRepository.Instance.LoadGroupById(2);
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group2);
-            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            UserRepository.Instance.SaveUser(traveller);
 
             Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20)));
             journey = new Journey(traveller, origin, destination);
@@ -186,8 +186,8 @@ namespace DomainModel.Tests
             {
                 RequestRepository.Instance.Delete(request);
                 JourneyRepository.Instance.Delete(journey);
-                RepositoryFactory.GetUserRepository().SaveUser(requestingUser);
-                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                UserRepository.Instance.SaveUser(requestingUser);
+                UserRepository.Instance.SaveUser(traveller);
             }
         }
 
