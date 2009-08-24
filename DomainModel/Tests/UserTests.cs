@@ -47,7 +47,7 @@ namespace DomainModel.Tests
         {
             UserName name = new UserName("Bill", "Clinton");
             Email email = new Email("clinton@usa.gov");
-            UserGroup userGroup=new UserGroup{Id = 1,Name = "Pune",};
+            UserGroup userGroup=new UserGroup{Id = 4,Name = "Pune",};
             User user = new User(email, name, "pwd", userGroup);
             IUserRepository userRepository = RepositoryFactory.GetUserRepository();
             userRepository.SaveUser(user);

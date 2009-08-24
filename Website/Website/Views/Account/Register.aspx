@@ -45,7 +45,7 @@
                 </p
                 <p>
                     <label for="userGroups">Select Group:</label>
-                    <%= Html.DropDownList("UserGroups") %>
+                    <%= Html.DropDownList("UserGroups" ) %>
                     <%= Html.ValidationMessage("confirmPassword") %>
                 </p>
                 <p>

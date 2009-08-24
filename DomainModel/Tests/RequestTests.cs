@@ -130,7 +130,7 @@ namespace DomainModel.Tests
 
 
         [Test]
-        public void TestFindRequestHavingSameLocationButFromADifferentUser()
+        public void TestFindRequestHavingSameLocationButFromADifferentUserButSameGroup()
         {
             Journey journey = null;
             UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
@@ -161,6 +161,45 @@ namespace DomainModel.Tests
                 RequestRepository.Instance.Delete(request);
                 JourneyRepository.Instance.Delete(journey);
                 RepositoryFactory.GetUserRepository().Delete(traveller1);
+                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            }
+        }
+
+
+        [Test]
+        public void TestFindRequestHavingMatchingLocationButFromADifferentGroup()
+        {
+            Journey journey = null;
+
+            UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
+            User requestingUser = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
+            RepositoryFactory.GetUserRepository().SaveUser(requestingUser);
+
+            Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
+            Request request = new Request(requestingUser, new Package(null, null, null), origin,
+                                          new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(10))));
+            RequestRepository.Instance.Save(request);
+
+            UserGroup group2 = UserGroupRepository.Instance.LoadGroupById(2);
+            User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group2);
+            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+
+            Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20)));
+            journey = new Journey(traveller, origin, destination);
+            IJourneyRepository journeyRepository = JourneyRepository.Instance;
+            journeyRepository.Save(journey);
+
+            IEnumerable<Request> requests = RequestRepository.Instance.Find(journey);
+            try
+            {
+                Console.WriteLine("####" + requests.Count());
+                Assert.True(requests.Count() == 0);
+            }
+            finally
+            {
+                RequestRepository.Instance.Delete(request);
+                JourneyRepository.Instance.Delete(journey);
+                RepositoryFactory.GetUserRepository().SaveUser(requestingUser);
                 RepositoryFactory.GetUserRepository().SaveUser(traveller);
             }
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -87,7 +88,9 @@ namespace Website.Controllers
         {
 
             ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
-            ViewData["UserGroups"] = new SelectList(UserGroupRepository.Instance.LoadGroups(),"Id","Name");
+
+
+            ViewData["UserGroups"] = new SelectList(UserGroupRepository.Instance.LoadGroups(), "Id", "Name");
             return View();
         }
 
@@ -104,7 +107,8 @@ namespace Website.Controllers
                 // Attempt to register the user
                 try
                 {
-                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, null));
+                    UserGroup userGroup = UserGroupRepository.Instance.LoadGroupById(Int32.Parse(id));
+                    UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, userGroup));
                     //FormsAuth.SignIn(email, false /* createPersistentCookie */);
                     return RedirectToAction("LogOn", "Account");
                 }
