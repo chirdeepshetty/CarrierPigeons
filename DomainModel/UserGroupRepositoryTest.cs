@@ -1,10 +1,11 @@
 using System.Collections;
+using DomainModel.Tests;
 using NUnit.Framework;
 
 namespace DomainModel
 {
     [TestFixture]
-    public class UserGroupRepositoryTest
+    public class UserGroupRepositoryTest : TestBase
     {
         [Test]
         public void ShouldLoadAllUserGroups()

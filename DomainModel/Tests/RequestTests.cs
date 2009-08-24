@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
@@ -13,26 +14,12 @@ using NUnit.Framework;
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class RequestTests
+    public class RequestTests : TestBase
     {
-        [Test]
-        public void DropAndRecreateSchema()
-        {
-            var configuration = new Configuration();
-            var mapping = configuration.BuildMapping();
-            var sessionFactory = configuration.BuildSessionFactory();
-            ISession openSession = sessionFactory.OpenSession();
-            IDbConnection connection = openSession.Connection;
-
-            StringWriter writer = new StringWriter();
-            new SchemaExport(configuration).Execute(false, true, false, true, connection, null);
-            openSession.Close();
-        }
-
         [Test]
         public void TestRequestCreation()
         {
-            DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
+            TravelDate travelDate = new TravelDate(DateTime.Now);
             Location fromLocation = new Location("place", travelDate);
             Location toLocation = new Location("place", travelDate);
             Package package = new Package("My Package", "1 Kg", "1x2x3 kg");
@@ -44,7 +31,7 @@ namespace DomainModel.Tests
         public void TestRequestRepository()
         {
             User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd", null);
-            RepositoryFactory.GetUserRepository().SaveUser(user);
+            UserRepository.Instance.SaveUser(user);
 
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
             Location fromLocation = new Location("place", travelDate);
@@ -63,7 +50,7 @@ namespace DomainModel.Tests
             finally
             {
                 repository.Delete(request);
-                RepositoryFactory.GetUserRepository().Delete(user);
+                UserRepository.Instance.Delete(user);
             }
         }
 
@@ -71,7 +58,7 @@ namespace DomainModel.Tests
         public void TestRequestSearch()
         {
             User user = new User(new Email("user@carrierpigeons.com"), new UserName("First", "Last"), "pwd", null);
-            RepositoryFactory.GetUserRepository().SaveUser(user);
+            UserRepository.Instance.SaveUser(user);
 
             DomainModel.TravelDate travelDate = new TravelDate(DateTime.Now);
             Location fromLocation = new Location("place", travelDate);
@@ -91,7 +78,7 @@ namespace DomainModel.Tests
             finally
             {
                 repository.Delete(request);
-                RepositoryFactory.GetUserRepository().Delete(user);
+                UserRepository.Instance.Delete(user);
             }
         }
 
@@ -102,7 +89,7 @@ namespace DomainModel.Tests
 
             UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
-            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            UserRepository.Instance.SaveUser(traveller);
 
             Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
             Request request = new Request(traveller, new Package(null, null, null), origin,
@@ -123,7 +110,7 @@ namespace DomainModel.Tests
             {
                 RequestRepository.Instance.Delete(request);
                 JourneyRepository.Instance.Delete(journey);
-                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                UserRepository.Instance.SaveUser(traveller);
             }
     }
 
@@ -135,7 +122,7 @@ namespace DomainModel.Tests
             Journey journey = null;
             UserGroup group = UserGroupRepository.Instance.LoadGroupById(1);
             User traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
-            RepositoryFactory.GetUserRepository().SaveUser(traveller);
+            UserRepository.Instance.SaveUser(traveller);
 
             Location origin = new Location("Bangalore", new TravelDate(DateTime.Now.AddDays(1)));
             Request request = new Request(traveller, new Package(null, null, null), origin, new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(10))));
@@ -144,7 +131,7 @@ namespace DomainModel.Tests
             Location destination = new Location("Hyderabad", new TravelDate(DateTime.Now.AddDays(20)));
 
             User traveller1 = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", group);
-            RepositoryFactory.GetUserRepository().SaveUser(traveller1);
+            UserRepository.Instance.SaveUser(traveller1);
 
             journey = new Journey(traveller1, origin, destination);
             IJourneyRepository journeyRepository = JourneyRepository.Instance;
@@ -160,8 +147,8 @@ namespace DomainModel.Tests
             {
                 RequestRepository.Instance.Delete(request);
                 JourneyRepository.Instance.Delete(journey);
-                RepositoryFactory.GetUserRepository().Delete(traveller1);
-                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                UserRepository.Instance.Delete(traveller1);
+                UserRepository.Instance.SaveUser(traveller);
             }
         }
 
@@ -208,7 +195,7 @@ namespace DomainModel.Tests
         public void GetRequestsByUser()
         {
             IRequestRepository requestRepository = RequestRepository.Instance;
-            IUserRepository userRepository = RepositoryFactory.GetUserRepository();
+            IUserRepository userRepository = UserRepository.Instance;
             Email email1 = new Email("lokeshwer1@gmail.com");
             Email email2 = new Email("lokeshwer2@gmail.com");
             User user1 = new User(new Email("user1@carrierpigeons.com"), new UserName("User1", "Last"), "pwd", null);

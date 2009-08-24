@@ -33,7 +33,7 @@ namespace Website.Controllers
         public AccountController(IFormsAuthentication formsAuth, IUserRegistration service)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            UserRegistrationService = service ?? new UserRegistrationService(RepositoryFactory.GetUserRepository());
+            UserRegistrationService = service ?? new UserRegistrationService(UserRepository.Instance);
         }
 
         public IFormsAuthentication FormsAuth
@@ -95,7 +95,7 @@ namespace Website.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword,String id)
+        public ActionResult Register(string firstname, string surname, string email, string password, string confirmPassword, Int32 userGroups)
         {
 
             //ViewData["PasswordLength"] = UserRegistrationService.MinPasswordLength;
@@ -107,7 +107,7 @@ namespace Website.Controllers
                 // Attempt to register the user
                 try
                 {
-                    UserGroup userGroup = UserGroupRepository.Instance.LoadGroupById(Int32.Parse(id));
+                    UserGroup userGroup = UserGroupRepository.Instance.LoadGroupById(userGroups);   
                     UserRegistrationService.CreateUser(new User(new Email(email), new UserName(fullname, ""), password, userGroup));
                     //FormsAuth.SignIn(email, false /* createPersistentCookie */);
                     return RedirectToAction("LogOn", "Account");

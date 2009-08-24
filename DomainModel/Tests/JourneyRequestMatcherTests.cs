@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Moq;
+using NHibernate;
 using NUnit.Framework;
 
 namespace DomainModel.Tests
 {
     [TestFixture()]
-    public class JourneyRequestMatcherTests
+    public class JourneyRequestMatcherTests : TestBase
     {
         [Test]
         public void TestJourneyRequestMatcherConstructor()
@@ -41,7 +43,7 @@ namespace DomainModel.Tests
            
                 Guid locationId = Guid.NewGuid();
                 traveller = new User(new Email("asd@dsf.com"), new UserName("first", "last"), "pwd", null);
-                RepositoryFactory.GetUserRepository().SaveUser(traveller);
+                UserRepository.Instance.SaveUser(traveller);
                 Location origin = new Location(locationId.ToString(), new TravelDate(DateTime.Now));
                 Location destination = new Location("TestGetJourneyByRequest Test Destination", new TravelDate(DateTime.Now));
                 journey = new Journey(traveller, origin, destination);

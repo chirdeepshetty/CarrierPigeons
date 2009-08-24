@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace DomainModel.Tests
 {
     [TestFixture]
-    public class MatchTests
+    public class MatchTests :TestBase
     {
         [Test]
         public void TestMatchConstructor()
@@ -25,25 +25,27 @@ namespace DomainModel.Tests
             Assert.AreEqual(destination.Place, match.Request.Destination.Place);
 
         }
-
+        
         [Test]
         public void TestMatchRepositorySave()
         {
-            User user = new User(new Email("abc@def.com"), null, "password", null);
+            UserGroup group = new UserGroup { Id = 1, Name = "Pune" };
+            User traveller = new User(new Email("abc1@def.com"), null, "password", group);
+            User requestor = new User(new Email("abc2@def.com"), null, "password", group);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
-            Journey journey = new Journey(user, origin, destination);
-            Request request = new Request(user, null, origin, destination);
+            Journey journey = new Journey(traveller, origin, destination);
+            Request request = new Request(requestor, null, origin, destination);
             Match match = new Match(journey, request);
-            RepositoryFactory.GetUserRepository().SaveUser(user);
+            UserRepository.Instance.SaveUser(traveller);
+            UserRepository.Instance.SaveUser(requestor);
             RequestRepository.Instance.Save(request);
+            JourneyRepository.Instance.Save(journey);
             IMatchRepository repository = MatchRepository.Instance;
-            repository.Save(match);
-            var loadedMatch = repository.Load(match.Id);
+            var loadedMatch = MatchRepository.Instance.LoadMatchesByUserRequest(request.RequestedUser.EmailAddress)[0];
             try
             {
-                Assert.AreEqual(match.Id, loadedMatch.Id);
                 Assert.AreEqual(request.Destination.Place, loadedMatch.Request.Destination.Place);
         
             }
@@ -56,19 +58,21 @@ namespace DomainModel.Tests
         [Test]
         public void MatchRepositoryLoadMatchesListByUserRequest()
         {
-
-            User user = new User(new Email("abcdef1@tws.com"), null, "password", null);
+            UserGroup group=new UserGroup{Id = 1,Name = "Pune"};
+            User traveller = new User(new Email("abcdef1@tws.com"), null, "password", group);
+            User requestor = new User(new Email("abcdef2@tws.com"), null, "password", group);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
-            Journey journey = new Journey(user, origin, destination);
-            Request request = new Request(user, package, origin, destination);
-            RepositoryFactory.GetUserRepository().SaveUser(user);
+            Journey journey = new Journey(traveller, origin, destination);
+            Request request = new Request(requestor, package, origin, destination);
+            UserRepository.Instance.SaveUser(traveller);
+            UserRepository.Instance.SaveUser(requestor);
             RequestRepository.Instance.Save(request);
+            JourneyRepository.Instance.Save(journey);
             Match match = new Match(journey, request);
             IMatchRepository repository = MatchRepository.Instance;
-            repository.Save(match);
-            IList<Match> matchList = repository.LoadMatchesByUserRequest("abcdef1@tws.com");
+            IList<Match> matchList = repository.LoadMatchesByUserRequest("abcdef2@tws.com");
             try
             {
                 Assert.AreEqual(1, matchList.Count);
@@ -83,20 +87,22 @@ namespace DomainModel.Tests
         [Test]
         public void MatchRepositoryLoadMatchesListByUserJourney()
         {
-
+                UserGroup group = new UserGroup { Id = 1, Name = "Pune" };
             
-                User user = new User(new Email("eml@twks.com"), null, "password", null);
-                RepositoryFactory.GetUserRepository().SaveUser(user);
-
+                User traveller = new User(new Email("eml@twks.com"), null, "password", group);
+                User requestor = new User(new Email("em2@twks.com"), null, "password", group);
                 Package package = new Package("Package", "Weight", "Dimensions");
                 Location origin = new Location("Origin", new TravelDate(DateTime.Today));
                 Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
-                Journey journey = new Journey(user, origin, destination);
-                Request request = new Request(user, package, origin, destination);
+                Journey journey = new Journey(traveller, origin, destination);
+                Request request = new Request(requestor, package, origin, destination);
+                UserRepository.Instance.SaveUser(traveller);                                   
+                UserRepository.Instance.SaveUser(requestor);
+                RequestRepository.Instance.Save(request);                       
+                JourneyRepository.Instance.Save(journey);
+                            
                 Match match = new Match(journey, request);
                 IMatchRepository repository = MatchRepository.Instance;
-
-                repository.Save(match);
                 IList<Match> matchList = repository.LoadPotentialMatchesByUserJourney("eml@twks.com");
                 try
                 {
@@ -106,7 +112,7 @@ namespace DomainModel.Tests
             {
 
                 repository.Delete(match); 
-                RepositoryFactory.GetUserRepository().Delete(user);
+                UserRepository.Instance.Delete(traveller);
             }
             
                       
@@ -116,24 +122,21 @@ namespace DomainModel.Tests
         [Test]
         public void ShouldUpdateMatchStatusAndAcceptingUserInRequest()
         {
-
-            User user1 = new User(new Email("abcdef1@tws.com"), null, "password", null);
-            User user2 = new User(new Email("abcdef1@tws.com"), null, "password", null);
+            UserGroup group = new UserGroup { Id = 1, Name = "Pune" };
+            User user1 = new User(new Email("abcdef1@tws.com"), null, "password", group);
+            User user2 = new User(new Email("abcdef2@tws.com"), null, "password", group);
             Package package = new Package("Package", "Weight", "Dimensions");
             Location origin = new Location("Origin", new TravelDate(DateTime.Today));
             Location destination = new Location("Destination", new TravelDate(DateTime.Today.AddDays(1)));
             Journey journey = new Journey(user1, origin, destination);
             Request request = new Request(user2, package, origin, destination);
-            RepositoryFactory.GetUserRepository().SaveUser(user1);
-            RepositoryFactory.GetUserRepository().SaveUser(user2);
-
+            UserRepository.Instance.SaveUser(user1);
+            UserRepository.Instance.SaveUser(user2);
+            RequestRepository.Instance.Save(request);
+            JourneyRepository.Instance.Save(journey);
             Match match = new Match(journey, request);
-            
             IMatchRepository matchRepository = MatchRepository.Instance;
-            matchRepository.Save(match);
-
-            IList<Match> matchList = matchRepository.LoadMatchesByUserRequest("abcdef1@tws.com");
-
+            IList<Match> matchList = matchRepository.LoadMatchesByUserRequest("abcdef2@tws.com");
             foreach (Match myMatch in matchList)
             {
                 myMatch.Status = MatchStatus.Accepted;
@@ -142,7 +145,7 @@ namespace DomainModel.Tests
 
             matchRepository.UpdateMatches(matchList);
             
-            IList<Match> updatedMatchList = matchRepository.LoadMatchesByUserRequest("abcdef1@tws.com");
+            IList<Match> updatedMatchList = matchRepository.LoadMatchesByUserRequest("abcdef2@tws.com");
 
             try
             {
@@ -157,8 +160,8 @@ namespace DomainModel.Tests
             {
 
                 matchRepository.Delete(match);
-                RepositoryFactory.GetUserRepository().Delete(user1);
-                RepositoryFactory.GetUserRepository().Delete(user2);
+                UserRepository.Instance.Delete(user1);
+                UserRepository.Instance.Delete(user2);
             }
         }
     }

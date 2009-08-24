@@ -1,36 +1,24 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
-using NUnit.Framework;
 
 namespace DomainModel
 {
-    public class JourneyRepository : IJourneyRepository
+    public class JourneyRepository : RepositoryBase, IJourneyRepository
     {
-        protected static ISessionFactory sessionFactory;
-        protected static Configuration configuration;
         public event JourneyCreatedEventHandler JourneyCreated;
 
         private JourneyRepository()
         {
-            if(sessionFactory!=null)
-                return;
-            configuration = new Configuration();
-            configuration.AddAssembly(this.GetType().Assembly);
-            sessionFactory = configuration.BuildSessionFactory();
         }
+
         static JourneyRepository _journeyRepository = new JourneyRepository();
 
         public static IJourneyRepository Instance
         {
             get
             {
+                _journeyRepository.SetSession();
                 return _journeyRepository;
             }
         }
@@ -39,40 +27,29 @@ namespace DomainModel
 
         public void Save(Journey journey)
         {
-            var session = sessionFactory.OpenSession();
-            IDbConnection connection = session.Connection;
             
-            session.Save(journey);
-            
-            session.Close();
-            if(this.JourneyCreated != null)
+            Session.Save(journey);
+            if(JourneyCreated != null)
                 JourneyCreated(new JourneyCreatedEventArgs{Journey = journey});
         }
 
         public Journey Load(int journeyId)
         {
-            var session = sessionFactory.OpenSession();
             Journey journey = new Journey();
-            session.Load(journey, journeyId);
+            Session.Load(journey, journeyId);
             return journey;
-            
         }
 
         public void Delete(Journey journey)
         {
-            var session = sessionFactory.OpenSession();
-            IDbConnection connection = session.Connection;
-
-            session.Delete(journey);
-            session.Flush();
-            session.Close();
+            Session.Delete(journey);
+            Session.Flush();
         }
 
         public IList<Journey> FindJourneysByUser(User user)
         {
-            var session = sessionFactory.OpenSession();
             const string querystring = "from Journey as J  where J.Traveller = :traveller";
-            IQuery query = session.CreateQuery(querystring);
+            IQuery query = Session.CreateQuery(querystring);
             query.SetEntity("traveller", user);
             var journeyList = (List<Journey>)query.List<Journey>();
             return journeyList;
@@ -81,7 +58,6 @@ namespace DomainModel
 
         public IEnumerable<Journey> Find(Request request)
         {
-            var session = sessionFactory.OpenSession();
             const string findByRequest = @"select J from Journey J, Request R 
                                             where J.Traveller <> R.RequestedUser                                            
                                             and R.RequestedUser = :requestedUser
@@ -90,7 +66,7 @@ namespace DomainModel
                                             and J.Destination.Place = :destination 
                                             and J.Destination.Date.DateTime <= :arrivalDate ";
 
-            IQuery query = session.CreateQuery(findByRequest);
+            IQuery query = Session.CreateQuery(findByRequest);
             query.SetString("origin", request.Origin.Place);
             query.SetString("destination", request.Destination.Place);
             query.SetDateTime("arrivalDate", request.Destination.Date.DateTime);

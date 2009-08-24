@@ -21,7 +21,7 @@ namespace Website.Controllers
         public RequestMatchController(IMatchRepository matchRepository, IUserRepository userRepository,string loggedInUser)
         {
             _matchRepository = matchRepository ?? DomainModel.MatchRepository.Instance;
-            _userRepository = userRepository ?? RepositoryFactory.GetUserRepository();
+            _userRepository = userRepository ?? UserRepository.Instance;
             _loggedInUser = loggedInUser;
         }
 
